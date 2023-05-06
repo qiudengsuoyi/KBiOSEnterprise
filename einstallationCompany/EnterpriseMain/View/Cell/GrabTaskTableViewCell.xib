@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" id="Lvr-Rg-iLs" customClass="GrabTaskTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lvr-Rg-iLs" id="3Px-0o-X4o">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FCt-Gr-MpV">
+                        <rect key="frame" x="30" y="15" width="260" height="120"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8VR-iv-QGl">
+                                <rect key="frame" x="10" y="5" width="165" height="110"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tD-Dw-pAf">
+                                <rect key="frame" x="175" y="30" width="75" height="30"/>
+                                <color key="backgroundColor" red="0.28627450980392155" green="0.61568627450980395" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="vM5-0N-RlG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="指派师傅">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="actionDetail:" destination="Lvr-Rg-iLs" eventType="touchUpInside" id="YRO-IE-bnc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qj2-JK-DDp">
+                                <rect key="frame" x="175" y="75" width="75" height="20"/>
+                                <color key="backgroundColor" red="0.7061141729" green="0.69411414859999998" blue="0.69389295579999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="8fm-69-zwN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="取消任务">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="actionCancel:" destination="Lvr-Rg-iLs" eventType="touchUpInside" id="9rl-eU-obb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95m-Mo-wIm">
+                                <rect key="frame" x="175" y="45.5" width="75" height="29"/>
+                                <color key="backgroundColor" red="0.70588235290000001" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="已取消">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="actionConfirm:" destination="Lvr-Rg-iLs" eventType="touchUpInside" id="N3I-Un-4Mw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agE-d4-yM1">
+                                <rect key="frame" x="220" y="0.0" width="40" height="25"/>
+                                <color key="backgroundColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="UbI-LG-P6x"/>
+                                    <constraint firstAttribute="width" constant="40" id="Xy4-Ag-wXI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="修改">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionEdit:" destination="Lvr-Rg-iLs" eventType="touchUpInside" id="9pF-HI-QXD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="8VR-iv-QGl" secondAttribute="trailing" constant="85" id="8Xl-Ne-Gt2"/>
+                            <constraint firstAttribute="trailing" secondItem="95m-Mo-wIm" secondAttribute="trailing" constant="10" id="8wC-4P-u3q"/>
+                            <constraint firstItem="3tD-Dw-pAf" firstAttribute="leading" secondItem="8VR-iv-QGl" secondAttribute="trailing" id="SWS-sB-dWW"/>
+                            <constraint firstItem="qj2-JK-DDp" firstAttribute="centerX" secondItem="3tD-Dw-pAf" secondAttribute="centerX" id="VtC-ud-Yi7"/>
+                            <constraint firstItem="95m-Mo-wIm" firstAttribute="centerY" secondItem="FCt-Gr-MpV" secondAttribute="centerY" id="Wye-dS-QYl"/>
+                            <constraint firstItem="8VR-iv-QGl" firstAttribute="top" secondItem="FCt-Gr-MpV" secondAttribute="top" constant="5" id="be5-eK-dnW"/>
+                            <constraint firstAttribute="trailing" secondItem="3tD-Dw-pAf" secondAttribute="trailing" constant="10" id="bgA-TT-xry"/>
+                            <constraint firstItem="qj2-JK-DDp" firstAttribute="trailing" secondItem="3tD-Dw-pAf" secondAttribute="trailing" id="cma-jv-Lg1"/>
+                            <constraint firstItem="8VR-iv-QGl" firstAttribute="leading" secondItem="FCt-Gr-MpV" secondAttribute="leading" constant="10" id="dRu-gp-QKy"/>
+                            <constraint firstAttribute="height" constant="120" id="gXq-fA-uNE"/>
+                            <constraint firstItem="8VR-iv-QGl" firstAttribute="centerY" secondItem="FCt-Gr-MpV" secondAttribute="centerY" id="lbO-bh-Ym8"/>
+                            <constraint firstItem="qj2-JK-DDp" firstAttribute="top" secondItem="3tD-Dw-pAf" secondAttribute="bottom" constant="15" id="lzI-tc-qoi"/>
+                            <constraint firstItem="95m-Mo-wIm" firstAttribute="leading" secondItem="8VR-iv-QGl" secondAttribute="trailing" id="ob1-gZ-rzf"/>
+                            <constraint firstAttribute="trailing" secondItem="agE-d4-yM1" secondAttribute="trailing" id="qyE-se-87k"/>
+                            <constraint firstItem="3tD-Dw-pAf" firstAttribute="centerY" secondItem="FCt-Gr-MpV" secondAttribute="centerY" constant="-15" id="uuG-Xi-Jvl"/>
+                            <constraint firstItem="agE-d4-yM1" firstAttribute="top" secondItem="FCt-Gr-MpV" secondAttribute="top" id="y0Z-qB-7yb"/>
+                            <constraint firstItem="qj2-JK-DDp" firstAttribute="leading" secondItem="3tD-Dw-pAf" secondAttribute="leading" id="yYW-Nb-FgQ"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.90588235289999997" green="0.91372549020000005" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="FCt-Gr-MpV" secondAttribute="bottom" id="1O8-Hs-j14"/>
+                    <constraint firstItem="FCt-Gr-MpV" firstAttribute="top" secondItem="3Px-0o-X4o" secondAttribute="top" constant="15" id="jvK-Ph-LXF"/>
+                    <constraint firstItem="FCt-Gr-MpV" firstAttribute="leading" secondItem="3Px-0o-X4o" secondAttribute="leading" constant="30" id="ocD-Yb-SKN"/>
+                    <constraint firstAttribute="trailing" secondItem="FCt-Gr-MpV" secondAttribute="trailing" constant="30" id="sSf-eH-XrT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="bt01" destination="3tD-Dw-pAf" id="j46-dg-Cx6"/>
+                <outlet property="bt02" destination="qj2-JK-DDp" id="yJB-W2-RHO"/>
+                <outlet property="bt03" destination="95m-Mo-wIm" id="y05-Sy-hDP"/>
+                <outlet property="btEdit" destination="agE-d4-yM1" id="xNq-PI-PSy"/>
+                <outlet property="cellConstrainHeight" destination="gXq-fA-uNE" id="GhL-Ky-Wpb"/>
+                <outlet property="tbOrder" destination="8VR-iv-QGl" id="TWg-jX-yzL"/>
+            </connections>
+            <point key="canvasLocation" x="98.550724637681171" y="61.607142857142854"/>
+        </tableViewCell>
+    </objects>
+</document>

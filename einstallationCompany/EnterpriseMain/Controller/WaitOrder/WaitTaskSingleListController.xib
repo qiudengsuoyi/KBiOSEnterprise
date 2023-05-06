@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WaitTaskSingleListController">
+            <connections>
+                <outlet property="tbOrderList" destination="22I-Pd-qlV" id="gWe-mQ-PFz"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="22I-Pd-qlV">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="537"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jmx-dW-USs">
+                    <rect key="frame" x="112.5" y="612" width="150" height="40"/>
+                    <color key="backgroundColor" red="0.87058823529411766" green="0.56862745098039214" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="AzQ-V8-agv"/>
+                        <constraint firstAttribute="width" constant="150" id="icu-5n-rHQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="拒绝订单">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="actionRefuse:" destination="-1" eventType="touchUpInside" id="bHK-LF-dXx"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zph-Wa-8XB">
+                    <rect key="frame" x="112.5" y="557" width="150" height="40"/>
+                    <color key="backgroundColor" red="0.33333333329999998" green="0.52549019610000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="3Ug-J2-80L"/>
+                        <constraint firstAttribute="width" constant="150" id="vii-dX-beT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="接受订单">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="actionAccept:" destination="-1" eventType="touchUpInside" id="gpK-bg-sck"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <color key="backgroundColor" red="0.90588235289999997" green="0.91372549020000005" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Jmx-dW-USs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0av-cL-7QM"/>
+                <constraint firstItem="22I-Pd-qlV" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="EOr-rU-4Xc"/>
+                <constraint firstItem="Zph-Wa-8XB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="GFz-bs-TTG"/>
+                <constraint firstAttribute="bottom" secondItem="Jmx-dW-USs" secondAttribute="bottom" constant="15" id="Vmf-Ie-h7k"/>
+                <constraint firstItem="Jmx-dW-USs" firstAttribute="top" secondItem="Zph-Wa-8XB" secondAttribute="bottom" constant="15" id="YHN-O1-dXt"/>
+                <constraint firstItem="Zph-Wa-8XB" firstAttribute="top" secondItem="22I-Pd-qlV" secondAttribute="bottom" constant="20" id="kx5-ZT-QoB"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="22I-Pd-qlV" secondAttribute="trailing" id="n3C-nu-1PH"/>
+                <constraint firstItem="22I-Pd-qlV" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="qWc-bH-mk4"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="62"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" id="chB-Er-eaJ" customClass="TaskClassOneTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="chB-Er-eaJ" id="bhr-5f-mHq">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s94-FB-xBs">
+                        <rect key="frame" x="30" y="15" width="260" height="160"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O51-kq-Rn6">
+                                <rect key="frame" x="10" y="15" width="165" height="130"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMx-Ou-pfh">
+                                <rect key="frame" x="175" y="65" width="75" height="30"/>
+                                <color key="backgroundColor" red="0.28748996719999997" green="0.61746725650000001" blue="0.97562295200000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ufh-G6-cAz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="指派师傅">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="actionSubmit:" destination="chB-Er-eaJ" eventType="touchUpInside" id="Mkw-NK-36j"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看师傅安装案例" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MB5-W4-Loo">
+                                <rect key="frame" x="72.5" y="133" width="115" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.33333333329999998" green="0.52549019610000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="xMx-Ou-pfh" firstAttribute="centerY" secondItem="s94-FB-xBs" secondAttribute="centerY" id="0ko-df-TU3"/>
+                            <constraint firstAttribute="height" constant="160" id="K0d-VA-thC"/>
+                            <constraint firstItem="MB5-W4-Loo" firstAttribute="centerX" secondItem="s94-FB-xBs" secondAttribute="centerX" id="KkN-qG-0yd"/>
+                            <constraint firstItem="O51-kq-Rn6" firstAttribute="leading" secondItem="s94-FB-xBs" secondAttribute="leading" constant="10" id="NUS-ej-M1J"/>
+                            <constraint firstItem="O51-kq-Rn6" firstAttribute="top" secondItem="s94-FB-xBs" secondAttribute="top" constant="15" id="Ol4-Sf-gxV"/>
+                            <constraint firstItem="O51-kq-Rn6" firstAttribute="centerY" secondItem="s94-FB-xBs" secondAttribute="centerY" id="eBk-yI-Oqq"/>
+                            <constraint firstAttribute="trailing" secondItem="xMx-Ou-pfh" secondAttribute="trailing" constant="10" id="eXa-D1-vwd"/>
+                            <constraint firstAttribute="trailing" secondItem="O51-kq-Rn6" secondAttribute="trailing" constant="85" id="mVM-0w-50k"/>
+                            <constraint firstItem="xMx-Ou-pfh" firstAttribute="leading" secondItem="O51-kq-Rn6" secondAttribute="trailing" id="t6J-hY-eQF"/>
+                            <constraint firstAttribute="bottom" secondItem="MB5-W4-Loo" secondAttribute="bottom" constant="10" id="zZQ-Hz-c7c"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.90588235289999997" green="0.91372549020000005" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="s94-FB-xBs" firstAttribute="leading" secondItem="bhr-5f-mHq" secondAttribute="leading" constant="30" id="7H8-zj-7vK"/>
+                    <constraint firstItem="s94-FB-xBs" firstAttribute="top" secondItem="bhr-5f-mHq" secondAttribute="top" constant="15" id="bBB-aL-Zy5"/>
+                    <constraint firstAttribute="bottom" secondItem="s94-FB-xBs" secondAttribute="bottom" id="dvI-Qc-h4y"/>
+                    <constraint firstAttribute="trailing" secondItem="s94-FB-xBs" secondAttribute="trailing" constant="30" id="iQo-50-2OY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="cellConstrainHeight" destination="K0d-VA-thC" id="3Hd-8q-EJl"/>
+                <outlet property="labelCase" destination="MB5-W4-Loo" id="atV-zU-U9G"/>
+                <outlet property="tbOrder" destination="O51-kq-Rn6" id="u23-Mk-EmI"/>
+            </connections>
+            <point key="canvasLocation" x="98.550724637681171" y="61.607142857142854"/>
+        </tableViewCell>
+    </objects>
+</document>

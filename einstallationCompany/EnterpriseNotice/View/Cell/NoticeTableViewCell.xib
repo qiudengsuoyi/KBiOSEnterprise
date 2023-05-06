@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="KGk-i7-Jjw" customClass="NoticeTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="321" height="65"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="321" height="65"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9H8-M5-cd6">
+                        <rect key="frame" x="20" y="15" width="281" height="48"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new" translatesAutoresizingMaskIntoConstraints="NO" id="Bhi-n0-WeQ">
+                                <rect key="frame" x="8" y="8" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Bhi-n0-WeQ" secondAttribute="height" multiplier="1:1" id="xrr-5L-Yzy"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E安装手机APP2.0版本即将上线" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jjz-7o-P8a">
+                                <rect key="frame" x="47.5" y="8" width="233.5" height="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021年4月E安装移动端微信端都即将更新" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOy-ie-Dp3">
+                                <rect key="frame" x="50" y="29" width="231" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.69411764710000001" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Jjz-7o-P8a" secondAttribute="trailing" id="5dZ-tx-0Vi"/>
+                            <constraint firstItem="Bhi-n0-WeQ" firstAttribute="leading" secondItem="9H8-M5-cd6" secondAttribute="leading" constant="8" id="JiT-EQ-lu4"/>
+                            <constraint firstItem="Jjz-7o-P8a" firstAttribute="centerY" secondItem="9H8-M5-cd6" secondAttribute="centerY" constant="-8" id="KO1-XK-Li5"/>
+                            <constraint firstItem="Jjz-7o-P8a" firstAttribute="top" secondItem="Bhi-n0-WeQ" secondAttribute="top" id="LAD-aT-Qs8"/>
+                            <constraint firstItem="Jjz-7o-P8a" firstAttribute="leading" secondItem="Bhi-n0-WeQ" secondAttribute="trailing" constant="7.5" id="LD6-cI-6eX"/>
+                            <constraint firstAttribute="trailing" secondItem="AOy-ie-Dp3" secondAttribute="trailing" id="OGT-hj-paN"/>
+                            <constraint firstItem="Bhi-n0-WeQ" firstAttribute="top" secondItem="9H8-M5-cd6" secondAttribute="top" constant="8" id="Ysu-8k-J9B"/>
+                            <constraint firstItem="AOy-ie-Dp3" firstAttribute="leading" secondItem="Bhi-n0-WeQ" secondAttribute="trailing" constant="10" id="c5X-Nn-SFl"/>
+                            <constraint firstAttribute="bottom" secondItem="Bhi-n0-WeQ" secondAttribute="bottom" constant="8" id="cp3-1T-0xb"/>
+                            <constraint firstAttribute="width" secondItem="9H8-M5-cd6" secondAttribute="height" multiplier="1:0.17" id="iKC-pZ-6Aw"/>
+                            <constraint firstItem="AOy-ie-Dp3" firstAttribute="top" secondItem="Jjz-7o-P8a" secondAttribute="bottom" constant="5" id="uXZ-70-Ysv"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.90588235289999997" green="0.91372549020000005" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="9H8-M5-cd6" secondAttribute="trailing" constant="20" id="XTg-3H-dJz"/>
+                    <constraint firstItem="9H8-M5-cd6" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Yo6-uy-gN6"/>
+                    <constraint firstItem="9H8-M5-cd6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hhI-IY-21f"/>
+                    <constraint firstItem="9H8-M5-cd6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="oVo-4X-W8g"/>
+                    <constraint firstItem="9H8-M5-cd6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="pbx-JB-1AX"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="labelContent" destination="AOy-ie-Dp3" id="NUT-u3-QGf"/>
+                <outlet property="labelTitle" destination="Jjz-7o-P8a" id="x7k-1V-h0W"/>
+            </connections>
+            <point key="canvasLocation" x="90.579710144927546" y="67.96875"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="new" width="34" height="34"/>
+    </resources>
+</document>

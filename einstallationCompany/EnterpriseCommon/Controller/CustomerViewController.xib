@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomerViewController">
+            <connections>
+                <outlet property="view" destination="8ac-i5-vwb" id="oaK-Rq-os3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="8ac-i5-vwb">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="enterprise_result_01" translatesAutoresizingMaskIntoConstraints="NO" id="slP-bo-Ngs">
+                    <rect key="frame" x="70" y="199.5" width="274" height="377"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="slP-bo-Ngs" secondAttribute="height" multiplier="505:694" id="Ozo-kb-zFR"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yA8-UT-iau">
+                    <rect key="frame" x="132" y="673.5" width="150" height="40"/>
+                    <color key="backgroundColor" red="0.33333333329999998" green="0.52549019610000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="bt5-WK-3VW"/>
+                        <constraint firstAttribute="width" constant="150" id="m5R-sL-EUD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="4008-919-105">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="actionCall:" destination="-1" eventType="touchUpInside" id="Ra2-mH-96K"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如果您需要E安装客服人工服务请拨打" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldY-ii-elx">
+                    <rect key="frame" x="88.5" y="616.5" width="237" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="b30-bZ-kW3"/>
+            <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="yA8-UT-iau" firstAttribute="centerX" secondItem="ldY-ii-elx" secondAttribute="centerX" id="3f7-Xv-M1a"/>
+                <constraint firstItem="slP-bo-Ngs" firstAttribute="centerX" secondItem="8ac-i5-vwb" secondAttribute="centerX" id="ICh-l2-5OP"/>
+                <constraint firstItem="yA8-UT-iau" firstAttribute="top" secondItem="ldY-ii-elx" secondAttribute="bottom" constant="40" id="Qtf-By-DTG"/>
+                <constraint firstItem="slP-bo-Ngs" firstAttribute="centerY" secondItem="8ac-i5-vwb" secondAttribute="centerY" constant="-60" id="awg-Td-CEv"/>
+                <constraint firstItem="slP-bo-Ngs" firstAttribute="leading" secondItem="b30-bZ-kW3" secondAttribute="leading" constant="70" id="l8E-jI-y2C"/>
+                <constraint firstItem="ldY-ii-elx" firstAttribute="centerX" secondItem="slP-bo-Ngs" secondAttribute="centerX" id="lE0-eD-Ktr"/>
+                <constraint firstItem="ldY-ii-elx" firstAttribute="top" secondItem="slP-bo-Ngs" secondAttribute="bottom" constant="40" id="qkG-zc-um8"/>
+                <constraint firstItem="b30-bZ-kW3" firstAttribute="trailing" secondItem="slP-bo-Ngs" secondAttribute="trailing" constant="70" id="xYO-zK-ksY"/>
+            </constraints>
+            <point key="canvasLocation" x="35" y="81"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="enterprise_result_01" width="252.5" height="347"/>
+    </resources>
+</document>
