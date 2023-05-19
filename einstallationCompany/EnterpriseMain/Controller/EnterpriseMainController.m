@@ -8,7 +8,6 @@
 #import "EnterpriseMainController.h"
 #import "GrabOrderTabViewController.h"
 #import "EnterpriseNavController.h"
-#import "WaitTaskListController.h"
 #import "InstallTaskController.h"
 #import "PayTypeViewController.h"
 #import "InstallStatisticViewController.h"

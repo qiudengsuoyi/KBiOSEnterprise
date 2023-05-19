@@ -75,3 +75,7 @@ RPSSERVER_API const PASSWORD_INFO_URL = @"interface_Einstall/password1view.asp";
 RPSSERVER_API const CASE_LIST_URL = @"interface_Einstall/CompleteProjectList.asp";
 RPSSERVER_API const ADD_COMPLAIN_URL = @"interface_Einstall/ComplaintSubmit.asp";
 RPSSERVER_API const MODIFY_COMPLAIN_URL = @"interface_Einstall/ComplaintModify.asp";
+RPSSERVER_API const GRAB_ORDER_ITEM_DETAIL_URL = @"Interface_Einstall/FastOrderDetail1.asp";
+RPSSERVER_API const GRAB_ORDER_EVALUATE_URL = @"Interface_Einstall/FastOrderAuditSubmit.asp";
+RPSSERVER_API const CONFIRM_MASTER_URL = @"Interface_Einstall/FastOrderAssignSubmit.asp";
+RPSSERVER_API const RELEASE_SELECT_CONFIG_URL = @"Interface_Einstall/FastOrderConfig.asp";

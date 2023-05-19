@@ -8,7 +8,6 @@
 #import "WaitTaskListController.h"
 #import "OrderTableViewCell.h"
 #import "WaitTaskSingleListController.h"
-#import "GrabDetailController.h"
 #import "EnterpriseMainService.h"
 #import "SVProgressHUD.h"
 #import "APIConst.h"

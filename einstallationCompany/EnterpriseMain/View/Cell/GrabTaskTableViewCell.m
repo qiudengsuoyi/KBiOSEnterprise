@@ -65,6 +65,7 @@
                     self.bt01.hidden = NO;
                     self.bt02.hidden = NO;
                     self.bt03.hidden = YES;
+                    self.btEdit.hidden = NO;
                     break;
                 case 1:
                     self.bt01.hidden = YES;
@@ -114,9 +115,10 @@
 }
 
 - (IBAction)actionConfirm:(id)sender {
-//    if (self.confirmBlock) {
-//        self.confirmBlock();
-//    }
+    if([self.OrderState intValue] == 2){
+        if (self.confirmBlock) {
+            self.confirmBlock();
+        }}
 }
 
 

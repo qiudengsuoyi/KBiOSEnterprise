@@ -14,8 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)requestMainNum:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 + (void)requestWaitOrderList:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
+
++ (void)requestGrabOrderEvaluate:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
+
 + (void)requestWaitOrderDetail:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 + (void)requestWaitOrderItemDetail:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
++ (void)requestGrabOrderItemDetail:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 + (void)requestInstallOrderItemDetail:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 
 + (void)requestAcceptWaitOrder:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;

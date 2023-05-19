@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		801830597F2309FA84E93177 /* Pods_einstallationCompany.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79225A4937993F0F7B58FC86 /* Pods_einstallationCompany.framework */; };
+		F50346202A0B77E4001E8873 /* ReleaseOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F503461E2A0B77E4001E8873 /* ReleaseOrderDetailViewController.m */; };
+		F50346212A0B77E4001E8873 /* ReleaseOrderDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F503461F2A0B77E4001E8873 /* ReleaseOrderDetailViewController.xib */; };
+		F503462A2A0B8EEE001E8873 /* TZTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F50346282A0B8EEE001E8873 /* TZTestCell.m */; };
+		F503462B2A0B8EEE001E8873 /* TZTestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F50346292A0B8EEE001E8873 /* TZTestCell.xib */; };
 		F515728827E8CF1E008CC374 /* CaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F515728627E8CF1E008CC374 /* CaseListViewController.m */; };
 		F515728927E8CF1E008CC374 /* CaseListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F515728727E8CF1E008CC374 /* CaseListViewController.xib */; };
 		F515728C27E8CF8F008CC374 /* CaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F515728B27E8CF8F008CC374 /* CaseModel.m */; };
@@ -166,6 +170,7 @@
 		F5DA4AE0267F9473000015DD /* OrderListEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA4ADF267F9473000015DD /* OrderListEntity.m */; };
 		F5DA4AE5267F9B16000015DD /* EnterpriseMainService.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA4AE4267F9B16000015DD /* EnterpriseMainService.m */; };
 		F5DA4AF9267F9FC6000015DD /* PictureListEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA4AF8267F9FC6000015DD /* PictureListEntity.m */; };
+		F5E238432A08E9AC00BE3416 /* JWStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E238422A08E9AC00BE3416 /* JWStarView.m */; };
 		F5E4C7FF264271E90034E4C3 /* EnterpriseLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E4C7FD264271E90034E4C3 /* EnterpriseLoginController.m */; };
 		F5E4C800264271E90034E4C3 /* EnterpriseLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5E4C7FE264271E90034E4C3 /* EnterpriseLoginController.xib */; };
 		F5E4C80A26427AEB0034E4C3 /* EnterpriseRegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E4C80826427AEB0034E4C3 /* EnterpriseRegisterController.m */; };
@@ -187,6 +192,12 @@
 		79225A4937993F0F7B58FC86 /* Pods_einstallationCompany.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_einstallationCompany.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		930F9B08B09AD792317BE0B3 /* Pods-einstallationCompany.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-einstallationCompany.debug.xcconfig"; path = "Target Support Files/Pods-einstallationCompany/Pods-einstallationCompany.debug.xcconfig"; sourceTree = "<group>"; };
 		DC41C7FC5DE31F684AB8D7EA /* Pods-einstallationCompany.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-einstallationCompany.release.xcconfig"; path = "Target Support Files/Pods-einstallationCompany/Pods-einstallationCompany.release.xcconfig"; sourceTree = "<group>"; };
+		F503461D2A0B77E4001E8873 /* ReleaseOrderDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReleaseOrderDetailViewController.h; sourceTree = "<group>"; };
+		F503461E2A0B77E4001E8873 /* ReleaseOrderDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReleaseOrderDetailViewController.m; sourceTree = "<group>"; };
+		F503461F2A0B77E4001E8873 /* ReleaseOrderDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReleaseOrderDetailViewController.xib; sourceTree = "<group>"; };
+		F50346272A0B8EEE001E8873 /* TZTestCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TZTestCell.h; sourceTree = "<group>"; };
+		F50346282A0B8EEE001E8873 /* TZTestCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TZTestCell.m; sourceTree = "<group>"; };
+		F50346292A0B8EEE001E8873 /* TZTestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TZTestCell.xib; sourceTree = "<group>"; };
 		F515728527E8CF1E008CC374 /* CaseListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaseListViewController.h; sourceTree = "<group>"; };
 		F515728627E8CF1E008CC374 /* CaseListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaseListViewController.m; sourceTree = "<group>"; };
 		F515728727E8CF1E008CC374 /* CaseListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaseListViewController.xib; sourceTree = "<group>"; };
@@ -448,6 +459,8 @@
 		F5DA4AE4267F9B16000015DD /* EnterpriseMainService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnterpriseMainService.m; sourceTree = "<group>"; };
 		F5DA4AF7267F9FC6000015DD /* PictureListEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PictureListEntity.h; sourceTree = "<group>"; };
 		F5DA4AF8267F9FC6000015DD /* PictureListEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PictureListEntity.m; sourceTree = "<group>"; };
+		F5E238412A08E9AC00BE3416 /* JWStarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JWStarView.h; sourceTree = "<group>"; };
+		F5E238422A08E9AC00BE3416 /* JWStarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JWStarView.m; sourceTree = "<group>"; };
 		F5E4C7FC264271E90034E4C3 /* EnterpriseLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnterpriseLoginController.h; sourceTree = "<group>"; };
 		F5E4C7FD264271E90034E4C3 /* EnterpriseLoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnterpriseLoginController.m; sourceTree = "<group>"; };
 		F5E4C7FE264271E90034E4C3 /* EnterpriseLoginController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnterpriseLoginController.xib; sourceTree = "<group>"; };
@@ -929,6 +942,9 @@
 				F5B460F729F5686A00B72A56 /* GrabOrderTabViewController.h */,
 				F5B460F829F5686A00B72A56 /* GrabOrderTabViewController.m */,
 				F5B460F929F5686A00B72A56 /* GrabOrderTabViewController.xib */,
+				F503461D2A0B77E4001E8873 /* ReleaseOrderDetailViewController.h */,
+				F503461E2A0B77E4001E8873 /* ReleaseOrderDetailViewController.m */,
+				F503461F2A0B77E4001E8873 /* ReleaseOrderDetailViewController.xib */,
 			);
 			path = GrabOrder;
 			sourceTree = "<group>";
@@ -977,6 +993,9 @@
 				F515DF3D28CB79F300A27D53 /* ComplainTableViewCell.h */,
 				F515DF3E28CB79F300A27D53 /* ComplainTableViewCell.m */,
 				F515DF3F28CB79F300A27D53 /* ComplainTableViewCell.xib */,
+				F50346272A0B8EEE001E8873 /* TZTestCell.h */,
+				F50346282A0B8EEE001E8873 /* TZTestCell.m */,
+				F50346292A0B8EEE001E8873 /* TZTestCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1065,6 +1084,7 @@
 		F5B460FC29F568E200B72A56 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				F5E238402A08E95800BE3416 /* JWStarView */,
 				F5B460FD29F5693500B72A56 /* SGPagingView */,
 			);
 			path = Vendor;
@@ -1212,6 +1232,15 @@
 				F5DA4AE4267F9B16000015DD /* EnterpriseMainService.m */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		F5E238402A08E95800BE3416 /* JWStarView */ = {
+			isa = PBXGroup;
+			children = (
+				F5E238412A08E9AC00BE3416 /* JWStarView.h */,
+				F5E238422A08E9AC00BE3416 /* JWStarView.m */,
+			);
+			path = JWStarView;
 			sourceTree = "<group>";
 		};
 		F5E4C7FA264271A20034E4C3 /* EnterpriseLogin */ = {
@@ -1413,6 +1442,7 @@
 				F532D9A9265167DD00DD43FA /* NoImageTableViewCell.xib in Resources */,
 				F5E4C800264271E90034E4C3 /* EnterpriseLoginController.xib in Resources */,
 				F515DF4128CB79F300A27D53 /* ComplainTableViewCell.xib in Resources */,
+				F503462B2A0B8EEE001E8873 /* TZTestCell.xib in Resources */,
 				F5E4C8112642930A0034E4C3 /* EnterprisePasswordController.xib in Resources */,
 				F532D97526513BEB00DD43FA /* EnterpriseWalletController.xib in Resources */,
 				F558BB9F264C140800F469EC /* ProtocolViewController.xib in Resources */,
@@ -1421,6 +1451,7 @@
 				F53479902649337800F7B491 /* ModifyController.xib in Resources */,
 				F59240272631EFAF00BC0355 /* OrderTableViewCell.xib in Resources */,
 				F56A92D1268A01A500ED7676 /* GrabTaskTableViewCell.xib in Resources */,
+				F50346212A0B77E4001E8873 /* ReleaseOrderDetailViewController.xib in Resources */,
 				F532D9822651459500DD43FA /* ItemSelectTableViewCell.xib in Resources */,
 				F52E751026109D0900CB727E /* LaunchScreen.storyboard in Resources */,
 				F54EB9CF265BE5AA00C59B62 /* TaskClassOneTableViewCell.xib in Resources */,
@@ -1552,6 +1583,7 @@
 				F579AAE926D532E000E27C7B /* PayOrderEditViewController.m in Sources */,
 				F5E4C8102642930A0034E4C3 /* EnterprisePasswordController.m in Sources */,
 				F52E751326109D0900CB727E /* main.m in Sources */,
+				F50346202A0B77E4001E8873 /* ReleaseOrderDetailViewController.m in Sources */,
 				F5B4611329F5693500B72A56 /* SGPageContentScrollView.m in Sources */,
 				F588C26126C91470009B19D0 /* PayViewController.m in Sources */,
 				F5B046D826D0994A00E76024 /* WXApiResponseHandler.m in Sources */,
@@ -1580,6 +1612,7 @@
 				F515728C27E8CF8F008CC374 /* CaseModel.m in Sources */,
 				F587DB992691CD2400E2D225 /* TaskDetailTableViewCell.m in Sources */,
 				F5A21B8A28CDAB4D000FA3CE /* WSPlaceholderTextView.m in Sources */,
+				F5E238432A08E9AC00BE3416 /* JWStarView.m in Sources */,
 				F5DA4A67267F3865000015DD /* EnterpriseNetwork.m in Sources */,
 				F5A945DA26D3ED1D0040A4B7 /* PayOrderTableViewCell.m in Sources */,
 				F5303E9F26D26C2E005658F3 /* PayService.m in Sources */,
@@ -1596,6 +1629,7 @@
 				F58DB2202632946D00F66736 /* KeyValueEntity.m in Sources */,
 				F5B4611229F5693500B72A56 /* UIView+SGPagingView.m in Sources */,
 				F58DB25426333D4700F66736 /* WaitTaskDetailController.m in Sources */,
+				F503462A2A0B8EEE001E8873 /* TZTestCell.m in Sources */,
 				F5F0CBF7269889C400FAC6E0 /* EnterpriseCommonService.m in Sources */,
 				F534798F2649337800F7B491 /* ModifyController.m in Sources */,
 				F576668A266FA7CD00D70B3F /* BrandTableViewCell.m in Sources */,

@@ -7,7 +7,7 @@
 
 #import "GrabListViewController.h"
 #import "GrabTaskTableViewCell.h"
-#import "PayTypeViewController.h"
+#import "GrabDetailController.h"
 #import "UITableView+Refresh.h"
 #import "YYLrefresh/UITableView+Refresh.h"
 #import "UITableView+Refresh.h"
@@ -119,7 +119,7 @@
     };
     cell.confirmBlock = ^{
         if([itemModelList.paymentState intValue] == 0){
-            PayViewController *vc = [[PayViewController alloc]init];
+            GrabDetailController *vc = [[GrabDetailController alloc]init];
             vc.recordID = itemModelList.recordID;
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];

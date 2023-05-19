@@ -39,22 +39,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A549FE90-264E-4CCD-B1A3-6FD6F9A24945"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "einstallationCompany/EnterpriseMain/Controller/GrabOrder/GrabListViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "58D9294C-C583-4D33-B688-D54A608C075C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -114,37 +98,53 @@
             endingLineNumber = "158"
             landmarkName = "-actionRegister:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E713C3D4-02C7-4372-BDCB-D919F019577A - 42bf674e70b94232"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[EnterpriseRegisterController actionRegister:]"
+                  moduleName = "einstallationCompany"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yunwei/Desktop/svn/einstall/iOS/com.chengdushanghai.einstallationmaster/einstallationCompany/EnterpriseLogin/Controller/EnterpriseRegisterController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158"
+                  offsetFromSymbolStart = "1604">
+               </Location>
+               <Location
+                  uuid = "E713C3D4-02C7-4372-BDCB-D919F019577A - 60944cdcc7db13fa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__47-[EnterpriseRegisterController actionRegister:]_block_invoke"
+                  moduleName = "einstallationCompany"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yunwei/Desktop/svn/einstall/iOS/com.chengdushanghai.einstallationmaster/einstallationCompany/EnterpriseLogin/Controller/EnterpriseRegisterController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F8D14DB2-0923-4797-9587-B70F1EF7EF61"
-            shouldBeEnabled = "Yes"
+            uuid = "065055BD-5C0A-4246-9662-D04431BE7230"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "einstallationCompany/EnterpriseMain/Controller/GrabOrder/GrabSingleListViewController.m"
+            filePath = "einstallationCompany/EnterpriseMain/Controller/WaitOrder/WaitTaskDetailController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "-showTwoDialogView:withRightButtonTitle:withLeftButtonTitle:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9C1C91D6-1916-4F71-89F5-50C2B705B3CE"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "einstallationCompany/Pay/Controller/PayOrderEditViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
-            landmarkName = "-requstAddress"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "-requstOrderList"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

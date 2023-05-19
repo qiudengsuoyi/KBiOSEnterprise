@@ -9,28 +9,23 @@
 #import "OrderItemTableViewCell.h"
 #import "PictureCollectionViewCell.h"
 #import "ResultController.h"
+#import "SVProgressHUD.h"
+#import "APIConst.h"
+#import "EnterpriseMainService.h"
+#import "NSObject+YYModel.h"
+#import "TaskPictureController.h"
 
 @interface GrabDetailController ()
 
 @end
 
 @implementation GrabDetailController
-- (IBAction)actionConfirm:(id)sender {
-    ResultController * vc = [ResultController alloc];
-    vc.resultType = 1;
-    vc.strTitle = @"成功参与抢单";
-    vc.strContent01 = @"恭喜您已经成功参与抢单";
-    vc.strContent02 = @"请保持电话畅通等待客户和您进一步沟通";
-    [self jumpViewControllerAndCloseSelf:vc];
-}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tbOrder.dataSource = self;
     self.tbOrder.delegate = self;
-    if(self.pageType  == 2){
-        self.btConfirm.hidden = YES;
-    }
     [self addBackItem];
     self.navigationItem.title = @"抢单任务详情";
     // 1.设置行高为自动撑开
@@ -40,55 +35,15 @@
     self.tbOrder.estimatedRowHeight = 120;
     self.tbOrder.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tbOrder registerNib:[UINib nibWithNibName:NSStringFromClass([OrderItemTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([OrderItemTableViewCell class])];
-    
-    NSMutableArray *arr = [NSMutableArray arrayWithCapacity:0];
-   
-    for(int i = 0;i<2;i++){
-      
-        KeyValueEntity * keyValueModel = [KeyValueEntity alloc];
-        keyValueModel.PictureURL = @"";
-        keyValueModel.Value = @"商场海报安装";
-        keyValueModel.Color = @"#000000";
-        [arr addObject:keyValueModel];
-        keyValueModel = [KeyValueEntity alloc];
-        keyValueModel.PictureURL = @"";
-        keyValueModel.Value = @"商场海报安装商场海报安装商场海报安装商场海报安装商场海报安装商场海报安装商场海报安装";
-        keyValueModel.Color = @"#7D7D7D";
-        [arr addObject:keyValueModel];
-        keyValueModel = [KeyValueEntity alloc];
-        keyValueModel.PictureURL = @"";
-        keyValueModel.Value = @"商场海报安装";
-        keyValueModel.Color = @"#5586DE";
-        [arr addObject:keyValueModel];
-
-    
-    }
-    CGFloat totalHeight = 0;
-    for(KeyValueEntity * itemModel in arr){
-        CGFloat itemHeight = [(NSString *)itemModel.Value boundingRectWithSize:CGSizeMake((SCREENWIDTH-100), CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size.height+15;
-        totalHeight = totalHeight+itemHeight;
-    }
-    self.tbOrderConstraintHeight.constant = totalHeight;
-    self.vConstraintHeight.constant = totalHeight+80+(SCREENWIDTH-90)/3*0.81*2+35;
-    self.keyValueList = arr;
-    [self.tbOrder reloadData];
-    
-    [self initCollectionView];
-    [self.collectionView reloadData];
+    self.starView.currentScore = 0;
+ 
     // Do any additional setup after loading the view from its nib.
 }
 
-- (void) initCollectionView
-{
-    //设置CollectionView的属性
-    self.collectionView.delegate = self;
-    self.collectionView.dataSource = self;
-    self.collectionView.scrollEnabled = YES;
-    //    [self.view addSubview:self.collectionView];
-    //注册Cell
-    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([PictureCollectionViewCell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"identifier"];
-
+- (void)viewWillAppear:(BOOL)animated{
+    [self requstOrderList];
 }
+
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -123,70 +78,85 @@
 
 
 
-- (UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    static NSString *identify = @"identifier";
-    PictureCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
-    cell.layer.borderWidth = 1;
-    cell.layer.borderColor = [[UIColor lightGrayColor]CGColor];
-    cell.layer.cornerRadius = 4;
-    cell.backgroundColor = [UIColor whiteColor];
-    return cell;
-}
-
-- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 3;
-}
-
-#pragma mark  设置CollectionView的组数
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return 2;
-}
-
--(CGSize)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath*)indexPath
-{
-    return CGSizeMake((SCREENWIDTH-100)/3, (SCREENWIDTH-90)/3*0.81);//可以根据indexpath 设置item 的size
-}
-
-#pragma mark  定义整个CollectionViewCell与整个View的间距
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    return UIEdgeInsetsMake(0, 0, 10, 0);//（上、左、下、右）
-}
-
-#pragma mark  点击CollectionView触发事件
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+-(void)requstOrderList{
+    [SVProgressHUD show];
     
+ 
+        NSDictionary *dic = @{@"oid":self.recordID};
+        [EnterpriseMainService requestGrabOrderItemDetail:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
+            if (data) {
+                NSMutableArray *arr = [NSMutableArray array];
+                for (NSDictionary *dic in data[@"data"][@"listDetail"]) {
+                    KeyValueEntity *model = [KeyValueEntity modelWithJSON:dic];
+                    if (model) {
+                        [arr addObject:model];
+                    }
+                }
+                if([data[@"orderstate"] intValue] == 1){
+                    self.vEvaluate.hidden = NO;
+                }else{
+                    self.vEvaluate.hidden = YES;
+                }
+                
+                self.keyValueList = arr;
+                CGFloat totalHeight = 0;
+                for(KeyValueEntity * itemModel in self.keyValueList){
+                    CGFloat itemHeight = [(NSString *)itemModel.Value boundingRectWithSize:CGSizeMake((SCREENWIDTH-120), CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size.height+15;
+                    totalHeight = totalHeight+itemHeight;
+                }
+                self.tbOrderConstraintHeight.constant = totalHeight;
+                
+                [self.tbOrder reloadData];
+                
+            }
+        }];
+            
+}
+ 
 
-    PictureCollectionViewCell *cell = (PictureCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-
+-(void)evaluateSubmit{
+    if(self.starView.currentScore<1){
+        [SVProgressHUD showInfoWithStatus:@"请先选择星数再提交！"];
+        return;
+    }
+        
+    [SVProgressHUD show];
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    NSString *userID = [user valueForKey:ENTERPRISE_USERID];
     
+ 
+        NSDictionary *dic = @{@"userid":userID,
+                              @"recordID":self.recordID,
+                              @"Star":[NSString stringWithFormat:@"%.f",self.starView.currentScore]
+        };
+        [EnterpriseMainService requestGrabOrderEvaluate:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
+            if (data) {
+               
+                [SVProgressHUD showSuccessWithStatus:data[@"msg"]];
+                [self requstOrderList];
+                
+            }
+        }];
+            
+}
     
-    
+- (IBAction)btEvaluate:(id)sender {
+    [self evaluateSubmit];
 }
 
-#pragma mark  设置CollectionViewCell是否可以被点击
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
-
-//取消选中操作
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (IBAction)btPicture:(id)sender {
+    TaskPictureController *vc = [[TaskPictureController alloc]init];
+    vc.recordID = self.recordID;
     
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
+
+
+
+
 
 @end

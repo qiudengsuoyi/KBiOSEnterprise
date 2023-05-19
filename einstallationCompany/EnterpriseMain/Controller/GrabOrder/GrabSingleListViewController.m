@@ -184,7 +184,7 @@
         vc.recordID = self.recordID;
         vc.masterID = self.clickMasterID;
         vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
+        [self jumpViewControllerAndCloseSelf:vc];
 //        [self requstConfirmMaster:self.clickMasterID recordID:self.clickRecordID];
     };
     view.cancelBlock = ^{

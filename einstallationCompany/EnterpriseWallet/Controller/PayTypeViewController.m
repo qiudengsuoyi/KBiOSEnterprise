@@ -23,6 +23,7 @@
 #import "PayViewController.h"
 #import "PayMessageViewController.h"
 #import "EnterpriseLoginController.h"
+#import "ReleaseOrderDetailViewController.h"
 
 @interface PayTypeViewController ()
 @property bool xieYiState;
@@ -252,48 +253,51 @@
     NSString *strPhone = self.labelPhone.text;
     self.strInstallType = self.installType.text;
     
-    if(strName.length<1){
-        [SVProgressHUD showErrorWithStatus:@"请输入您的名字！"];
-        return;
-    }
-    
-    if(strPhone.length<1){
-        [SVProgressHUD showErrorWithStatus:@"请输入您的电话！"];
-        return;
-    }
-    
-    
-    if(self.city.length<1){
-        [SVProgressHUD showErrorWithStatus:@"请先选择城市！"];
-        return;
-    }
-    
-    if(self.self.strInstallType.length<1){
-        [SVProgressHUD showErrorWithStatus:@"请选择安装类型！"];
-        return;
-    }
-    
-    if(self.labelAddress.text.length<1){
-        [SVProgressHUD showErrorWithStatus:@"请输入安装详细地址！"];
-        return;
-    }
-    
-    if(self.labelMoney.text.length<1){
-        [SVProgressHUD showErrorWithStatus:@"请输入安装价格（元）！"];
-        return;
-    }
-    
-    if(self.labelInstallDate.text.length<1){
-        [SVProgressHUD showErrorWithStatus:@"请选择安装时间！"];
-        return;
-    }
-    
-    if(!self.xieYiState){
-        [SVProgressHUD showErrorWithStatus:@"请同意协议！"];
-        return;
-    }
-    
-    [self requstOrderReleaseSubmit:@"3"];
+//    if(strName.length<1){
+//        [SVProgressHUD showErrorWithStatus:@"请输入您的名字！"];
+//        return;
+//    }
+//
+//    if(strPhone.length<1){
+//        [SVProgressHUD showErrorWithStatus:@"请输入您的电话！"];
+//        return;
+//    }
+//
+//
+//    if(self.city.length<1){
+//        [SVProgressHUD showErrorWithStatus:@"请先选择城市！"];
+//        return;
+//    }
+//
+//    if(self.self.strInstallType.length<1){
+//        [SVProgressHUD showErrorWithStatus:@"请选择安装类型！"];
+//        return;
+//    }
+//
+//    if(self.labelAddress.text.length<1){
+//        [SVProgressHUD showErrorWithStatus:@"请输入安装详细地址！"];
+//        return;
+//    }
+//
+//    if(self.labelMoney.text.length<1){
+//        [SVProgressHUD showErrorWithStatus:@"请输入安装价格（元）！"];
+//        return;
+//    }
+//
+//    if(self.labelInstallDate.text.length<1){
+//        [SVProgressHUD showErrorWithStatus:@"请选择安装时间！"];
+//        return;
+//    }
+//
+//    if(!self.xieYiState){
+//        [SVProgressHUD showErrorWithStatus:@"请同意协议！"];
+//        return;
+//    }
+//
+//    [self requstOrderReleaseSubmit:@"3"];
+        ReleaseOrderDetailViewController *vc = [[ReleaseOrderDetailViewController alloc]init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }else{
         [SVProgressHUD showInfoWithStatus:@"暂未登录，请先登录！"];
         EnterpriseLoginController *vc = [[EnterpriseLoginController alloc]init];
