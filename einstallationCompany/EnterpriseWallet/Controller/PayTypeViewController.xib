@@ -231,7 +231,7 @@
                                         <constraint firstAttribute="width" constant="200" id="fdZ-u7-bls"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <state key="normal" title="发布悬赏任务">
+                                    <state key="normal" title="直接在E安装APP内发布任务">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
@@ -251,7 +251,7 @@
                                         <constraint firstAttribute="width" constant="200" id="gvn-V3-pEr"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <state key="normal" title="发布竞标任务">
+                                    <state key="normal" title="通过短信形式发布任务">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>

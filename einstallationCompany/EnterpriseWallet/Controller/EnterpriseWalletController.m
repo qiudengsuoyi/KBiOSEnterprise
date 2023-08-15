@@ -11,16 +11,17 @@
 #import "ApproveViewController.h"
 #import "ResultController.h"
 #import "RechargeViewController.h"
+#import "SVProgressHUD.h"
+#import "APIConst.h"
+#import "EnterpriseWalletService.h"
 
 @interface EnterpriseWalletController ()
-@property (weak, nonatomic) IBOutlet UIButton *bt01;
-@property (weak, nonatomic) IBOutlet UIButton *bt02;
-@property (weak, nonatomic) IBOutlet UIButton *bt03;
-@property (weak, nonatomic) IBOutlet UIButton *bt04;
-@property (weak, nonatomic) IBOutlet UIView *v01;
-@property (weak, nonatomic) IBOutlet UIView *v02;
-@property (weak, nonatomic) IBOutlet UIView *v03;
-@property (weak, nonatomic) IBOutlet UIView *v04;
+@property (weak, nonatomic) IBOutlet UIView *vRecharge;
+@property (weak, nonatomic) IBOutlet UIView *vCost;
+@property (weak, nonatomic) IBOutlet UILabel *labelMoneyRecharge;
+@property (weak, nonatomic) IBOutlet UILabel *labelMoneyCost;
+@property (weak, nonatomic) IBOutlet UILabel *labelMoneyResidue;
+
 
 @end
 
@@ -30,61 +31,61 @@
     [super viewDidLoad];
     [self addBackItem];
     self.navigationItem.title = @"我的钱包";
+    [self requstWallet];
     UITapGestureRecognizer *labelTapGestureRecognizer = [[UITapGestureRecognizer alloc]
                                                          initWithTarget:self action:@selector(action01:)];
     // 2. 将点击事件添加到label上
-    [self.v01 addGestureRecognizer:labelTapGestureRecognizer];
-    self.v01.userInteractionEnabled = YES;
+    [self.vRecharge addGestureRecognizer:labelTapGestureRecognizer];
+    self.vRecharge.userInteractionEnabled = YES;
     labelTapGestureRecognizer = [[UITapGestureRecognizer alloc]
                                  initWithTarget:self action:@selector(action02:)];
     
       // 2. 将点击事件添加到label上
-    [self.v02 addGestureRecognizer:labelTapGestureRecognizer];
-    self.v02.userInteractionEnabled = YES;
+    [self.vCost addGestureRecognizer:labelTapGestureRecognizer];
+    self.vCost.userInteractionEnabled = YES;
     
-    
-    labelTapGestureRecognizer = [[UITapGestureRecognizer alloc]
-                                 initWithTarget:self action:@selector(action03:)];
-    // 2. 将点击事件添加到label上
-    [self.v03 addGestureRecognizer:labelTapGestureRecognizer];
-    self.v03.userInteractionEnabled = YES;
-  
-    labelTapGestureRecognizer = [[UITapGestureRecognizer alloc]
-                                 initWithTarget:self action:@selector(action04:)];
-    // 2. 将点击事件添加到label上
-    [self.v04 addGestureRecognizer:labelTapGestureRecognizer];
-    self.v04.userInteractionEnabled = YES;
- 
+
     
     // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)action01:(id)sender {
-    ResultController * vc = [ResultController alloc];
-    vc.resultType = 1;
-    vc.strTitle = @"充值成功";
-    vc.strContent01 = @"恭喜您已经成功充值";
+    ApproveViewController * vc = [ApproveViewController alloc];
+    vc.pageType = 1;
+    vc.strTitle = @"充值金额";
+    vc.strMoney = self.labelMoneyRecharge.text;
     vc.hidesBottomBarWhenPushed = YES;
-    [self jumpViewControllerAndCloseSelf:vc];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (IBAction)action02:(id)sender {
-    RechargeViewController *vc = [[RechargeViewController alloc]init];
+    ApproveViewController * vc = [ApproveViewController alloc];
+    vc.pageType = 2;
+    vc.strTitle = @"消费金额";
+    vc.strMoney = self.labelMoneyCost.text;
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
-- (IBAction)action03:(id)sender {
-    WalletListViewController *vc = [[WalletListViewController alloc]init];
-    vc.hidesBottomBarWhenPushed = YES;
-    vc.pageType = 1;
-    [self.navigationController pushViewController:vc animated:YES];
 
-  }
-- (IBAction)action04:(id)sender {
-    ApproveViewController *vc = [[ApproveViewController alloc]init];
-    vc.hidesBottomBarWhenPushed = YES;
-    vc.pageType = 2;
-    [self.navigationController pushViewController:vc animated:YES];
-  }
 
+
+-(void)requstWallet{
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    NSString *userID = [user valueForKey:ENTERPRISE_USERID];
+ 
+    [SVProgressHUD show];
+    NSDictionary *dic = @{@"userid":userID};
+    [EnterpriseWalletService requestWallet:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
+        if (data) {
+           
+            self.labelMoneyRecharge.text = [data[@"taskPrice0"] stringByAppendingString:@"元"];
+            self.labelMoneyCost.text = [data[@"taskPrice1"] stringByAppendingString:@"元"];
+            self.labelMoneyResidue.text = [data[@"taskPrice2"] stringByAppendingString:@"元"];
+           
+            
+        }
+    }];
+
+  
+}
 /*
 #pragma mark - Navigation
 

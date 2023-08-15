@@ -35,6 +35,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)requestReleaseSubmit:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 + (void)requestInstallType:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 + (void)requestReleasePerson:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
++ (void)requestWallet:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
++ (void)requestRechargeOrderList:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
++ (void)requestCostOrderList:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 
 @end
 

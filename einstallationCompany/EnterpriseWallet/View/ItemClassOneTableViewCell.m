@@ -49,6 +49,7 @@
     // 2. 将点击事件添加到label上
     [self.imageView addGestureRecognizer:labelTapGestureRecognizer];
     self.imageView.userInteractionEnabled = YES; //
+
     
 }
 

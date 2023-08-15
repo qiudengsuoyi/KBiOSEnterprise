@@ -147,7 +147,7 @@
     [SVProgressHUD show];
     NSDictionary *dic = @{
         @"userid":userID,
-        @"Fasttype":self.pageType,
+        @"Fasttype":self.pageType == nil? @"0":self.pageType,
         @"searchStr":[self utf82gbk:self.searchStr]
     };
     [EnterpriseMainService requestReleaseList:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {

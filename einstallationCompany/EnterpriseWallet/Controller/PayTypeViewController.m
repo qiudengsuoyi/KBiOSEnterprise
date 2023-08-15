@@ -17,7 +17,7 @@
 #import "BRStringPickerView.h"
 #import "EnterpriseWalletService.h"
 #import "BRDatePickerView.h"
-#import "GrabOrderTabViewController.h"
+#import "GrabListViewController.h"
 #import <YYKit/YYKit.h>
 #import "EnterpriseCommonService.h"
 #import "PayViewController.h"
@@ -206,7 +206,9 @@
         return;
     }
     
-    [self requstOrderReleaseSubmit:@"4"];}else{
+    [self requstOrderReleaseSubmit:@"1"];
+        
+    }else{
         [SVProgressHUD showInfoWithStatus:@"暂未登录，请先登录！"];
         EnterpriseLoginController *vc = [[EnterpriseLoginController alloc]init];
         vc.hidesBottomBarWhenPushed = YES;
@@ -293,7 +295,7 @@
         return;
     }
     
-    [self requstOrderReleaseSubmit:@"3"];
+    [self requstOrderReleaseSubmit:@"2"];
     }else{
         [SVProgressHUD showInfoWithStatus:@"暂未登录，请先登录！"];
         EnterpriseLoginController *vc = [[EnterpriseLoginController alloc]init];
@@ -358,7 +360,7 @@
     [EnterpriseWalletService requestReleaseSubmit:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
         if (data) {
             if([commitType intValue] == 2||[commitType intValue] == 3||[commitType intValue] == 4){
-//            PayViewController *vc = [PayViewController alloc];
+            PayViewController *vc = [PayViewController alloc];
 //            ResultOrderViewController * vc = [ResultOrderViewController alloc];
 //            vc.resultType = 1;
 //            vc.returnType = 1;
@@ -366,7 +368,8 @@
 //            vc.strContent01 = @"恭喜您已经成功发布任务";
 //            vc.strContent02 = @"请保持电话畅通等待和您的进一步沟通";
                
-                GrabOrderTabViewController * vc = [GrabOrderTabViewController alloc];
+//                GrabOrderTabViewController * vc = [GrabOrderTabViewController alloc];
+                vc.recordID = data;
                 vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
        
@@ -578,7 +581,7 @@
     
     
     if(userID.length>0){
-        GrabOrderTabViewController * vc = [GrabOrderTabViewController alloc];
+        GrabListViewController * vc = [GrabListViewController alloc];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
     }else{

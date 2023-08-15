@@ -8,9 +8,20 @@
 #import "ApproveViewController.h"
 #import "ItemClassOneTableViewCell.h"
 #import "WalletListViewController.h"
+#import "SVProgressHUD.h"
+#import "APIConst.h"
+#import "EnterpriseWalletService.h"
+#import "UITableView+Refresh.h"
+#import "YYLrefresh/UITableView+Refresh.h"
+#import "UITableView+Refresh.h"
+#import "UIView+RefreshData.h"
+#import "YYKit.h"
 
 @interface ApproveViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITextField *fSearch;
+@property (weak, nonatomic) IBOutlet UILabel *labelMoneyTitle;
+@property (weak, nonatomic) IBOutlet UILabel *labelMoney;
+
 
 @end
 
@@ -20,64 +31,11 @@
     [super viewDidLoad];
     [self addBackItem];
     NSMutableArray *arrList = [NSMutableArray arrayWithCapacity:0];
-    if(self.pageType ==1){
-    self.navigationItem.title = @"申请审批情景";
-        
-  
-    for(int i = 0;i<5;i++){
-        NSMutableArray *arr = [NSMutableArray arrayWithCapacity:0];
-        KeyValueEntity * keyValueModel = [KeyValueEntity alloc];
-        keyValueModel.Value = @"2021年5月11日申请支付1300000元";
-        keyValueModel.Color = @"#000000";
-        [arr addObject:keyValueModel];
-        keyValueModel = [KeyValueEntity alloc];
-        keyValueModel.Value = @"已审批通过，未支付";
-        keyValueModel.Color = @"#5586DE";
-        [arr addObject:keyValueModel];
-        keyValueModel = [KeyValueEntity alloc];
-        keyValueModel.Value = @"";
-        keyValueModel.Color = @"#000000";
-        [arr addObject:keyValueModel];
-        [arrList addObject:arr];
-        
-        arr = [NSMutableArray arrayWithCapacity:0];
-        keyValueModel = [KeyValueEntity alloc];
-        keyValueModel.Value = @"2021年5月11日申请支付1300000元";
-        keyValueModel.Color = @"#000000";
-        [arr addObject:keyValueModel];
-        keyValueModel = [KeyValueEntity alloc];
-        keyValueModel.Value = @"为审批通过，未支付";
-        keyValueModel.Color = @"#DB1020";
-        [arr addObject:keyValueModel];
-        keyValueModel = [KeyValueEntity alloc];
-        keyValueModel.Value = @"未通过原因：开票信息填写错误，请重新开票";
-        keyValueModel.Color = @"#DB1020";
-        keyValueModel.State = @"1";
-        [arr addObject:keyValueModel];
-        [arrList addObject:arr];
-        
-    }}else{
-        self.navigationItem.title = @"已支付";
-        for(int i = 0;i<5;i++){
-            NSMutableArray *arr = [NSMutableArray arrayWithCapacity:0];
-            KeyValueEntity * keyValueModel = [KeyValueEntity alloc];
-            keyValueModel.Value = @"2021年5月11日申请支付1300000元";
-            keyValueModel.Color = @"#000000";
-            [arr addObject:keyValueModel];
-            keyValueModel = [KeyValueEntity alloc];
-            keyValueModel.Value = @"已审批通过，已支付";
-            keyValueModel.Color = @"#53A535";
-            [arr addObject:keyValueModel];
-            keyValueModel = [KeyValueEntity alloc];
-            keyValueModel.Value = @"";
-            keyValueModel.Color = @"#000000";
-            [arr addObject:keyValueModel];
-            [arrList addObject:arr];
-            
-            
-        }
-        
-    }
+    self.navigationItem.title = self.strTitle;
+    
+    self.labelMoneyTitle.text = self.strTitle;
+    self.labelMoney.text = self.strMoney;
+    
     self.muKeyValueList = arrList;
     
     self.tbList.dataSource = self;
@@ -91,25 +49,105 @@
     [self.tbList registerNib:[UINib nibWithNibName:NSStringFromClass([ItemClassOneTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ItemClassOneTableViewCell class])];
     self.tbList.allowsSelection = YES;
     [self.tbList reloadData];
-
+    [self requstOrderList:true];
+    
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)requstOrderList:(BOOL)refresh{
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    NSString *userID = [user valueForKey:ENTERPRISE_USERID];
+    if(self.pageType == 1){
+        [SVProgressHUD show];
+        NSDictionary *dic = @{@"userid":userID,
+                              @"searchStr":[self utf82gbk:self.fSearch.text]};
+        [EnterpriseWalletService requestRechargeOrderList:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
+            if (data) {
+                
+                NSMutableArray *arr = [NSMutableArray array];
+               
+                    for (NSDictionary *dic in data) {
+                        OrderListEntity *model = [OrderListEntity
+                                                  modelWithJSON:dic];
+                        if (model) {
+                            [arr addObject:model];
+                        }
+                    }
+                
+           
+                
+                if (error) {
+                    self.view.loadErrorType = [error integerValue];
+                    return ;
+                }
+                if (refresh) {
+                    [self.muKeyValueList removeAllObjects];
+                }
+                OrderListEntity *model = [arr lastObject];
+                if (model) {
+                    [self.muKeyValueList addObjectsFromArray:arr];
+                }
+                if (self.muKeyValueList.count == 0) {
+                    self.view.loadErrorType = YYLLoadErrorTypeNoData;
+                }else{
+                    
+                    self.view.loadErrorType = YYLLoadErrorTypeDefalt;
+                    
+                }
+                [self.tbList reloadData];
+            }
+        }];}else if(self.pageType == 2){
+            
+            [SVProgressHUD show];
+            NSDictionary *dic = @{@"userid":userID,
+                                  @"searchStr":[self utf82gbk:self.fSearch.text]
+                                  
+            };
+            [EnterpriseWalletService requestCostOrderList:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
+                if (data) {
+                    NSMutableArray *arr = [NSMutableArray array];
+                    for (NSDictionary *dic in data) {
+                        OrderListEntity *model = [OrderListEntity
+                                                  modelWithJSON:dic];
+                        if (model) {
+                            [arr addObject:model];
+                        }
+                    }
+                    
+                    
+                    if (error) {
+                        self.view.loadErrorType = [error integerValue];
+                        return ;
+                    }
+                    if (refresh) {
+                        [self.muKeyValueList removeAllObjects];
+                    }
+                    OrderListEntity *model = [arr lastObject];
+                    if (model) {
+                        
+                        [self.muKeyValueList addObjectsFromArray:arr];
+                    }
+                    if (self.muKeyValueList.count == 0) {
+                        self.view.loadErrorType = YYLLoadErrorTypeNoData;
+                    }else{
+                        
+                        self.view.loadErrorType = YYLLoadErrorTypeDefalt;
+                        
+                    }
+                    [self.tbList reloadData];
+                    
+                }
+            }];
+        }
+    
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if(self.pageType ==1){
-        WalletListViewController *vc = [[WalletListViewController alloc]init];
-        vc.hidesBottomBarWhenPushed = YES;
-        vc.pageType = 1;
-        [self.navigationController pushViewController:vc animated:YES];
-    }else{
-        WalletListViewController *vc = [[WalletListViewController alloc]init];
-        vc.hidesBottomBarWhenPushed = YES;
-        vc.pageType = 2;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
- 
+   
+    
     
 }
 
@@ -126,11 +164,16 @@
     if (cell == nil) {
         cell = [[ItemClassOneTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([UITableViewCell class])] ;
     }
-    NSMutableArray <KeyValueEntity*> *itemModelList = [self.muKeyValueList objectAtIndex:indexPath.row];
-    cell.keyValueList = itemModelList;
+    OrderListEntity * itemModelList = [self.muKeyValueList objectAtIndex:indexPath.row];
+    cell.keyValueList = itemModelList.resultarr;
+    if(itemModelList.clickVisible){
+        cell.ivClick.hidden = NO;
+    }else{
+        cell.ivClick.hidden = YES;
+    }
     CGFloat itemHeight;
     CGFloat totalHeight = 0;
-    for (KeyValueEntity *itemModel in itemModelList) {
+    for (KeyValueEntity *itemModel in itemModelList.resultarr) {
         itemHeight = [(NSString *)itemModel.Value boundingRectWithSize:CGSizeMake((SCREENWIDTH-180), CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size.height+15;
         totalHeight = totalHeight+itemHeight;
     }
@@ -142,15 +185,7 @@
     
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 
 @end

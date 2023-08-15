@@ -126,6 +126,8 @@
 		F5A945D526D3EB890040A4B7 /* PayOrderEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A945D426D3EB890040A4B7 /* PayOrderEntity.m */; };
 		F5A945DA26D3ED1D0040A4B7 /* PayOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A945D826D3ED1D0040A4B7 /* PayOrderTableViewCell.m */; };
 		F5A945DB26D3ED1D0040A4B7 /* PayOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5A945D926D3ED1D0040A4B7 /* PayOrderTableViewCell.xib */; };
+		F5AE53032A8B6F1100DD59D4 /* EnterpriseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AE53012A8B6F1100DD59D4 /* EnterpriseViewController.m */; };
+		F5AE53042A8B6F1100DD59D4 /* EnterpriseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5AE53022A8B6F1100DD59D4 /* EnterpriseViewController.xib */; };
 		F5B046D826D0994A00E76024 /* WXApiResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B046D326D0994A00E76024 /* WXApiResponseHandler.m */; };
 		F5B046D926D0994A00E76024 /* WXApiRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B046D426D0994A00E76024 /* WXApiRequestHandler.m */; };
 		F5B046DA26D0994A00E76024 /* WXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B046D726D0994A00E76024 /* WXApiManager.m */; };
@@ -373,6 +375,9 @@
 		F5A945D726D3ED1D0040A4B7 /* PayOrderTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayOrderTableViewCell.h; sourceTree = "<group>"; };
 		F5A945D826D3ED1D0040A4B7 /* PayOrderTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayOrderTableViewCell.m; sourceTree = "<group>"; };
 		F5A945D926D3ED1D0040A4B7 /* PayOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayOrderTableViewCell.xib; sourceTree = "<group>"; };
+		F5AE53002A8B6F1100DD59D4 /* EnterpriseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnterpriseViewController.h; sourceTree = "<group>"; };
+		F5AE53012A8B6F1100DD59D4 /* EnterpriseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnterpriseViewController.m; sourceTree = "<group>"; };
+		F5AE53022A8B6F1100DD59D4 /* EnterpriseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnterpriseViewController.xib; sourceTree = "<group>"; };
 		F5B046D226D0994A00E76024 /* WXApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiManager.h; sourceTree = "<group>"; };
 		F5B046D326D0994A00E76024 /* WXApiResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXApiResponseHandler.m; sourceTree = "<group>"; };
 		F5B046D426D0994A00E76024 /* WXApiRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXApiRequestHandler.m; sourceTree = "<group>"; };
@@ -579,6 +584,9 @@
 				F521E1402615A0DC00D87F6F /* EnterpriseMainController.h */,
 				F521E1412615A0DC00D87F6F /* EnterpriseMainController.m */,
 				F521E1422615A0DC00D87F6F /* EnterpriseMainController.xib */,
+				F5AE53002A8B6F1100DD59D4 /* EnterpriseViewController.h */,
+				F5AE53012A8B6F1100DD59D4 /* EnterpriseViewController.m */,
+				F5AE53022A8B6F1100DD59D4 /* EnterpriseViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1430,6 +1438,7 @@
 				F558BB8D264BBD1900F469EC /* CustomerViewController.xib in Resources */,
 				F532D99C265163C200DD43FA /* ItemClassOneTableViewCell.xib in Resources */,
 				F5376AB627414EBE0084AC3F /* AliyunEmasServices-Info.plist in Resources */,
+				F5AE53042A8B6F1100DD59D4 /* EnterpriseViewController.xib in Resources */,
 				F58DB23126330DF200F66736 /* PictureCollectionViewCell.xib in Resources */,
 				F532D989265146B000DD43FA /* InstallViewController.xib in Resources */,
 				F576668B266FA7CD00D70B3F /* BrandTableViewCell.xib in Resources */,
@@ -1583,6 +1592,7 @@
 				F5DA4A67267F3865000015DD /* EnterpriseNetwork.m in Sources */,
 				F5A945DA26D3ED1D0040A4B7 /* PayOrderTableViewCell.m in Sources */,
 				F5303E9F26D26C2E005658F3 /* PayService.m in Sources */,
+				F5AE53032A8B6F1100DD59D4 /* EnterpriseViewController.m in Sources */,
 				F58DB24E2633308800F66736 /* ResultController.m in Sources */,
 				F5DA4A9F267F5646000015DD /* UIView+RefreshData.m in Sources */,
 				F5766684266F91AD00D70B3F /* InstallStatisticViewController.m in Sources */,
@@ -1775,7 +1785,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.5;
+				MARKETING_VERSION = 1.3.6;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chengdushanghai.einstallation-company";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1806,7 +1816,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.5;
+				MARKETING_VERSION = 1.3.6;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chengdushanghai.einstallation-company";
 				PRODUCT_NAME = "$(TARGET_NAME)";

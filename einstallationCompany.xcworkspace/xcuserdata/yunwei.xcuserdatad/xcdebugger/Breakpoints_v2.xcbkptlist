@@ -114,6 +114,38 @@
             endingLineNumber = "158"
             landmarkName = "-actionRegister:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E713C3D4-02C7-4372-BDCB-D919F019577A - 42bf674e70b94232"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[EnterpriseRegisterController actionRegister:]"
+                  moduleName = "einstallationCompany"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yunwei/Desktop/svn/einstall/iOS/com.chengdushanghai.einstallationmaster/einstallationCompany/EnterpriseLogin/Controller/EnterpriseRegisterController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158"
+                  offsetFromSymbolStart = "1604">
+               </Location>
+               <Location
+                  uuid = "E713C3D4-02C7-4372-BDCB-D919F019577A - 60944cdcc7db13fa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__47-[EnterpriseRegisterController actionRegister:]_block_invoke"
+                  moduleName = "einstallationCompany"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yunwei/Desktop/svn/einstall/iOS/com.chengdushanghai.einstallationmaster/einstallationCompany/EnterpriseLogin/Controller/EnterpriseRegisterController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -145,6 +177,38 @@
             startingLineNumber = "165"
             endingLineNumber = "165"
             landmarkName = "-requstAddress"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B0E8DF11-23AD-4161-872E-8862F579EDA7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "einstallationCompany/EnterpriseWallet/Service/EnterpriseWalletService.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "+requestWallet:andResultBlock:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6510ED35-47D8-413C-98A6-1DBEFFC07CA9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "einstallationCompany/EnterpriseWallet/Controller/ApproveViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "-requstOrderList:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

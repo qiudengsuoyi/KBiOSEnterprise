@@ -20,6 +20,7 @@
 #import "InstallStatisticViewController.h"
 #import "PayTypeViewController.h"
 #import <CloudPushSDK/CloudPushSDK.h>
+#import "EnterpriseViewController.h"
 
 
 @interface AppDelegate ()<UITabBarControllerDelegate,UITabBarDelegate,WXApiDelegate>
@@ -64,17 +65,6 @@
 
 
 
-//    EnterpriseNoticeController *workVC = [[EnterpriseNoticeController alloc] init];
-//    EnterpriseNavController *workNav = [[EnterpriseNavController alloc] initWithRootViewController:workVC];
-//    [self setTabBarItem:workVC.tabBarItem
-//    Title:@"公告"
-//    withTitleSize:12.0
-//    andFoneName:@"Marion-Italic"
-//    selectedImage:@"enterprise_tab_02"
-//    withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
-//    unselectedImage:@"enterprise_tab_02_u"
-//    withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
-//    workNav.navigationBar.translucent = NO;
     
     PayTypeViewController *workVC = [[PayTypeViewController alloc] init];
     EnterpriseNavController *workNav = [[EnterpriseNavController alloc] initWithRootViewController:workVC];
@@ -90,29 +80,19 @@
   
 
 
-//    InstallTaskController *orderVC = [[InstallTaskController alloc] init];
-//    EnterpriseNavController *orderNav = [[EnterpriseNavController alloc] initWithRootViewController:orderVC];
-//    [self setTabBarItem:orderVC.tabBarItem
-//    Title:@"未完成"
+//    InstallTaskController *taskVC = [[InstallTaskController alloc] init];
+//    EnterpriseNavController *taskNav = [[EnterpriseNavController alloc] initWithRootViewController:taskVC];
+//    [self setTabBarItem:taskVC.tabBarItem
+//    Title:@"任务列表"
 //    withTitleSize:12.0
 //    andFoneName:@"Marion-Italic"
 //    selectedImage:@"enterprise_tab_03"
 //    withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
 //    unselectedImage:@"enterprise_tab_03_u"
 //    withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
-//    orderNav.navigationBar.translucent = NO;
+//    taskNav.navigationBar.translucent = NO;
 
-    InstallStatisticViewController *orderVC = [[InstallStatisticViewController alloc] init];
-        EnterpriseNavController *orderNav = [[EnterpriseNavController alloc] initWithRootViewController:orderVC];
-        [self setTabBarItem:orderVC.tabBarItem
-        Title:@"安装统计"
-        withTitleSize:12.0
-        andFoneName:@"Marion-Italic"
-        selectedImage:@"enterprise_tab_03"
-        withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
-        unselectedImage:@"enterprise_tab_03_u"
-        withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
-        orderNav.navigationBar.translucent = NO;
+   
 
 
     UserController *ownerVC = [[UserController alloc] init];
@@ -126,6 +106,34 @@
     unselectedImage:@"enterprise_tab_04_u"
     withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
     ownerNav.navigationBar.translucent = NO;
+    
+    
+    
+    EnterpriseViewController *secondHomeVC = [[EnterpriseViewController alloc] init];
+    EnterpriseNavController *secondHomeNav = [[EnterpriseNavController alloc] initWithRootViewController:secondHomeVC];
+    [self setTabBarItem:secondHomeVC.tabBarItem
+    Title:@"首页"
+    withTitleSize:12.0
+    andFoneName:@"Marion-Italic"
+    selectedImage:@"enterprise_tab_01"
+    withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
+    unselectedImage:@"enterprise_tab_01_u"
+    withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
+    secondHomeNav.navigationBar.translucent = NO;
+    
+    
+    InstallStatisticViewController *orderVC = [[InstallStatisticViewController alloc] init];
+    EnterpriseNavController *orderNav = [[EnterpriseNavController alloc] initWithRootViewController:orderVC];
+        [self setTabBarItem:orderVC.tabBarItem
+        Title:@"安装统计"
+        withTitleSize:12.0
+        andFoneName:@"Marion-Italic"
+        selectedImage:@"enterprise_tab_03"
+        withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
+        unselectedImage:@"enterprise_tab_03_u"
+        withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
+        orderNav.navigationBar.translucent = NO;
+    
    
     [WXApi startLogByLevel:WXLogLevelNormal logBlock:^(NSString *log) {
         NSLog(@"log : %@", log);

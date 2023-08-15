@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString *ReportPrice;
 @property NSString *masterid;
 @property NSMutableArray<KeyValueEntity*> * resultarr;
+@property bool clickVisible;
 @end
 
 NS_ASSUME_NONNULL_END

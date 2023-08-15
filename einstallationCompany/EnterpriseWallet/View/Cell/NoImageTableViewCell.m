@@ -7,6 +7,7 @@
 
 #import "NoImageTableViewCell.h"
 #import <YYKit/YYKit.h>
+#import "UIImageView+WebCache.h"
 
 @implementation NoImageTableViewCell
 
@@ -23,7 +24,8 @@
 
 -(void)setModel:(KeyValueEntity*)model{
     model = self.itemModel;
-
+    NSURL *imageUrl = [NSURL URLWithString:model.PictureURL];
+    [self.iv sd_setImageWithURL:imageUrl];
     self.labelContent.text = model.Value;
     self.labelContent.textColor = [UIColor colorWithHexString:self.itemModel.Color];
    

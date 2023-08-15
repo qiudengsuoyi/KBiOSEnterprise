@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITableView *tbOrder;
 -(void)setTableOrder;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cellConstrainHeight;
+@property (weak, nonatomic) IBOutlet UIImageView *ivClick;
+
 @end
 
 NS_ASSUME_NONNULL_END

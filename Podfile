@@ -8,8 +8,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/aliyun/aliyun-specs.git'
 
 pod 'QGVAPlayer'
-
-
 pod 'LBLaunchImageAd','~> 1.1.3'
 pod 'SDWebImage'
 pod 'IQKeyboardManager'
@@ -24,4 +22,6 @@ pod 'BRPickerView'
 pod 'SDCycleScrollView','>= 1.82'
 pod 'WechatOpenSDK', '~> 1.8.6'
 pod 'AlicloudPush', '~> 1.9.9'
+pod 'FSPagerView'
+pod 'SGPagingView', '~> 2.1.0'
 end

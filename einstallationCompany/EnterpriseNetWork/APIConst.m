@@ -75,3 +75,8 @@ RPSSERVER_API const PASSWORD_INFO_URL = @"interface_Einstall/password1view.asp";
 RPSSERVER_API const CASE_LIST_URL = @"interface_Einstall/CompleteProjectList.asp";
 RPSSERVER_API const ADD_COMPLAIN_URL = @"interface_Einstall/ComplaintSubmit.asp";
 RPSSERVER_API const MODIFY_COMPLAIN_URL = @"interface_Einstall/ComplaintModify.asp";
+
+RPSSERVER_API const WALLET_URL = @"interface_Einstall/myWallet.asp";
+
+RPSSERVER_API const WALLET_RECHARGE_URL = @"interface_Einstall/Recharge.asp";
+RPSSERVER_API const WALLET_COST_URL = @"interface_Einstall/consumption.asp";

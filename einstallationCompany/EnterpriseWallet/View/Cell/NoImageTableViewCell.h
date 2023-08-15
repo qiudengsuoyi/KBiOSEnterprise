@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NoImageTableViewCell : UITableViewCell
 @property KeyValueEntity* itemModel;
+@property (weak, nonatomic) IBOutlet UIImageView *iv;
+
 @property (weak, nonatomic) IBOutlet UILabel *labelContent;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *vConstraintHeight;
 -(void)setModel:(KeyValueEntity*)model;

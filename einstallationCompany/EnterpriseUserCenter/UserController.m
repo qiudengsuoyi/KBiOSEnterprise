@@ -158,10 +158,10 @@
 }
 
 - (void)wallet {
-//    WalletViewController *vc = [[WalletViewController alloc]init];
-//    vc.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:vc animated:YES];
-    [SVProgressHUD showSuccessWithStatus:@"功能未开放，敬请期待！"];
+    EnterpriseWalletController *vc = [[EnterpriseWalletController alloc]init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+//    [SVProgressHUD showSuccessWithStatus:@"功能未开放，敬请期待！"];
     
 }
 
