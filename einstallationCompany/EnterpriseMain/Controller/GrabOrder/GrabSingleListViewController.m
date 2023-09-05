@@ -20,6 +20,8 @@
 #import "UIView+Extension.h"
 #import "PayViewController.h"
 #import "CaseListViewController.h"
+#import <SDWebImage/SDWebImage.h>
+#import "EvaluateListViewController.h"
 
 
 @interface GrabSingleListViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -90,13 +92,17 @@
     }
     OrderListEntity *itemModelList = [self.muKeyValueList objectAtIndex:indexPath.row];
     cell.keyValueList = itemModelList.resultarr;
+    
+    [cell.headImage sd_setImageWithURL:[NSURL URLWithString:itemModelList.headimage]
+                 placeholderImage:[UIImage imageNamed:@"picture_occupy.png"]];
+    
     CGFloat itemHeight;
     CGFloat totalHeight = 0;
     for (KeyValueEntity *itemModel in itemModelList.resultarr) {
         itemHeight = [(NSString *)itemModel.Value boundingRectWithSize:CGSizeMake((SCREENWIDTH-160), CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size.height+15;
         totalHeight = totalHeight+itemHeight;
     }
-    cell.cellConstrainHeight.constant = totalHeight+65;
+    cell.cellConstrainHeight.constant = totalHeight+95;
     [cell setTableOrder];
     WeakSelf;
     cell.confirmBlock = ^{
@@ -107,6 +113,13 @@
     };
     cell.caseBlock = ^{
         CaseListViewController *vc = [CaseListViewController alloc];
+        vc.masterID = itemModelList.masterid;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    
+    cell.evaluateBlock= ^{
+        EvaluateListViewController *vc = [EvaluateListViewController alloc];
         vc.masterID = itemModelList.masterid;
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
@@ -130,6 +143,8 @@
                 }
             if (self.muKeyValueList.count == 0) {
                 self.view.loadErrorType = YYLLoadErrorTypeNoData;
+            }else{
+                self.view.loadErrorType = YYLLoadErrorTypeDefalt;
             }
             [self.tbOrderList reloadData];
 

@@ -12,6 +12,7 @@
 #import "APIConst.h"
 #import "NSObject+YYModel.h"
 #import "CaseModel.h"
+#import "OrderListEntity.h"
 
 @implementation CaseService
 
@@ -37,6 +38,32 @@
                     [arrChild addObject:pictureModel];
                 }
                 model.pictureList = arrChild;
+                if (model) {
+                    [arr addObject:model];
+                }
+            }
+            if (resultBlock) {
+                resultBlock(arr,nil);
+            }
+        }else{
+            
+            if(data){
+                [SVProgressHUD showErrorWithStatus:data[@"msg"]];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"服务器出错，请稍后再试"];}
+        }
+    }];
+}
+
++ (void)requestEvaluateList:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
+    [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:MASTER_EVALUATE_URL
+                                             withParams:params
+                                         withMethodType:TypeIsPOST andBlock:^(id data, id error) {
+        
+        if ([data[@"code"]integerValue] == 1) {
+            NSMutableArray *arr = [NSMutableArray array];
+            for (NSDictionary *dic in data[@"data"]) {
+                OrderListEntity *model = [OrderListEntity modelWithJSON:dic];
                 if (model) {
                     [arr addObject:model];
                 }

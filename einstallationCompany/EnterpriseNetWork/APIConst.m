@@ -28,6 +28,8 @@ RPSSERVER_API const STRTELPHONE = @"4008321696";
 RPSSERVER_API const WE_CHAT_APPID = @"wx89acf4edb3f0f38b";
 RPSSERVER_API const UNIVERSAL_LINK = @"https://www.einstall.net/einstallcompany/";
 
+RPSSERVER_API const NOTIFICATION_TASK_NAME = @"TaskRelese";
+
 
 RPSSERVER_API const ENTERPRISE_LOGIN_URL = @"Interface_Einstall/logincheck1.asp";
 RPSSERVER_API const ENTERPRISE_REGISTER_CODE_URL = @"Interface_Einstall/code.asp";
@@ -79,3 +81,8 @@ RPSSERVER_API const GRAB_ORDER_ITEM_DETAIL_URL = @"Interface_Einstall/FastOrderD
 RPSSERVER_API const GRAB_ORDER_EVALUATE_URL = @"Interface_Einstall/FastOrderAuditSubmit.asp";
 RPSSERVER_API const CONFIRM_MASTER_URL = @"Interface_Einstall/FastOrderAssignSubmit.asp";
 RPSSERVER_API const RELEASE_SELECT_CONFIG_URL = @"Interface_Einstall/FastOrderConfig.asp";
+RPSSERVER_API const MASTER_EVALUATE_URL = @"Interface_Einstall/evaluateList1.asp";
+RPSSERVER_API const FAIL_LIST_URL = @"Interface_Einstall/FastOrderList2.asp";
+RPSSERVER_API const TASK_ISSUE_PASS_URL = @"Interface_Einstall/appealexamine1submit.asp";
+RPSSERVER_API const REQUEST_TASK_ISSUE_URL = @"Interface_Einstall/appeal1submit.asp";
+

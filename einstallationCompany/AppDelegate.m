@@ -19,10 +19,16 @@
 #import "WXApiManager.h"
 #import "InstallStatisticViewController.h"
 #import "PayTypeViewController.h"
+#import "GrabOrderTabViewController.h"
 #import <CloudPushSDK/CloudPushSDK.h>
+#import "EnterpriseViewController.h"
+#import "SVProgressHUD.h"
+#import "EnterpriseLoginController.h"
 
 
 @interface AppDelegate ()<UITabBarControllerDelegate,UITabBarDelegate,WXApiDelegate>
+
+
 
 @end
 
@@ -50,82 +56,10 @@
 
 //    //1.创建Tab所属的ViewController
 //    //首页
-    EnterpriseMainController *homeVC = [[EnterpriseMainController alloc] init];
-    EnterpriseNavController *homeNav = [[EnterpriseNavController alloc] initWithRootViewController:homeVC];
-    [self setTabBarItem:homeVC.tabBarItem
-    Title:@"首页"
-    withTitleSize:12.0
-    andFoneName:@"Marion-Italic"
-    selectedImage:@"enterprise_tab_01"
-    withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
-    unselectedImage:@"enterprise_tab_01_u"
-    withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
-    homeNav.navigationBar.translucent = NO;
-
-
-
-//    EnterpriseNoticeController *workVC = [[EnterpriseNoticeController alloc] init];
-//    EnterpriseNavController *workNav = [[EnterpriseNavController alloc] initWithRootViewController:workVC];
-//    [self setTabBarItem:workVC.tabBarItem
-//    Title:@"公告"
-//    withTitleSize:12.0
-//    andFoneName:@"Marion-Italic"
-//    selectedImage:@"enterprise_tab_02"
-//    withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
-//    unselectedImage:@"enterprise_tab_02_u"
-//    withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
-//    workNav.navigationBar.translucent = NO;
+   
     
-    PayTypeViewController *workVC = [[PayTypeViewController alloc] init];
-    EnterpriseNavController *workNav = [[EnterpriseNavController alloc] initWithRootViewController:workVC];
-    [self setTabBarItem:workVC.tabBarItem
-    Title:@"发布任务"
-    withTitleSize:12.0
-    andFoneName:@"Marion-Italic"
-    selectedImage:@"enterprise_tab_02"
-    withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
-    unselectedImage:@"enterprise_tab_02_u"
-    withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
-    workNav.navigationBar.translucent = NO;
-  
-
-
-//    InstallTaskController *orderVC = [[InstallTaskController alloc] init];
-//    EnterpriseNavController *orderNav = [[EnterpriseNavController alloc] initWithRootViewController:orderVC];
-//    [self setTabBarItem:orderVC.tabBarItem
-//    Title:@"未完成"
-//    withTitleSize:12.0
-//    andFoneName:@"Marion-Italic"
-//    selectedImage:@"enterprise_tab_03"
-//    withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
-//    unselectedImage:@"enterprise_tab_03_u"
-//    withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
-//    orderNav.navigationBar.translucent = NO;
-
-    InstallStatisticViewController *orderVC = [[InstallStatisticViewController alloc] init];
-        EnterpriseNavController *orderNav = [[EnterpriseNavController alloc] initWithRootViewController:orderVC];
-        [self setTabBarItem:orderVC.tabBarItem
-        Title:@"安装统计"
-        withTitleSize:12.0
-        andFoneName:@"Marion-Italic"
-        selectedImage:@"enterprise_tab_03"
-        withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
-        unselectedImage:@"enterprise_tab_03_u"
-        withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
-        orderNav.navigationBar.translucent = NO;
-
-
-    UserController *ownerVC = [[UserController alloc] init];
-    EnterpriseNavController *ownerNav = [[EnterpriseNavController alloc] initWithRootViewController:ownerVC];
-    [self setTabBarItem:ownerVC.tabBarItem
-    Title:@"我的"
-    withTitleSize:12.0
-    andFoneName:@"Marion-Italic"
-    selectedImage:@"enterprise_tab_04"
-    withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
-    unselectedImage:@"enterprise_tab_04_u"
-    withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
-    ownerNav.navigationBar.translucent = NO;
+   
+    
    
     [WXApi startLogByLevel:WXLogLevelNormal logBlock:^(NSString *log) {
         NSLog(@"log : %@", log);
@@ -133,24 +67,157 @@
     
     //向微信注册,发起支付必须注册
     [WXApi registerApp:WE_CHAT_APPID universalLink:UNIVERSAL_LINK];
-    //2、创建一个数组，放置多有控制器
-    NSArray *vcArray = [NSArray arrayWithObjects:homeNav, workNav,orderNav,ownerNav, nil];
-    //3、创建UITabBarController，将控制器数组设置给UITabBarController
-    self.tabBarVC = [[EnterpriseUITabBarController alloc] init];
-    //设置多个Tab的ViewController到TabBarViewController
-    self.tabBarVC.viewControllers = vcArray;
-//    BaseNavigationController * tabBarNav = [[BaseNavigationController alloc] initWithRootViewController: self.tabBarVC];
-    //4、将UITabBarController设置为Window的RootViewController
-    self.window.rootViewController = self.tabBarVC;
-    self.tabBarVC.delegate = self;
-  
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    //显示Window
-    [self.window makeKeyAndVisible];
+//    //2、创建一个数组，放置多有控制器
+//    NSArray *vcArray = [NSArray arrayWithObjects:homeNav, workNav,orderNav,ownerNav, nil];
+//    //3、创建UITabBarController，将控制器数组设置给UITabBarController
+//    self.tabBarVC = [[EnterpriseUITabBarController alloc] init];
+//    //设置多个Tab的ViewController到TabBarViewController
+//    self.tabBarVC.viewControllers = vcArray;
+////    BaseNavigationController * tabBarNav = [[BaseNavigationController alloc] initWithRootViewController: self.tabBarVC];
+//    //4、将UITabBarController设置为Window的RootViewController
+//    self.window.rootViewController = self.tabBarVC;
+//    self.tabBarVC.delegate = self;
+//
+//    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+//    //显示Window
+//    [self.window makeKeyAndVisible];
     
+    [self setBottomNav];
+    self.tabBarVC.delegate = self;
     [self configLBLaunchImageAdView];
     // Override point for customization after application launch.
     return YES;
+}
+
+-(void)setBottomNav{
+    NSArray *vcArray;
+    NSString * userID = [[NSUserDefaults standardUserDefaults] valueForKey:ENTERPRISE_USERID];
+    NSString * browseType = [[NSUserDefaults standardUserDefaults] valueForKey:ENTERPRISE_BROWSETYPE];
+    self.tabBarVC = [[EnterpriseUITabBarController alloc] init];
+    if(userID.length>0&&browseType.intValue != 3){
+        EnterpriseViewController *homeTwoVC = [[EnterpriseViewController alloc] init];
+        self.homeTwoNav = [[EnterpriseNavController alloc] initWithRootViewController:homeTwoVC];
+            [self setTabBarItem:homeTwoVC.tabBarItem
+            Title:@"首页"
+            withTitleSize:12.0
+            andFoneName:@"Marion-Italic"
+            selectedImage:@"enterprise_tab_01"
+            withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
+            unselectedImage:@"enterprise_tab_01_u"
+            withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
+        self.homeTwoNav.navigationBar.translucent = NO;
+        
+        
+        InstallStatisticViewController *orderVC = [[InstallStatisticViewController alloc] init];
+        self.orderNav = [[EnterpriseNavController alloc] initWithRootViewController:orderVC];
+            [self setTabBarItem:orderVC.tabBarItem
+            Title:@"安装统计"
+            withTitleSize:12.0
+            andFoneName:@"Marion-Italic"
+            selectedImage:@"enterprise_tab_03"
+            withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
+            unselectedImage:@"enterprise_tab_03_u"
+            withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
+        self.orderNav.navigationBar.translucent = NO;
+        
+
+
+        UserController *ownerVC = [[UserController alloc] init];
+        self.ownerNav = [[EnterpriseNavController alloc] initWithRootViewController:ownerVC];
+        [self setTabBarItem:ownerVC.tabBarItem
+        Title:@"我的"
+        withTitleSize:12.0
+        andFoneName:@"Marion-Italic"
+        selectedImage:@"enterprise_tab_04"
+        withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
+        unselectedImage:@"enterprise_tab_04_u"
+        withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
+        self.ownerNav.navigationBar.translucent = NO;
+        vcArray = [NSArray arrayWithObjects:self.homeTwoNav,self.orderNav,self.ownerNav, nil];
+    }else{
+        EnterpriseMainController *homeVC = [[EnterpriseMainController alloc] init];
+        self.homeNav = [[EnterpriseNavController alloc] initWithRootViewController:homeVC];
+        [self setTabBarItem:homeVC.tabBarItem
+        Title:@"首页"
+        withTitleSize:12.0
+        andFoneName:@"Marion-Italic"
+        selectedImage:@"enterprise_tab_01"
+        withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
+        unselectedImage:@"enterprise_tab_01_u"
+        withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
+        self.homeNav.navigationBar.translucent = NO;
+
+
+
+    //    EnterpriseNoticeController *workVC = [[EnterpriseNoticeController alloc] init];
+    //    EnterpriseNavController *workNav = [[EnterpriseNavController alloc] initWithRootViewController:workVC];
+    //    [self setTabBarItem:workVC.tabBarItem
+    //    Title:@"公告"
+    //    withTitleSize:12.0
+    //    andFoneName:@"Marion-Italic"
+    //    selectedImage:@"enterprise_tab_02"
+    //    withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
+    //    unselectedImage:@"enterprise_tab_02_u"
+    //    withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
+    //    workNav.navigationBar.translucent = NO;
+        
+        PayTypeViewController *workVC = [[PayTypeViewController alloc] init];
+        self.workNav = [[EnterpriseNavController alloc] initWithRootViewController:workVC];
+        [self setTabBarItem:workVC.tabBarItem
+        Title:@"发布任务"
+        withTitleSize:12.0
+        andFoneName:@"Marion-Italic"
+        selectedImage:@"enterprise_tab_02"
+        withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
+        unselectedImage:@"enterprise_tab_02_u"
+        withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
+        self.workNav.navigationBar.translucent = NO;
+      
+
+
+    //    InstallTaskController *orderVC = [[InstallTaskController alloc] init];
+    //    EnterpriseNavController *orderNav = [[EnterpriseNavController alloc] initWithRootViewController:orderVC];
+    //    [self setTabBarItem:orderVC.tabBarItem
+    //    Title:@"未完成"
+    //    withTitleSize:12.0
+    //    andFoneName:@"Marion-Italic"
+    //    selectedImage:@"enterprise_tab_03"
+    //    withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
+    //    unselectedImage:@"enterprise_tab_03_u"
+    //    withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
+    //    orderNav.navigationBar.translucent = NO;
+
+        GrabOrderTabViewController *grabListVC = [[GrabOrderTabViewController alloc] init];
+            self.grabListNav = [[EnterpriseNavController alloc] initWithRootViewController:grabListVC];
+            [self setTabBarItem:grabListVC.tabBarItem
+            Title:@"任务列表"
+            withTitleSize:12.0
+            andFoneName:@"Marion-Italic"
+            selectedImage:@"enterprise_tab_03"
+            withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
+            unselectedImage:@"enterprise_tab_03_u"
+            withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
+        self.grabListNav.navigationBar.translucent = NO;
+
+
+        UserController *ownerVC = [[UserController alloc] init];
+        self.ownerNav = [[EnterpriseNavController alloc] initWithRootViewController:ownerVC];
+        [self setTabBarItem:ownerVC.tabBarItem
+        Title:@"我的"
+        withTitleSize:12.0
+        andFoneName:@"Marion-Italic"
+        selectedImage:@"enterprise_tab_04"
+        withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
+        unselectedImage:@"enterprise_tab_04_u"
+        withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
+        self.ownerNav.navigationBar.translucent = NO;
+        vcArray = [NSArray arrayWithObjects:self.homeNav, self.workNav,self.grabListNav,self.ownerNav, nil];
+    }
+    self.tabBarVC.viewControllers = vcArray;
+    self.window.rootViewController = self.tabBarVC;
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    //显示Window
+    [self.window makeKeyAndVisible];
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
@@ -205,9 +272,39 @@
  * 当选中控制器时回调
  */
 - (void) tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    NSString * userID = [[NSUserDefaults standardUserDefaults] valueForKey:ENTERPRISE_USERID];
     //选中的ViewController实例
     UIViewController *selectVC = tabBarController.selectedViewController;
     NSLog(@"选中的index: %zd， 选中的ViewController: %@", tabBarController.selectedIndex, selectVC);
+    if(tabBarController.selectedIndex == 1){
+       
+        if(userID.length>0){
+            
+        }else{
+            
+            
+            [SVProgressHUD showInfoWithStatus:@"暂未登录，请先登录！"];
+            EnterpriseLoginController *vc = [[EnterpriseLoginController alloc]init];
+            vc.hidesBottomBarWhenPushed = YES;
+            UINavigationController *navController = (UINavigationController *)selectVC;
+                        [navController pushViewController:vc animated:YES];
+            
+        }
+    }else if(tabBarController.selectedIndex == 2){
+        if(userID.length>0){
+            
+        }else{
+            
+    
+            [SVProgressHUD showInfoWithStatus:@"暂未登录，请先登录！"];
+            EnterpriseLoginController *vc = [[EnterpriseLoginController alloc]init];
+            vc.hidesBottomBarWhenPushed = YES;
+            UINavigationController *navController = (UINavigationController *)selectVC;
+                        [navController pushViewController:vc animated:YES];
+            
+            
+        }
+    }
 }
 
 

@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString* recordID;
 @property (weak, nonatomic) IBOutlet JWStarView *starView;
 @property (weak, nonatomic) IBOutlet UIView *vEvaluate;
+@property (weak, nonatomic) IBOutlet UIView *vIssue;
+@property (weak, nonatomic) IBOutlet UILabel *tvAudit;
 
 
 @end

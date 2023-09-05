@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tbOrderList;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView1;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView2;
+
+@property UIView *navView;
 @property NSInteger index01;
 @property NSInteger index02;
 @property NSArray * btName01;
@@ -41,8 +43,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
     [self addBackItem];
+
     self.btName01 = @[@"全部", @"施工中", @"待审核", @"不通过"];
     self.btName02 = @[@"所有任务", @"3天内",@"3天外",@"已过期"];
     self.muKeyValueList = [NSMutableArray arrayWithCapacity:0];
@@ -69,18 +72,20 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 //    [self collectionView:self.collectionView2 didDeselectItemAtIndexPath:self.selectIndexPath];
     self.selectIndexPath = [NSIndexPath indexPathForRow:self.position inSection:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.position inSection:0];
         
         [self.collectionView2 selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
         [self collectionView:self.collectionView2 didSelectItemAtIndexPath:indexPath];
-    [self addControllerView];
+  
+    
     //注册键盘出现通知
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
         // 注册键盘隐藏通知
         [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
-    
+    [self addControllerView];
     [self.tbOrderList configureMJRefreshWithHader:^(NSInteger page) {
         self.lastID = @"";
         [self requstOrderList:YES];
@@ -88,6 +93,7 @@
         [self requstOrderList:NO];
 
     }];
+    
 }
 
 
@@ -145,17 +151,17 @@
     CGFloat navHeight = self.navigationController.navigationBar.frame.size.height;
     NSLog(@"导航栏高度：%f",navHeight);
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(80, statusBarHeight+(navHeight-36)/2,SCREENWIDTH -100, 36.0f)];
-    view.layer.cornerRadius = 8;
-    view.layer.masksToBounds = YES;
-    [view.layer setBorderWidth:2];
-    [view.layer setBorderColor:[UIColor whiteColor].CGColor];
-    [view setBackgroundColor:[UIColor whiteColor]];
+    self.navView = [[UIView alloc] initWithFrame:CGRectMake(80, statusBarHeight+(navHeight-36)/2,SCREENWIDTH -100, 36.0f)];
+    self.navView .layer.cornerRadius = 8;
+    self.navView .layer.masksToBounds = YES;
+    [self.navView .layer setBorderWidth:2];
+    [self.navView .layer setBorderColor:[UIColor whiteColor].CGColor];
+    [self.navView  setBackgroundColor:[UIColor whiteColor]];
     UIImageView*imageView = [[UIImageView alloc] initWithFrame:CGRectMake(3, 7, 26, 26)];
     [imageView setImage:[UIImage imageNamed:@"search.png"]];
-    [view setTag:20];
+    [self.navView setTag:21];
     
-   self.searchBar = [[UITextField alloc] init];
+    self.searchBar = [[UITextField alloc] init];
     self.searchBar.frame = CGRectMake(32, 3, SCREENWIDTH -100, 34);
     
 
@@ -167,11 +173,12 @@
          }];
     self.searchBar.attributedPlaceholder = attrString;
     
-    [view addSubview:imageView];
-    [view addSubview:self.searchBar];
+    [self.navView  addSubview:imageView];
+    [self.navView  addSubview:self.searchBar];
+   
     
-    
-    [self.navigationController.view addSubview:view];
+    [self.navigationController.view addSubview:self.navView];
+    [self.navigationController.view bringSubviewToFront:self.navView];
     
 }
 
@@ -182,7 +189,7 @@
         if([tmpView isKindOfClass:[UIView class]])
         {
             UIView *view = (UIView *) tmpView;
-            if(view.tag == 20)   //判断是否满足自己要删除的子视图的条件
+            if(view.tag == 21)   //判断是否满足自己要删除的子视图的条件
             {
                 [view removeFromSuperview]; //删除子视图
                 
@@ -476,10 +483,10 @@
                 }
             if (self.muKeyValueList.count == 0) {
                
-                self.tbOrderList.loadErrorType = YYLLoadErrorTypeNoData;
+                self.view.loadErrorType = YYLLoadErrorTypeNoData;
                 
             }else{
-                self.tbOrderList.loadErrorType = YYLLoadErrorTypeDefalt;
+                self.view.loadErrorType = YYLLoadErrorTypeDefalt;
             }
             [self.tbOrderList reloadData];
 

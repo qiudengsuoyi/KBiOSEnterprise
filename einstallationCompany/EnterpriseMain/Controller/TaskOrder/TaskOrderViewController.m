@@ -124,10 +124,10 @@
                 
             if (self.muKeyValueList.count == 0) {
                
-                self.tbOrderList.loadErrorType = YYLLoadErrorTypeNoData;
+                self.view.loadErrorType = YYLLoadErrorTypeNoData;
                 
             }else{
-                self.tbOrderList.loadErrorType = YYLLoadErrorTypeDefalt;
+                self.view.loadErrorType = YYLLoadErrorTypeDefalt;
             }
             [self.tbOrderList reloadData];
 

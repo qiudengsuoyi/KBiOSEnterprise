@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString *lasti;
 @property NSString *ReportPrice;
 @property NSString *masterid;
+@property NSString *applytype;
+@property NSString *headimage;
 @property NSMutableArray<KeyValueEntity*> * resultarr;
 @end
 

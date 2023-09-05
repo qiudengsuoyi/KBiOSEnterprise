@@ -219,6 +219,8 @@
                 }
             if (self.muKeyValueList.count == 0) {
                 self.view.loadErrorType = YYLLoadErrorTypeNoData;
+            }else{
+                self.view.loadErrorType = YYLLoadErrorTypeDefalt;
             }
             [self.tbOrderList reloadData];
 

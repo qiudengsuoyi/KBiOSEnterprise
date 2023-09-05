@@ -116,6 +116,8 @@
                 }
             if (self.dataList.count == 0) {
                 self.view.loadErrorType = YYLLoadErrorTypeNoData;
+            }else{
+                self.view.loadErrorType = YYLLoadErrorTypeDefalt;
             }
             [self.tb reloadData];
 

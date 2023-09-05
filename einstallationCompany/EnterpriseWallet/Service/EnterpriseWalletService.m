@@ -34,6 +34,9 @@
     }];
 }
 
+
+
+
 + (void)requestInstallType:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
     [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:INSTALL_TYPE_URL
                                              withParams:params
@@ -54,6 +57,8 @@
         }
     }];
 }
+
+
 
 + (void)requestReleasePerson:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
     [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:RELEASE_PERSON_URL

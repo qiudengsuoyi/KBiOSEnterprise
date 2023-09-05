@@ -34,15 +34,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EnterpriseMainController : EnterpriseBaseController
 @property (weak, nonatomic) IBOutlet UIView *view01;
-@property (weak, nonatomic) IBOutlet UIView *vNOAcceptTask;
-@property (weak, nonatomic) IBOutlet UIView *vTimeOutTask;
 @property (weak, nonatomic) IBOutlet UIView *vCircle01;
 @property (weak, nonatomic) IBOutlet UIView *vCircle02;
 @property (weak, nonatomic) IBOutlet UIView *vCircle03;
 @property (weak, nonatomic) IBOutlet UIView *vNotice01;
 @property (weak, nonatomic) IBOutlet UIView *vNotice02;
-@property (weak, nonatomic) IBOutlet UILabel *labelNum01;
-@property (weak, nonatomic) IBOutlet UILabel *labelNum02;
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle01;
 @property (weak, nonatomic) IBOutlet UILabel *labelContent01;
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle02;

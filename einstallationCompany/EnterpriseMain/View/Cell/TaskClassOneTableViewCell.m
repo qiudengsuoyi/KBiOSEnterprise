@@ -55,12 +55,22 @@
     // 2. 将点击事件添加到label上
     [self.labelCase addGestureRecognizer:labelTapGestureRecognizer];
     self.labelCase.userInteractionEnabled = YES;
+    
+    labelTapGestureRecognizer = [[UITapGestureRecognizer alloc]
+                                                         initWithTarget:self action:@selector(evaluate)];
+    // 2. 将点击事件添加到label上
+    [self.tvEvaluate addGestureRecognizer:labelTapGestureRecognizer];
+    self.tvEvaluate.userInteractionEnabled = YES;
 
     
 }
 
 -(void)caseShow{
     self.caseBlock();
+}
+
+-(void)evaluate{
+    self.evaluateBlock();
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

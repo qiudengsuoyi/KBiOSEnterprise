@@ -145,7 +145,7 @@
     };
     [PayService requestConfirmMaster:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
         if (data) {
-            [SVProgressHUD showSuccessWithStatus:data[@"msg"]];
+            [SVProgressHUD showSuccessWithStatus:data];
             [self.navigationController popToRootViewControllerAnimated:YES];
         }
     }];

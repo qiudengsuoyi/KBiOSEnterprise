@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,7 +12,7 @@
             <connections>
                 <outlet property="ivResult" destination="u3T-Sc-O15" id="ViE-Ak-F1I"/>
                 <outlet property="label01" destination="mRu-qO-D9I" id="Xpn-0V-vQF"/>
-                <outlet property="label02" destination="RJU-9W-zhs" id="6hS-IH-qad"/>
+                <outlet property="label02" destination="9X0-t7-8pt" id="TbW-zD-1Dc"/>
                 <outlet property="vConstraintHeight" destination="BCm-wG-jLV" id="MMD-gT-T95"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -31,26 +31,26 @@
                                 <constraint firstAttribute="width" secondItem="u3T-Sc-O15" secondAttribute="height" multiplier="505:694" id="9vg-KT-Ign"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="恭喜您已经成功参与抢单" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRu-qO-D9I">
-                            <rect key="frame" x="109" y="363" width="157.5" height="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发布成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRu-qO-D9I">
+                            <rect key="frame" x="158.5" y="363" width="58" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.49019607843137253" green="0.49019607843137253" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请保持电话畅通等待客户和您进一步沟通" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJU-9W-zhs">
-                            <rect key="frame" x="59" y="383" width="257.5" height="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="恭喜您已经成功指派该师傅！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9X0-t7-8pt">
+                            <rect key="frame" x="94.5" y="388" width="186" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.49019607843137253" green="0.49019607843137253" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="RJU-9W-zhs" firstAttribute="top" secondItem="mRu-qO-D9I" secondAttribute="bottom" constant="3" id="3qN-OC-c9U"/>
                         <constraint firstAttribute="height" constant="400" id="BCm-wG-jLV"/>
-                        <constraint firstItem="RJU-9W-zhs" firstAttribute="centerX" secondItem="3O4-sa-2T1" secondAttribute="centerX" id="JAT-Yg-yDo"/>
+                        <constraint firstItem="9X0-t7-8pt" firstAttribute="centerX" secondItem="3O4-sa-2T1" secondAttribute="centerX" id="EKw-q0-4y1"/>
                         <constraint firstItem="u3T-Sc-O15" firstAttribute="top" secondItem="3O4-sa-2T1" secondAttribute="top" id="LvX-1v-SCr"/>
                         <constraint firstItem="u3T-Sc-O15" firstAttribute="leading" secondItem="3O4-sa-2T1" secondAttribute="leading" constant="70" id="UrV-gX-rIS"/>
+                        <constraint firstItem="9X0-t7-8pt" firstAttribute="top" secondItem="mRu-qO-D9I" secondAttribute="bottom" constant="8" symbolic="YES" id="tLS-QO-x9V"/>
                         <constraint firstItem="mRu-qO-D9I" firstAttribute="top" secondItem="u3T-Sc-O15" secondAttribute="bottom" constant="40" id="tUG-2h-pny"/>
                         <constraint firstItem="mRu-qO-D9I" firstAttribute="centerX" secondItem="3O4-sa-2T1" secondAttribute="centerX" id="v1K-sU-xSX"/>
                         <constraint firstAttribute="trailing" secondItem="u3T-Sc-O15" secondAttribute="trailing" constant="70" id="zrk-RZ-QYL"/>

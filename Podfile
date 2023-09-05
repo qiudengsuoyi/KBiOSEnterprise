@@ -24,4 +24,5 @@ pod 'BRPickerView'
 pod 'SDCycleScrollView','>= 1.82'
 pod 'WechatOpenSDK', '~> 1.8.6'
 pod 'AlicloudPush', '~> 1.9.9'
+pod 'FSPagerView'
 end

@@ -58,33 +58,35 @@
     self.tbOrder.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tbOrder registerNib:[UINib nibWithNibName:NSStringFromClass([OrderItemTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([OrderItemTableViewCell class])];
     [self.tbOrder reloadData];
-   
+    [self.bt03 setTitle:self.model.applytype forState:UIControlStateNormal];
+    [self.bt01 setTitle:self.model.applytype forState:UIControlStateNormal];
+    self.btEdit.hidden = YES;
             self.btEdit.hidden = YES;
             switch ([self.OrderState intValue]) {
                 case 0:
                     self.bt01.hidden = NO;
                     self.bt02.hidden = NO;
                     self.bt03.hidden = YES;
-                    self.btEdit.hidden = NO;
+                    
                     break;
                 case 1:
                     self.bt01.hidden = YES;
                     self.bt02.hidden = YES;
                     self.bt03.hidden = NO;
-                    [self.bt03 setTitle:@"已取消" forState:UIControlStateNormal];
+                 
                     self.bt03.backgroundColor = [UIColor darkGrayColor];
-                    [ self.bt03 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                    [self.bt03 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                     break;
-                case 2:
+              
+                    
+                    
+                default:
                     self.bt01.hidden = YES;
                     self.bt02.hidden = YES;
                     self.bt03.hidden = NO;
-                    [self.bt03 setTitle:@"已指派" forState:UIControlStateNormal];
+                
                     self.bt03.backgroundColor = [UIColor colorWithHexString:@"#DE6D55"];
-                    [ self.bt03 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-                    break;
-                    
-                default:
+                    [self.bt03 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                     break;
             }
             
@@ -115,18 +117,18 @@
 }
 
 - (IBAction)actionConfirm:(id)sender {
-    if([self.OrderState intValue] == 2){
+    
         if (self.confirmBlock) {
             self.confirmBlock();
-        }}
+        }
 }
 
 
 - (IBAction)actionDetail:(id)sender {
-  
-        GrabSingleListViewController *vc = [[GrabSingleListViewController alloc]init];
-        vc.recordID = self.recordID;
-        [[UIViewController getCurrentUIVC].navigationController pushViewController:vc animated:YES];
+    if (self.confirmBlock) {
+        self.confirmBlock();
+    }
+       
         
    
 }

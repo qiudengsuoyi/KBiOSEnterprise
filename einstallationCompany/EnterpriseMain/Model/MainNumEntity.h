@@ -13,7 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MainNumEntity : NSObject
 @property NSString * acceptnum;
 @property NSString * overtimenum;
+@property NSString * FastNum3;
 @property NSMutableArray <NoticeEntity*> *Noticearr;
+@property NSMutableArray <NSString*> *bannerarr;
+@property NSMutableArray <NSString*> *rollarr;
+
 @end
 
 NS_ASSUME_NONNULL_END
