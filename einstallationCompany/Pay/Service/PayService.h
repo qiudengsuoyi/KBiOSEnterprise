@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PayService : NSObject
 + (void)requestPay:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 + (void)requestOrderInfo:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
-
++ (void)requestConfirmMaster:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 + (void)requestOrderEditInfo:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 
 + (void)requestOrderSubmit:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;

@@ -8,7 +8,6 @@
 #import "EnterpriseMainController.h"
 #import "GrabOrderTabViewController.h"
 #import "EnterpriseNavController.h"
-#import "WaitTaskListController.h"
 #import "InstallTaskController.h"
 #import "PayTypeViewController.h"
 #import "InstallStatisticViewController.h"
@@ -21,59 +20,112 @@
 #import "DialogTwoButtonView.h"
 #import "UIView+Extension.h"
 #import "EnterpriseNoticeController.h"
+#import "einstallationCompany-Bridging-Header.h"
+#import "FSPagerView-Swift.h"
+#import <WebKit/WebKit.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "MainScrollViewCell.h"
+#import <YYKit/YYKit.h>
+#import "SUTableView.h"
+#import "GrabFailTabViewController.h"
+#import "GrabAuditTabViewController.h"
 
-
-@interface EnterpriseMainController ()
+@interface EnterpriseMainController ()<FSPagerViewDelegate,
+FSPagerViewDataSource,UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet FSPagerView *pagerView;
+@property (weak, nonatomic) IBOutlet SUTableView *tableView;
+@property (nonatomic, assign) CGFloat scrollDistance;
+@property (nonatomic, strong) NSTimer *scrollTimer;
+@property (weak, nonatomic) IBOutlet UILabel *labelNum;
 
 @end
 
 @implementation EnterpriseMainController
 
 
+- (void)startAutoScroll {
+    self.scrollTimer = [NSTimer scheduledTimerWithTimeInterval:0.1
+                                                         target:self
+                                                       selector:@selector(scrollContent)
+                                                       userInfo:nil
+                                                        repeats:YES];
+}
 
+- (void)scrollContent {
+    CGPoint contentOffset = self.tableView.contentOffset;
+    contentOffset.y += self.scrollDistance;
+
+    
+    [self.tableView setContentOffset:contentOffset animated:YES];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     [self checkVersion];
     [self requstMainNum];
     
 }
+-(void)viewWillDisappear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    [self requstRedNum];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // 1. 创建一个点击事件，点击时触发labelClick方法
-    UITapGestureRecognizer *labelTapGestureRecognizer = [[UITapGestureRecognizer alloc]
-                                                         initWithTarget:self action:@selector(labelClick4)];
-    // 2. 将点击事件添加到label上
-    [self.vNOAcceptTask addGestureRecognizer:labelTapGestureRecognizer];
-    self.vNOAcceptTask.userInteractionEnabled = YES; // 可以理解为设置label可被点击//
+    // 这个方法是设置导航栏背景颜色，状态栏也会随之变色
+ 
+    if (@available(iOS 13.0, *)) {
+        UIWindowScene *windowScene = (UIWindowScene *)[UIApplication sharedApplication].connectedScenes.anyObject;
+        // 更改状态栏样式为浅色内容（白色文字）
+        UIView *statusBar = [[UIView alloc] initWithFrame:windowScene.statusBarManager.statusBarFrame];
+        statusBar.backgroundColor = [UIColor colorWithHexString:@"#5787db"];
+   
+[self.view addSubview:statusBar];
+    } else {
+
+        UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+          if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
+              statusBar.backgroundColor = [UIColor colorWithHexString:@"#5787db"];
+          }
+    }
+                
+    _pagerView.delegate = self;
+    _pagerView.dataSource = self;
+    _pagerView.automaticSlidingInterval = 3;
+    _pagerView.isInfinite = YES;
+    _pagerView.interitemSpacing = 0;
+    [self.pagerView registerClass:[FSPagerViewCell class] forCellWithReuseIdentifier:@"cell"];
     
-    
-    
-    labelTapGestureRecognizer = [[UITapGestureRecognizer alloc]
-                                                         initWithTarget:self action:@selector(labelClick2)];
-    // 2. 将点击事件添加到label上
-    [self.vTimeOutTask addGestureRecognizer:labelTapGestureRecognizer];
-    self.vTimeOutTask.userInteractionEnabled = YES;
-    
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.allowsSelection = NO;
+    _tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.estimatedRowHeight = 50.0;
+    self.scrollDistance = 10.0; // 设置每次滚动的距离
+    // 关闭手指滑动功能
+        self.tableView.scrollEnabled = NO;
+    [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([MainScrollViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([MainScrollViewCell class])];
+
     
     
     UITapGestureRecognizer *labelTapGestureRecognizer1 = [[UITapGestureRecognizer alloc]
-                                                          initWithTarget:self action:@selector(noticeClick)];
+                                                          initWithTarget:self action:@selector(labelClick1)];
     // 2. 将点击事件添加到label上
     [self.vCircle01 addGestureRecognizer:labelTapGestureRecognizer1];
     self.vCircle01.userInteractionEnabled = YES;
 
     
     
-    labelTapGestureRecognizer = [[UITapGestureRecognizer alloc]
-                                 initWithTarget:self action:@selector(labelClick1)];
+    UITapGestureRecognizer * labelTapGestureRecognizer = [[UITapGestureRecognizer alloc]
+                                 initWithTarget:self action:@selector(toTaskList)];
 
     [self.vCircle03 addGestureRecognizer:labelTapGestureRecognizer];
     self.vCircle03.userInteractionEnabled = YES; //
     labelTapGestureRecognizer = [[UITapGestureRecognizer alloc]
-                                 initWithTarget:self action:@selector(labelClick4)];
+                                 initWithTarget:self action:@selector(toGrabList)];
  
     [self.vCircle02 addGestureRecognizer:labelTapGestureRecognizer];
     self.vCircle02.userInteractionEnabled = YES; //
@@ -96,8 +148,7 @@
     NSString * userID = [[NSUserDefaults standardUserDefaults] valueForKey:ENTERPRISE_USERID];
     if(userID.length>0){
         GrabOrderTabViewController * vc = [GrabOrderTabViewController alloc];
-        vc.hidesBottomBarWhenPushed = YES;
-        vc.hidesBottomBarWhenPushed = YES;
+    
         [self.navigationController pushViewController:vc animated:YES];
     }else{
         [SVProgressHUD showInfoWithStatus:@"暂未登录，请先登录！"];
@@ -116,11 +167,43 @@
    
 }
 
+- (void)toTaskList{
+    NSString * userID = [[NSUserDefaults standardUserDefaults] valueForKey:ENTERPRISE_USERID];
+    if(userID.length>0){
+        GrabAuditTabViewController *vc = [[GrabAuditTabViewController alloc]init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:NO];
+    }else{
+        [SVProgressHUD showInfoWithStatus:@"暂未登录，请先登录！"];
+        EnterpriseLoginController *vc = [[EnterpriseLoginController alloc]init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
+   
+}
+
 - (void)labelClick1 {
     NSString * userID = [[NSUserDefaults standardUserDefaults] valueForKey:ENTERPRISE_USERID];
     if(userID.length>0){
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         appDelegate.tabBarVC.selectedIndex = 1;
+    }else{
+        [SVProgressHUD showInfoWithStatus:@"暂未登录，请先登录！"];
+        EnterpriseLoginController *vc = [[EnterpriseLoginController alloc]init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
+    
+}
+
+- (void)toGrabList {
+    NSString * userID = [[NSUserDefaults standardUserDefaults] valueForKey:ENTERPRISE_USERID];
+    if(userID.length>0){
+        GrabFailTabViewController *vc = [[GrabFailTabViewController alloc]init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:NO];
     }else{
         [SVProgressHUD showInfoWithStatus:@"暂未登录，请先登录！"];
         EnterpriseLoginController *vc = [[EnterpriseLoginController alloc]init];
@@ -205,7 +288,7 @@
     
 }
 
--(void)requstMainNum{
+-(void)requstRedNum{
     NSString * userID = [[NSUserDefaults standardUserDefaults] valueForKey:ENTERPRISE_USERID];
     NSString * parentID = [[NSUserDefaults standardUserDefaults] valueForKey:ENTERPRISE_PARENTID];
     NSString * browseType = [[NSUserDefaults standardUserDefaults] valueForKey:ENTERPRISE_BROWSETYPE];
@@ -218,9 +301,46 @@
         [EnterpriseMainService requestMainNum:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
             if (data) {
                 self.mainNumModel = data;
-                self.labelNum01.text = self.mainNumModel.acceptnum;
-                self.labelNum02.text = self.mainNumModel.overtimenum;
+                [self.tableView reloadData];
+                self.labelNum.text = self.mainNumModel.FastNum3;
                 
+               
+    
+                
+            }
+        }];
+    }
+    
+    
+}
+
+-(void)requstMainNum{
+    NSString * userID = [[NSUserDefaults standardUserDefaults] valueForKey:ENTERPRISE_USERID];
+    NSString * parentID = [[NSUserDefaults standardUserDefaults] valueForKey:ENTERPRISE_PARENTID];
+    NSString * browseType = [[NSUserDefaults standardUserDefaults] valueForKey:ENTERPRISE_BROWSETYPE];
+    if([userID intValue] <1){
+        userID = @"";
+        parentID = @"";
+        browseType = @"3";
+    }
+
+        NSDictionary *dic = @{@"userid":userID,
+                              @"ParentID":parentID,
+                              @"Browsetype":browseType,
+                              @"version":[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
+        };
+        [EnterpriseMainService requestMainNum:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
+            if (data) {
+                self.mainNumModel = data;
+                [self.tableView reloadData];
+                if(self.scrollTimer!=nil){
+                    [self.scrollTimer invalidate];
+                    self.scrollTimer = nil;
+                    
+                }
+                    [self startAutoScroll];
+                self.labelNum.text = self.mainNumModel.FastNum3;
+               
                 if(self.mainNumModel.Noticearr.count==0){
                     self.labelTitle01.text = @"暂无信息";
                     self.labelContent01.text = @"近期无通知";
@@ -246,7 +366,7 @@
                 
             }
         }];
-    }
+    
     
     
 }
@@ -348,6 +468,46 @@
     }
     return NO;
 }
+
+
+#pragma mark - FSPagerViewDataSource
+
+- (NSInteger)numberOfItemsInPagerView:(FSPagerView *)pagerView{
+    return self.mainNumModel.bannerarr.count>0?self.mainNumModel.bannerarr.count:1;
+}
+
+- (FSPagerViewCell *)pagerView:(FSPagerView *)pagerView cellForItemAtIndex:(NSInteger)index{
+    FSPagerViewCell *cell = [pagerView dequeueReusableCellWithReuseIdentifier:@"cell" atIndex:index];
+    cell.imageView.contentMode = UIViewContentModeScaleToFill;
+    NSString * imageURL = [self.mainNumModel.bannerarr objectAtIndex:index];
+    if (self.mainNumModel.bannerarr.count==0) {
+        cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"banner2"]];
+    }else{
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageURL] placeholderImage:[UIImage imageNamed:@"banner2"]];
+    }
+    return cell;
+}
+
+-(void)pagerView:(FSPagerView *)pagerView didSelectItemAtIndex:(NSInteger)index{
+
+}
+
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 5;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    MainScrollViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MainScrollViewCell class])];
+    if (cell == nil) {
+        cell = [[MainScrollViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([UITableViewCell class])] ;
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.tvTitle.text = [self.mainNumModel.rollarr objectAtIndex:indexPath.row*2];
+    cell.tvContent.text = [self.mainNumModel.rollarr objectAtIndex:indexPath.row*2+1];
+    return cell;
+}
+
 
 
 @end

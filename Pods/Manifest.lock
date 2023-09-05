@@ -40,6 +40,7 @@ PODS:
     - BRPickerView/Base
   - EMASRest (11.1.1.2)
   - FLAnimatedImage (1.0.16)
+  - FSPagerView (0.8.3)
   - IQKeyboardManager (6.5.6)
   - LBLaunchImageAd (1.1.3):
     - FLAnimatedImage
@@ -66,6 +67,7 @@ DEPENDENCIES:
   - AFNetworking
   - AlicloudPush (~> 1.9.9)
   - BRPickerView
+  - FSPagerView
   - IQKeyboardManager
   - LBLaunchImageAd (~> 1.1.3)
   - Masonry
@@ -87,10 +89,11 @@ SPEC REPOS:
     - AlicloudUTDID
     - AlicloudUtils
     - EMASRest
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - BRPickerView
     - FLAnimatedImage
+    - FSPagerView
     - IQKeyboardManager
     - LBLaunchImageAd
     - Masonry
@@ -103,9 +106,11 @@ SPEC REPOS:
     - WechatOpenSDK
     - YYKit
     - YYLrefresh
+  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
+    - SDWebImage
 
 SPEC CHECKSUMS:
-  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   AlicloudPush: ab6e76dd02cec791bb9ab789a58ab855b4f33243
   AlicloudSender: 1f468b6bd962a099ffc19d45e3608b0fe98f259d
   AlicloudUT: 6d1cf30d57d096b7e9bb4b069dd0ba6ad59a3338
@@ -114,6 +119,7 @@ SPEC CHECKSUMS:
   BRPickerView: 9cc11880ac79c4872d081ccb88f306224c1501d7
   EMASRest: 8df6f87836767a9415ad5cc4af739bc9d215b475
   FLAnimatedImage: 8f3e854ebf9680b71f0b6e700939687fc4d82b4b
+  FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   LBLaunchImageAd: a5fd557d68fee8193824db213b746ee0f42e325a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -127,6 +133,6 @@ SPEC CHECKSUMS:
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YYLrefresh: f3bd51574799b6076dde8cfa29d2ccf37dbfee7b
 
-PODFILE CHECKSUM: 361825ebc44909a9229eb21b1ab51d62b05dc61b
+PODFILE CHECKSUM: daa5c956bdf9318e653fb2a57f3db592db261226
 
-COCOAPODS: 1.10.0.beta.1
+COCOAPODS: 1.11.2

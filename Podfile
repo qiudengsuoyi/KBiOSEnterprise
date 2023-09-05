@@ -24,4 +24,5 @@ pod 'WechatOpenSDK', '~> 1.8.6'
 pod 'AlicloudPush', '~> 1.9.9'
 pod 'FSPagerView'
 pod 'SGPagingView', '~> 2.1.0'
+
 end

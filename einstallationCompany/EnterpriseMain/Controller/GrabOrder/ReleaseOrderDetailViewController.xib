@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReleaseOrderDetailViewController">
+            <connections>
+                <outlet property="checkCertificate" destination="S3M-ww-Pz9" id="eRW-FK-sbs"/>
+                <outlet property="checkDismantle" destination="BPC-FO-Zq0" id="cJI-we-ihj"/>
+                <outlet property="checkGarbage" destination="acZ-TX-ksO" id="rcz-7o-zC0"/>
+                <outlet property="height" destination="suY-r9-NeZ" id="ypJ-Uj-KE9"/>
+                <outlet property="iCertificate" destination="7cG-b3-03N" id="AQ9-J4-oep"/>
+                <outlet property="iDismantle" destination="H4u-5I-yiY" id="WfT-Vq-kun"/>
+                <outlet property="iGarbage" destination="yuE-Ak-apb" id="1QG-Gl-dUr"/>
+                <outlet property="iProtocol" destination="5IL-Dc-gnd" id="eBs-xB-E2R"/>
+                <outlet property="imagecollectionView" destination="7UX-Qm-PfK" id="JfE-LI-yfd"/>
+                <outlet property="labelAddress" destination="G5M-sT-ty0" id="c8h-cT-dYI"/>
+                <outlet property="labelArea" destination="P97-sd-nBB" id="SVk-0l-aKm"/>
+                <outlet property="labelAttention" destination="OCD-tk-QDg" id="Fdz-tt-nFQ"/>
+                <outlet property="labelCity" destination="lF6-zw-EWn" id="jHb-IN-6ca"/>
+                <outlet property="labelEndtime" destination="r1D-Oa-LkB" id="Hdc-5F-8XL"/>
+                <outlet property="labelHeight" destination="nyz-jM-FCG" id="h23-72-3r8"/>
+                <outlet property="labelInstall" destination="akh-qT-yZi" id="Rfg-lQ-LZx"/>
+                <outlet property="labelInstallDate" destination="P1R-ZU-Ywe" id="YNu-lU-5B2"/>
+                <outlet property="labelIntsallType" destination="1h6-ur-Xmt" id="dw6-iu-A4e"/>
+                <outlet property="labelLogistics" destination="1TR-HT-aJ7" id="Q2S-Fg-5dl"/>
+                <outlet property="labelMaterials" destination="vx2-3G-xoc" id="cJG-XW-NUX"/>
+                <outlet property="labelMoney" destination="RED-Mt-ppI" id="4cc-Q9-yri"/>
+                <outlet property="labelName" destination="ElN-gn-L47" id="nA5-B6-L1L"/>
+                <outlet property="labelNum" destination="g0U-X3-XLG" id="dKY-AU-D4c"/>
+                <outlet property="labelPhone" destination="oCJ-V3-vGi" id="vDQ-09-IPz"/>
+                <outlet property="labelProtocol" destination="4Tx-Tb-KPY" id="tZU-rR-KBr"/>
+                <outlet property="labelProtocolContent" destination="qU6-YO-eR6" id="7YM-h3-OeT"/>
+                <outlet property="labelRequire" destination="eqV-gw-BMP" id="HD0-LH-SGa"/>
+                <outlet property="labelTime" destination="wVA-Gk-Vi9" id="32u-Pz-5GE"/>
+                <outlet property="labelTool" destination="CRL-GA-Xad" id="nSa-S2-PcK"/>
+                <outlet property="vCertificate" destination="S3M-ww-Pz9" id="99X-cO-zam"/>
+                <outlet property="vDismantle" destination="BPC-FO-Zq0" id="SbF-wi-XE8"/>
+                <outlet property="vGarbage" destination="acZ-TX-ksO" id="OtF-Sb-Eha"/>
+                <outlet property="view" destination="THl-58-RVi" id="CWy-ce-SQu"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="THl-58-RVi">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hI-ef-G6h">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wq3-pM-Jm4">
+                            <rect key="frame" x="30" y="15" width="354" height="1600"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="安装数量" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="g0U-X3-XLG">
+                                    <rect key="frame" x="10" y="10" width="100" height="45"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" red="0.33333333329999998" green="0.52549019610000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="100" id="7Bx-oA-4Zq"/>
+                                        <constraint firstAttribute="height" constant="45" id="HGE-1D-35b"/>
+                                    </constraints>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="安装面积" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="P97-sd-nBB">
+                                    <rect key="frame" x="127" y="10" width="100" height="45"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" red="0.33333333329999998" green="0.52549019610000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="LQc-AH-ZtM"/>
+                                        <constraint firstAttribute="width" constant="100" id="yUe-Ze-sGd"/>
+                                    </constraints>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="安装高度" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nyz-jM-FCG">
+                                    <rect key="frame" x="244" y="10" width="100" height="45"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" red="0.33333333329999998" green="0.52549019610000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="100" id="khM-Xl-Fqq"/>
+                                        <constraint firstAttribute="height" constant="45" id="tTN-yh-MS2"/>
+                                    </constraints>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="联系人姓名" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ElN-gn-L47">
+                                    <rect key="frame" x="10" y="65" width="334" height="45"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" red="0.33333333329999998" green="0.52549019610000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="zBy-9e-1mQ"/>
+                                    </constraints>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="联系人手机号" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oCJ-V3-vGi">
+                                    <rect key="frame" x="10" y="120" width="334" height="45"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" red="0.33333333329999998" green="0.52549019610000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="DA7-7l-Jpl"/>
+                                    </constraints>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择省市县" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lF6-zw-EWn">
+                                    <rect key="frame" x="10" y="175" width="334" height="45"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="OrX-g5-D6B"/>
+                                    </constraints>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择登高工具" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CRL-GA-Xad">
+                                    <rect key="frame" x="10" y="230" width="334" height="45"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="zmB-Lg-6lM"/>
+                                    </constraints>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择施工时间" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wVA-Gk-Vi9">
+                                    <rect key="frame" x="10" y="285" width="334" height="45"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="0H7-mH-zNc"/>
+                                    </constraints>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择安装时间" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P1R-ZU-Ywe">
+                                    <rect key="frame" x="10" y="340" width="334" height="45"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="D4g-jN-Huw"/>
+                                    </constraints>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择安装类型" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1h6-ur-Xmt">
+                                    <rect key="frame" x="10" y="395" width="334" height="45"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="NzU-mX-W9N"/>
+                                    </constraints>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择安装方式" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="akh-qT-yZi">
+                                    <rect key="frame" x="10" y="450" width="334" height="45"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="eiZ-8q-k7S"/>
+                                    </constraints>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择画面材质" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vx2-3G-xoc">
+                                    <rect key="frame" x="10" y="505" width="334" height="45"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="kci-ZE-0pO"/>
+                                    </constraints>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择物流收货方式" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1TR-HT-aJ7">
+                                    <rect key="frame" x="10" y="560" width="334" height="45"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="TF9-No-okl"/>
+                                    </constraints>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S3M-ww-Pz9">
+                                    <rect key="frame" x="10" y="615" width="100" height="40"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="item_select_u" translatesAutoresizingMaskIntoConstraints="NO" id="7cG-b3-03N">
+                                            <rect key="frame" x="0.0" y="12.666666666666629" width="15" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="15" id="G4d-av-OgU"/>
+                                                <constraint firstAttribute="width" constant="15" id="JyQ-5q-rqL"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="是否办证" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pua-e1-sFi">
+                                            <rect key="frame" x="20" y="10" width="66" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="7cG-b3-03N" firstAttribute="leading" secondItem="S3M-ww-Pz9" secondAttribute="leading" id="38B-x8-4NC"/>
+                                        <constraint firstAttribute="height" constant="40" id="CuR-wu-b44"/>
+                                        <constraint firstItem="pua-e1-sFi" firstAttribute="leading" secondItem="7cG-b3-03N" secondAttribute="trailing" constant="5" id="d8O-rz-N7V"/>
+                                        <constraint firstItem="pua-e1-sFi" firstAttribute="centerY" secondItem="7cG-b3-03N" secondAttribute="centerY" id="egS-9f-F48"/>
+                                        <constraint firstItem="7cG-b3-03N" firstAttribute="centerY" secondItem="S3M-ww-Pz9" secondAttribute="centerY" id="w0O-Ax-lVp"/>
+                                        <constraint firstAttribute="width" constant="100" id="zbt-oV-xh4"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="acZ-TX-ksO">
+                                    <rect key="frame" x="127" y="615" width="100" height="40"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="item_select_u" translatesAutoresizingMaskIntoConstraints="NO" id="yuE-Ak-apb">
+                                            <rect key="frame" x="0.0" y="12.666666666666629" width="15" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="15" id="C3J-Nv-ydf"/>
+                                                <constraint firstAttribute="height" constant="15" id="RoY-M7-09W"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="处理垃圾" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzD-uV-LL9">
+                                            <rect key="frame" x="20" y="10.333333333333369" width="65.333333333333329" height="19.333333333333329"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="9e8-5F-orx"/>
+                                        <constraint firstItem="kzD-uV-LL9" firstAttribute="centerY" secondItem="yuE-Ak-apb" secondAttribute="centerY" id="BBx-fm-DUm"/>
+                                        <constraint firstAttribute="width" constant="100" id="EhH-gV-ZXI"/>
+                                        <constraint firstItem="yuE-Ak-apb" firstAttribute="leading" secondItem="acZ-TX-ksO" secondAttribute="leading" id="cpw-d4-64J"/>
+                                        <constraint firstItem="kzD-uV-LL9" firstAttribute="leading" secondItem="yuE-Ak-apb" secondAttribute="trailing" constant="5" id="kdK-CX-Ijn"/>
+                                        <constraint firstItem="yuE-Ak-apb" firstAttribute="centerY" secondItem="acZ-TX-ksO" secondAttribute="centerY" id="qSC-dl-Hxz"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPC-FO-Zq0">
+                                    <rect key="frame" x="244" y="615" width="100" height="40"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="item_select_u" translatesAutoresizingMaskIntoConstraints="NO" id="H4u-5I-yiY">
+                                            <rect key="frame" x="0.0" y="12.666666666666629" width="15" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="15" id="8ph-Lr-ODA"/>
+                                                <constraint firstAttribute="width" constant="15" id="wp7-4v-FgO"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="拆除旧画" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Rg-gm-KJk">
+                                            <rect key="frame" x="20" y="10" width="66" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="7GS-Rx-4bB"/>
+                                        <constraint firstItem="3Rg-gm-KJk" firstAttribute="leading" secondItem="H4u-5I-yiY" secondAttribute="trailing" constant="5" id="D5p-wg-hiI"/>
+                                        <constraint firstItem="H4u-5I-yiY" firstAttribute="centerY" secondItem="BPC-FO-Zq0" secondAttribute="centerY" id="Ja1-mM-9OR"/>
+                                        <constraint firstAttribute="width" constant="100" id="K0v-B7-lJc"/>
+                                        <constraint firstItem="3Rg-gm-KJk" firstAttribute="centerY" secondItem="H4u-5I-yiY" secondAttribute="centerY" id="SYV-IR-1aj"/>
+                                        <constraint firstItem="H4u-5I-yiY" firstAttribute="leading" secondItem="BPC-FO-Zq0" secondAttribute="leading" id="ona-ap-H8U"/>
+                                    </constraints>
+                                </view>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择安装截止时间" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r1D-Oa-LkB">
+                                    <rect key="frame" x="10" y="665" width="334" height="45"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="0r8-JX-3un"/>
+                                    </constraints>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="安装详细地址" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="G5M-sT-ty0">
+                                    <rect key="frame" x="10" y="720" width="334" height="45"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" red="0.33333333329999998" green="0.52549019610000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="CZq-Tk-1FI"/>
+                                    </constraints>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="填写拍照要求" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eqV-gw-BMP">
+                                    <rect key="frame" x="10" y="775" width="334" height="45"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="fWa-BF-2oP"/>
+                                    </constraints>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="填写安装其他注意事项" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OCD-tk-QDg">
+                                    <rect key="frame" x="10" y="830" width="334" height="45"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="eAV-vS-eXW"/>
+                                    </constraints>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="安装效果图" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gs-My-hns">
+                                    <rect key="frame" x="141.33333333333334" y="885" width="71.666666666666657" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylV-Ey-bwY">
+                                    <rect key="frame" x="10" y="912" width="334" height="0.66666666666662877"/>
+                                    <color key="backgroundColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="0.5" id="aUc-fC-Rhi"/>
+                                    </constraints>
+                                </view>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="安装价格" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RED-Mt-ppI">
+                                    <rect key="frame" x="10" y="1052.6666666666667" width="334" height="45"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" red="0.33333333329999998" green="0.52549019610000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="vrq-mO-bOp"/>
+                                    </constraints>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="item_select_u" translatesAutoresizingMaskIntoConstraints="NO" id="5IL-Dc-gnd">
+                                    <rect key="frame" x="20" y="1107.6666666666667" width="15" height="15"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="15" id="hg0-l9-fM2"/>
+                                        <constraint firstAttribute="height" constant="15" id="xj6-md-zNb"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="我已阅读并同意遵守" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qU6-YO-eR6">
+                                    <rect key="frame" x="40.000000000000007" y="1107" width="119.66666666666669" height="16"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmW-c1-gRa">
+                                    <rect key="frame" x="77" y="1138" width="200" height="40"/>
+                                    <color key="backgroundColor" red="0.87058823529999996" green="0.70588235290000001" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="E1M-op-0nf"/>
+                                        <constraint firstAttribute="width" constant="200" id="Lmg-mb-F4h"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="发布悬赏任务">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="action01:" destination="-1" eventType="touchUpInside" id="1vg-Lq-IdG"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vv-CQ-7B2">
+                                    <rect key="frame" x="77" y="1193" width="200" height="40"/>
+                                    <color key="backgroundColor" red="0.33333333329999998" green="0.52549019610000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="200" id="Hn4-XB-xT1"/>
+                                        <constraint firstAttribute="height" constant="40" id="Teh-fV-HDk"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="发布竞标任务">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="action02:" destination="-1" eventType="touchUpInside" id="Nqu-4o-OW6"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="《E安装呼叫服务协议》" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Tx-Tb-KPY">
+                                    <rect key="frame" x="162.66666666666663" y="1107" width="181.33333333333337" height="16"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <color key="textColor" red="0.28748996719999997" green="0.61746725650000001" blue="0.97562295200000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7UX-Qm-PfK">
+                                    <rect key="frame" x="10" y="922.66666666666663" width="334" height="119.99999999999989"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="120" id="suY-r9-NeZ"/>
+                                    </constraints>
+                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TSi-5G-q2Z">
+                                        <size key="itemSize" width="128" height="128"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                </collectionView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="P97-sd-nBB" firstAttribute="centerX" secondItem="wq3-pM-Jm4" secondAttribute="centerX" id="0m0-eF-f7S"/>
+                                <constraint firstItem="8gs-My-hns" firstAttribute="top" secondItem="OCD-tk-QDg" secondAttribute="bottom" constant="10" id="1KN-eb-NKo"/>
+                                <constraint firstItem="P1R-ZU-Ywe" firstAttribute="trailing" secondItem="wVA-Gk-Vi9" secondAttribute="trailing" id="1cR-ew-IHm"/>
+                                <constraint firstItem="r1D-Oa-LkB" firstAttribute="trailing" secondItem="1TR-HT-aJ7" secondAttribute="trailing" id="1nv-hZ-QWZ"/>
+                                <constraint firstAttribute="trailing" secondItem="4Tx-Tb-KPY" secondAttribute="trailing" constant="10" id="3y1-SI-1tf"/>
+                                <constraint firstItem="eqV-gw-BMP" firstAttribute="trailing" secondItem="G5M-sT-ty0" secondAttribute="trailing" id="4vk-vE-w0m"/>
+                                <constraint firstAttribute="trailing" secondItem="7UX-Qm-PfK" secondAttribute="trailing" constant="10" id="5FW-Tt-x2n"/>
+                                <constraint firstItem="BPC-FO-Zq0" firstAttribute="centerY" secondItem="acZ-TX-ksO" secondAttribute="centerY" id="5gd-Ik-l0j"/>
+                                <constraint firstItem="acZ-TX-ksO" firstAttribute="centerX" secondItem="wq3-pM-Jm4" secondAttribute="centerX" id="6Jx-Ed-SL9"/>
+                                <constraint firstItem="7UX-Qm-PfK" firstAttribute="centerX" secondItem="wq3-pM-Jm4" secondAttribute="centerX" id="6m5-jt-vhp"/>
+                                <constraint firstItem="oCJ-V3-vGi" firstAttribute="leading" secondItem="ElN-gn-L47" secondAttribute="leading" id="6wv-h5-KS7"/>
+                                <constraint firstItem="S3M-ww-Pz9" firstAttribute="top" secondItem="1TR-HT-aJ7" secondAttribute="bottom" constant="10" id="87L-dO-ENU"/>
+                                <constraint firstItem="2vv-CQ-7B2" firstAttribute="leading" secondItem="hmW-c1-gRa" secondAttribute="leading" id="9Gd-DE-q8S"/>
+                                <constraint firstItem="P1R-ZU-Ywe" firstAttribute="leading" secondItem="wVA-Gk-Vi9" secondAttribute="leading" id="BU6-eG-n9E"/>
+                                <constraint firstItem="2vv-CQ-7B2" firstAttribute="top" secondItem="hmW-c1-gRa" secondAttribute="bottom" constant="15" id="CmN-el-Kko"/>
+                                <constraint firstItem="vx2-3G-xoc" firstAttribute="trailing" secondItem="akh-qT-yZi" secondAttribute="trailing" id="CwV-8N-On4"/>
+                                <constraint firstItem="akh-qT-yZi" firstAttribute="top" secondItem="1h6-ur-Xmt" secondAttribute="bottom" constant="10" id="DGe-1b-Mgn"/>
+                                <constraint firstItem="r1D-Oa-LkB" firstAttribute="top" secondItem="S3M-ww-Pz9" secondAttribute="bottom" constant="10" id="Dut-ud-JZM"/>
+                                <constraint firstItem="lF6-zw-EWn" firstAttribute="centerX" secondItem="wq3-pM-Jm4" secondAttribute="centerX" id="Ee8-EP-h0c"/>
+                                <constraint firstItem="r1D-Oa-LkB" firstAttribute="leading" secondItem="1TR-HT-aJ7" secondAttribute="leading" id="FTt-hT-1Gy"/>
+                                <constraint firstItem="P97-sd-nBB" firstAttribute="centerY" secondItem="g0U-X3-XLG" secondAttribute="centerY" id="G6h-1M-nXc"/>
+                                <constraint firstItem="4Tx-Tb-KPY" firstAttribute="leading" secondItem="qU6-YO-eR6" secondAttribute="trailing" constant="3" id="GfU-bB-uf0"/>
+                                <constraint firstItem="wVA-Gk-Vi9" firstAttribute="top" secondItem="CRL-GA-Xad" secondAttribute="bottom" constant="10" id="GzO-6o-eKm"/>
+                                <constraint firstItem="G5M-sT-ty0" firstAttribute="top" secondItem="r1D-Oa-LkB" secondAttribute="bottom" constant="10" id="HpI-z1-r9d"/>
+                                <constraint firstItem="CRL-GA-Xad" firstAttribute="leading" secondItem="lF6-zw-EWn" secondAttribute="leading" id="Hrf-P2-5aE"/>
+                                <constraint firstAttribute="height" constant="1600" id="IhM-Hd-GJM"/>
+                                <constraint firstItem="OCD-tk-QDg" firstAttribute="leading" secondItem="eqV-gw-BMP" secondAttribute="leading" id="Iwj-IM-MEz"/>
+                                <constraint firstItem="ylV-Ey-bwY" firstAttribute="leading" secondItem="wq3-pM-Jm4" secondAttribute="leading" constant="10" id="J0O-mw-1c6"/>
+                                <constraint firstItem="eqV-gw-BMP" firstAttribute="top" secondItem="G5M-sT-ty0" secondAttribute="bottom" constant="10" id="JMB-WN-Lgf"/>
+                                <constraint firstItem="OCD-tk-QDg" firstAttribute="top" secondItem="eqV-gw-BMP" secondAttribute="bottom" constant="10" id="Jgl-Lq-oiq"/>
+                                <constraint firstItem="akh-qT-yZi" firstAttribute="trailing" secondItem="1h6-ur-Xmt" secondAttribute="trailing" id="KT7-Yt-B4n"/>
+                                <constraint firstItem="5IL-Dc-gnd" firstAttribute="leading" secondItem="1h6-ur-Xmt" secondAttribute="leading" constant="10" id="KqQ-i7-7as"/>
+                                <constraint firstItem="7UX-Qm-PfK" firstAttribute="leading" secondItem="wq3-pM-Jm4" secondAttribute="leading" constant="10" id="LW3-BR-ymY"/>
+                                <constraint firstItem="ylV-Ey-bwY" firstAttribute="top" secondItem="8gs-My-hns" secondAttribute="bottom" constant="10" id="O4F-Cg-xAW"/>
+                                <constraint firstItem="7UX-Qm-PfK" firstAttribute="top" secondItem="ylV-Ey-bwY" secondAttribute="bottom" constant="10" id="Pb4-eS-if2"/>
+                                <constraint firstItem="lF6-zw-EWn" firstAttribute="leading" secondItem="oCJ-V3-vGi" secondAttribute="leading" id="Pkg-tb-znk"/>
+                                <constraint firstAttribute="trailing" secondItem="nyz-jM-FCG" secondAttribute="trailing" constant="10" id="PuQ-W1-JVj"/>
+                                <constraint firstItem="OCD-tk-QDg" firstAttribute="trailing" secondItem="eqV-gw-BMP" secondAttribute="trailing" id="RfT-QX-YtI"/>
+                                <constraint firstItem="oCJ-V3-vGi" firstAttribute="top" secondItem="ElN-gn-L47" secondAttribute="bottom" constant="10" id="Sgt-pw-U3Z"/>
+                                <constraint firstItem="G5M-sT-ty0" firstAttribute="trailing" secondItem="1h6-ur-Xmt" secondAttribute="trailing" id="SpO-Y2-fsC"/>
+                                <constraint firstAttribute="trailing" secondItem="ylV-Ey-bwY" secondAttribute="trailing" constant="10" id="Szq-wL-1Af"/>
+                                <constraint firstItem="G5M-sT-ty0" firstAttribute="leading" secondItem="1h6-ur-Xmt" secondAttribute="leading" id="TFn-dZ-AsA"/>
+                                <constraint firstItem="P1R-ZU-Ywe" firstAttribute="top" secondItem="wVA-Gk-Vi9" secondAttribute="bottom" constant="10" id="UDN-RK-9el"/>
+                                <constraint firstItem="ElN-gn-L47" firstAttribute="leading" secondItem="wq3-pM-Jm4" secondAttribute="leading" constant="10" id="Uum-nS-rrw"/>
+                                <constraint firstItem="nyz-jM-FCG" firstAttribute="centerY" secondItem="P97-sd-nBB" secondAttribute="centerY" id="VHL-wK-79I"/>
+                                <constraint firstItem="wVA-Gk-Vi9" firstAttribute="trailing" secondItem="CRL-GA-Xad" secondAttribute="trailing" id="Wo9-me-zjP"/>
+                                <constraint firstItem="1TR-HT-aJ7" firstAttribute="leading" secondItem="vx2-3G-xoc" secondAttribute="leading" id="YNp-hg-LcS"/>
+                                <constraint firstItem="RED-Mt-ppI" firstAttribute="leading" secondItem="G5M-sT-ty0" secondAttribute="leading" id="aem-sv-sae"/>
+                                <constraint firstItem="1h6-ur-Xmt" firstAttribute="trailing" secondItem="lF6-zw-EWn" secondAttribute="trailing" id="b43-80-4fz"/>
+                                <constraint firstItem="vx2-3G-xoc" firstAttribute="leading" secondItem="akh-qT-yZi" secondAttribute="leading" id="d4Q-oK-OK0"/>
+                                <constraint firstItem="ElN-gn-L47" firstAttribute="top" secondItem="g0U-X3-XLG" secondAttribute="bottom" constant="10" id="dd6-FD-0py"/>
+                                <constraint firstItem="akh-qT-yZi" firstAttribute="leading" secondItem="1h6-ur-Xmt" secondAttribute="leading" id="ecF-Uw-LOU"/>
+                                <constraint firstItem="CRL-GA-Xad" firstAttribute="top" secondItem="lF6-zw-EWn" secondAttribute="bottom" constant="10" id="fnq-hO-z72"/>
+                                <constraint firstItem="1TR-HT-aJ7" firstAttribute="top" secondItem="vx2-3G-xoc" secondAttribute="bottom" constant="10" id="gM3-Nf-E9Z"/>
+                                <constraint firstItem="hmW-c1-gRa" firstAttribute="top" secondItem="qU6-YO-eR6" secondAttribute="bottom" constant="15" id="gQM-0x-sLS"/>
+                                <constraint firstItem="5IL-Dc-gnd" firstAttribute="top" secondItem="RED-Mt-ppI" secondAttribute="bottom" constant="10" id="gXF-z2-Gkt"/>
+                                <constraint firstItem="S3M-ww-Pz9" firstAttribute="leading" secondItem="wq3-pM-Jm4" secondAttribute="leading" constant="10" id="gbz-DC-lXP"/>
+                                <constraint firstItem="eqV-gw-BMP" firstAttribute="leading" secondItem="G5M-sT-ty0" secondAttribute="leading" id="iJF-an-TQI"/>
+                                <constraint firstItem="ElN-gn-L47" firstAttribute="centerX" secondItem="wq3-pM-Jm4" secondAttribute="centerX" id="jKI-MV-UTc"/>
+                                <constraint firstAttribute="trailing" secondItem="ElN-gn-L47" secondAttribute="trailing" constant="10" id="jOP-ME-51K"/>
+                                <constraint firstItem="qU6-YO-eR6" firstAttribute="centerY" secondItem="5IL-Dc-gnd" secondAttribute="centerY" id="jgT-Jt-TB2"/>
+                                <constraint firstItem="g0U-X3-XLG" firstAttribute="leading" secondItem="wq3-pM-Jm4" secondAttribute="leading" constant="10" id="jgn-TY-vtI"/>
+                                <constraint firstItem="lF6-zw-EWn" firstAttribute="top" secondItem="oCJ-V3-vGi" secondAttribute="bottom" constant="10" id="jhF-Dl-O10"/>
+                                <constraint firstItem="1TR-HT-aJ7" firstAttribute="trailing" secondItem="vx2-3G-xoc" secondAttribute="trailing" id="jzi-Gv-cof"/>
+                                <constraint firstItem="CRL-GA-Xad" firstAttribute="trailing" secondItem="lF6-zw-EWn" secondAttribute="trailing" id="l1d-fM-pOt"/>
+                                <constraint firstItem="hmW-c1-gRa" firstAttribute="centerX" secondItem="wq3-pM-Jm4" secondAttribute="centerX" id="lRT-I5-Qsf"/>
+                                <constraint firstItem="8gs-My-hns" firstAttribute="centerX" secondItem="wq3-pM-Jm4" secondAttribute="centerX" id="lof-hT-NaH"/>
+                                <constraint firstItem="vx2-3G-xoc" firstAttribute="top" secondItem="akh-qT-yZi" secondAttribute="bottom" constant="10" id="mKU-8v-Vfd"/>
+                                <constraint firstItem="acZ-TX-ksO" firstAttribute="centerY" secondItem="S3M-ww-Pz9" secondAttribute="centerY" id="mff-TT-UxJ"/>
+                                <constraint firstItem="g0U-X3-XLG" firstAttribute="top" secondItem="wq3-pM-Jm4" secondAttribute="top" constant="10" id="mnT-t1-y4Y"/>
+                                <constraint firstItem="RED-Mt-ppI" firstAttribute="top" secondItem="7UX-Qm-PfK" secondAttribute="bottom" constant="10" id="nCb-A9-UZe"/>
+                                <constraint firstItem="RED-Mt-ppI" firstAttribute="trailing" secondItem="G5M-sT-ty0" secondAttribute="trailing" id="qi1-PQ-dtX"/>
+                                <constraint firstItem="1h6-ur-Xmt" firstAttribute="top" secondItem="P1R-ZU-Ywe" secondAttribute="bottom" constant="10" id="rr1-0c-KtT"/>
+                                <constraint firstItem="wVA-Gk-Vi9" firstAttribute="leading" secondItem="CRL-GA-Xad" secondAttribute="leading" id="tYl-U3-Ode"/>
+                                <constraint firstItem="qU6-YO-eR6" firstAttribute="leading" secondItem="5IL-Dc-gnd" secondAttribute="trailing" constant="5" id="xUB-E6-72Q"/>
+                                <constraint firstItem="4Tx-Tb-KPY" firstAttribute="centerY" secondItem="qU6-YO-eR6" secondAttribute="centerY" id="xmt-Eg-LyE"/>
+                                <constraint firstItem="oCJ-V3-vGi" firstAttribute="centerX" secondItem="wq3-pM-Jm4" secondAttribute="centerX" id="zFU-PS-0z8"/>
+                                <constraint firstAttribute="trailing" secondItem="BPC-FO-Zq0" secondAttribute="trailing" constant="10" id="zZC-J4-mPt"/>
+                                <constraint firstItem="1h6-ur-Xmt" firstAttribute="leading" secondItem="lF6-zw-EWn" secondAttribute="leading" id="zsB-fu-q6m"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.94509953260000001" green="0.94121956829999998" blue="0.94101774689999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="wq3-pM-Jm4" secondAttribute="trailing" constant="30" id="73w-xe-TXn"/>
+                        <constraint firstItem="wq3-pM-Jm4" firstAttribute="centerX" secondItem="0hI-ef-G6h" secondAttribute="centerX" id="CfI-Db-jq4"/>
+                        <constraint firstAttribute="bottom" secondItem="wq3-pM-Jm4" secondAttribute="bottom" constant="40" id="Zv4-OE-RQD"/>
+                        <constraint firstItem="wq3-pM-Jm4" firstAttribute="leading" secondItem="0hI-ef-G6h" secondAttribute="leading" constant="30" id="aqb-tm-Koc"/>
+                        <constraint firstItem="wq3-pM-Jm4" firstAttribute="top" secondItem="0hI-ef-G6h" secondAttribute="top" constant="15" id="gFq-8U-7g4"/>
+                        <constraint firstItem="wq3-pM-Jm4" firstAttribute="centerX" secondItem="0hI-ef-G6h" secondAttribute="centerX" id="ube-9F-6Ka"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="bhp-IS-bbW"/>
+            <color key="backgroundColor" red="0.90588235289999997" green="0.91372549020000005" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="0hI-ef-G6h" firstAttribute="leading" secondItem="THl-58-RVi" secondAttribute="leading" id="3bc-TG-GqB"/>
+                <constraint firstAttribute="trailing" secondItem="0hI-ef-G6h" secondAttribute="trailing" id="Ija-jZ-x3I"/>
+                <constraint firstAttribute="bottom" secondItem="0hI-ef-G6h" secondAttribute="bottom" id="qgW-1P-bXP"/>
+                <constraint firstItem="0hI-ef-G6h" firstAttribute="top" secondItem="THl-58-RVi" secondAttribute="top" id="uqD-bC-nWB"/>
+            </constraints>
+            <point key="canvasLocation" x="12.307692307692307" y="84.597156398104261"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="item_select_u" width="50" height="50"/>
+    </resources>
+</document>

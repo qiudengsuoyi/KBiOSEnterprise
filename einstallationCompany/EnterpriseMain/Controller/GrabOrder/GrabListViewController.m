@@ -7,7 +7,7 @@
 
 #import "GrabListViewController.h"
 #import "GrabTaskTableViewCell.h"
-#import "PayTypeViewController.h"
+#import "GrabDetailController.h"
 #import "UITableView+Refresh.h"
 #import "YYLrefresh/UITableView+Refresh.h"
 #import "UITableView+Refresh.h"
@@ -20,6 +20,7 @@
 #import "UIView+Extension.h"
 #import "PayViewController.h"
 #import "PayOrderEditViewController.h"
+#import "AppDelegate.h"
 
 @interface GrabListViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate, UITextViewDelegate>
 
@@ -112,14 +113,19 @@
     cell.recordID = itemModelList.recordID;
     WeakSelf;
     cell.cancelBlock = ^{
-        [weakSelf showTwoDialogView:@"是否取消该任务？" withRightButtonTitle:@"是" withLeftButtonTitle:@"否"];
+        [weakSelf showTwoDialogView:@"是否取消该任务？" withRightButtonTitle:@"重新发单" withLeftButtonTitle:@"否"];
        ;
         self.clickRecordID = itemModelList.recordID;
        
     };
     cell.confirmBlock = ^{
-        if([itemModelList.paymentState intValue] == 0){
-            PayViewController *vc = [[PayViewController alloc]init];
+        if([itemModelList.OrderState intValue] == 0){
+            GrabSingleListViewController *vc = [[GrabSingleListViewController alloc]init];
+            vc.recordID = itemModelList.recordID;
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            GrabDetailController *vc = [[GrabDetailController alloc]init];
             vc.recordID = itemModelList.recordID;
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
@@ -144,6 +150,7 @@
 -(void)requstOrderList:(BOOL)refresh{
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     NSString *userID = [user valueForKey:ENTERPRISE_USERID];
+<<<<<<< HEAD
     [SVProgressHUD show];
     NSDictionary *dic = @{
         @"userid":userID,
@@ -159,16 +166,38 @@
             }
             [self.muKeyValueList removeAllObjects];
             OrderListEntity *model = [data lastObject];
+=======
+    if(userID>0){
+        [SVProgressHUD show];
+        NSDictionary *dic = @{
+            @"userid":userID,
+            @"Fasttype":self.pageType,
+            @"searchStr":[self utf82gbk:self.searchStr]
+        };
+        [EnterpriseMainService requestReleaseList:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
+            if (data) {
+                
+                if (error) {
+                    self.view.loadErrorType = [error integerValue];
+                    return ;
+                }
+                [self.muKeyValueList removeAllObjects];
+                OrderListEntity *model = [data lastObject];
+>>>>>>> dev
                 if (model) {
                     [self.muKeyValueList addObjectsFromArray:data];;
                 }
-            if (self.muKeyValueList.count == 0) {
-                self.view.loadErrorType = YYLLoadErrorTypeNoData;
+                if (self.muKeyValueList.count == 0) {
+                    self.view.loadErrorType = YYLLoadErrorTypeNoData;
+                }else{
+                    self.view.loadErrorType = YYLLoadErrorTypeDefalt;
+                }
+                [self.tbOrderList reloadData];
+                
             }
-            [self.tbOrderList reloadData];
-
+        }];}else{
+            self.view.loadErrorType = YYLLoadErrorTypeDefalt;
         }
-    }];
 
   
 }
@@ -183,9 +212,15 @@
     [EnterpriseMainService requestReleaseCancel:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
         if (data) {
             NSString *msg = data;
-           
+            
             [SVProgressHUD showSuccessWithStatus:msg];
-            [self requstOrderList:YES];
+            // 在需要发送通知的地方
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_TASK_NAME
+                                                                            object:nil
+                                                                          userInfo:@{@"recordID":recordID}] ;
+
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            appDelegate.tabBarVC.selectedIndex = 1;
 
         }
     }];

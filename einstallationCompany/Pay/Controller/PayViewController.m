@@ -16,6 +16,7 @@
 #import "PayModel.h"
 #import "PayOrderTableViewCell.h"
 #import "WXApiManager.h"
+#import "GrabOrderTabViewController.h"
 
 
 @interface PayViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -45,7 +46,8 @@
 }
 
 - (IBAction)actionPay:(id)sender {
-    [self requstPay];
+    //[self requstPay];
+    [self confirmMaster];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -126,9 +128,25 @@
             [self.tbOrderList reloadData];
             self.labelMoney.text = [NSString stringWithFormat:@"%@元",self.payOrderModel.InstallPrice];
             
-            
+        
             
 //            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+    }];
+}
+
+-(void)confirmMaster{
+    [SVProgressHUD show];
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    NSString *userID = [user valueForKey:ENTERPRISE_USERID];
+    NSDictionary *dic = @{@"recordID":self.recordID,
+                          @"masterid":self.masterID == nil ? @"0":self.masterID,
+                          @"userid":userID
+    };
+    [PayService requestConfirmMaster:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
+        if (data) {
+            [SVProgressHUD showSuccessWithStatus:data];
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }
     }];
 }

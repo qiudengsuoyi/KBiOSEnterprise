@@ -59,7 +59,6 @@
 -(void)backItem{
     
     GrabOrderTabViewController * vc = [GrabOrderTabViewController alloc];
-    vc.hidesBottomBarWhenPushed = YES;
     [self jumpViewControllerAndCloseSelf:vc];
 }
 

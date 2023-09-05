@@ -116,6 +116,8 @@
                 }
             if (self.noticeList.count == 0) {
                 self.view.loadErrorType = YYLLoadErrorTypeNoData;
+            }else{
+                self.view.loadErrorType = YYLLoadErrorTypeDefalt;
             }
             [self.tbNotice reloadData];
 

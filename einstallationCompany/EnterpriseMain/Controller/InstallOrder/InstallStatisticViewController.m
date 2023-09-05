@@ -34,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+
     
     self.muKeyValueList = [NSMutableArray arrayWithCapacity:0];
     self.tbOrderList.dataSource = self;
@@ -209,7 +209,7 @@
     self.labelTime.textColor = [UIColor grayColor];
     self.labelTime.frame = CGRectMake(SCREENWIDTH-140, statusBarHeight+(navHeight-36)/2, 110, 34);
     self.labelTime.text = [NSString stringWithFormat:@"%@年%@月",self.currentYear,self.currentMonth];
-    [self.labelTime setTag:21];
+    [self.labelTime setTag:20];
     [self.navigationController.view addSubview:self.labelTime];
     
     [self.navigationController.view addSubview:view];
@@ -236,22 +236,12 @@
             }
             
         }
-        
-        if([tmpView isKindOfClass:[UIView class]])
-        {
-            UIView *view = (UIView *) tmpView;
-            if(view.tag == 20)   //判断是否满足自己要删除的子视图的条件
-            {
-                [view removeFromSuperview]; //删除子视图
-                
-            }
-            
-        }
+  
         
         if([tmpView isKindOfClass:[UIView class]])
         {
             UILabel *view = (UILabel *) tmpView;
-            if(view.tag == 21)   //判断是否满足自己要删除的子视图的条件
+            if(view.tag == 20)   //判断是否满足自己要删除的子视图的条件
             {
                 [view removeFromSuperview]; //删除子视图
                 

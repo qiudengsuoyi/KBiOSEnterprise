@@ -14,8 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)requestMainNum:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 + (void)requestWaitOrderList:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
+
++ (void)requestGrabOrderEvaluate:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 + (void)requestWaitOrderDetail:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 + (void)requestWaitOrderItemDetail:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
++ (void)requestGrabOrderItemDetail:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 + (void)requestInstallOrderItemDetail:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 
 + (void)requestAcceptWaitOrder:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
@@ -31,7 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)requestReleaseConfirmMaster:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 + (void)requestComplain:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 + (void)requestComplainModify:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
-
++ (void)requestFailList:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
++ (void)requestGrabOrderIssue:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
++ (void)requestIssue:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 @end
 
 NS_ASSUME_NONNULL_END

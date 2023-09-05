@@ -11,8 +11,10 @@
 #import "UIColor+YYAdd.h"
 #import "CommonSize.h"
 #import "YYCGUtilities.h"
+#import "GrabFailViewController.h"
 
 @interface GrabOrderTabViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *btFloat;
 @property UITextField* searchBar;
 @property (nonatomic, strong) SGPageTitleView *pageTitleView;
 @property (nonatomic, strong) SGPageContentScrollView *pageContentCollectionView;
@@ -22,9 +24,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
-    [self addBackItem];
-    NSArray *titleArr = @[@"悬赏任务", @"竞标任务"];
+
+
+    NSArray *titleArr = @[@"一口价任务", @"比价任务"];
     SGPageTitleViewConfigure *configure = [SGPageTitleViewConfigure pageTitleViewConfigure];
     configure.indicatorAdditionalWidth = 20;
     configure.indicatorScrollStyle = SGIndicatorScrollStyleDefault; // 指示器滚动模式
@@ -46,6 +48,17 @@
 //    [_pageContentCollectionView setPageContentScrollViewCurrentIndex:0];
     //       [_pageContentCollectionView setCircularWithDirection:CircularDirectionTypeLeftRightTop withCornerRadii:10.f];
     [self.view addSubview:_pageContentCollectionView];
+    
+
+    self.btFloat.layer.cornerRadius = self.btFloat.frame.size.width / 2;
+    self.btFloat.backgroundColor = [UIColor colorWithHexString:@"#5787db"];
+      
+      // 设置按钮上的文本
+
+    [self.btFloat setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+      
+    
+    [self.view bringSubviewToFront:self.btFloat];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -89,7 +102,7 @@
     CGFloat navHeight = self.navigationController.navigationBar.frame.size.height;
     NSLog(@"导航栏高度：%f",navHeight);
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(80, statusBarHeight+(navHeight-36)/2,SCREENWIDTH -100, 36.0f)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(20, statusBarHeight+(navHeight-36)/2,SCREENWIDTH-40, 36.0f)];
     view.layer.cornerRadius = 8;
     view.layer.masksToBounds = YES;
     [view.layer setBorderWidth:2];
@@ -109,12 +122,7 @@
          }];
     self.searchBar.attributedPlaceholder = attrString;
     [view addSubview:imageView];
-    [view addSubview:self.searchBar];
-
-    
- 
-
-    
+    [view addSubview:self.searchBar];    
     [self.navigationController.view addSubview:view];
 
 }
@@ -165,6 +173,11 @@
     
 }
 
+- (IBAction)actionFail:(id)sender {
+    GrabFailViewController *vc = [[GrabFailViewController alloc]init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 /*
 #pragma mark - Navigation

@@ -28,6 +28,8 @@ RPSSERVER_API const STRTELPHONE = @"4008321696";
 RPSSERVER_API const WE_CHAT_APPID = @"wx89acf4edb3f0f38b";
 RPSSERVER_API const UNIVERSAL_LINK = @"https://www.einstall.net/einstallcompany/";
 
+RPSSERVER_API const NOTIFICATION_TASK_NAME = @"TaskRelese";
+
 
 RPSSERVER_API const ENTERPRISE_LOGIN_URL = @"Interface_Einstall/logincheck1.asp";
 RPSSERVER_API const ENTERPRISE_REGISTER_CODE_URL = @"Interface_Einstall/code.asp";
@@ -75,8 +77,15 @@ RPSSERVER_API const PASSWORD_INFO_URL = @"interface_Einstall/password1view.asp";
 RPSSERVER_API const CASE_LIST_URL = @"interface_Einstall/CompleteProjectList.asp";
 RPSSERVER_API const ADD_COMPLAIN_URL = @"interface_Einstall/ComplaintSubmit.asp";
 RPSSERVER_API const MODIFY_COMPLAIN_URL = @"interface_Einstall/ComplaintModify.asp";
-
 RPSSERVER_API const WALLET_URL = @"interface_Einstall/myWallet.asp";
-
 RPSSERVER_API const WALLET_RECHARGE_URL = @"interface_Einstall/Recharge.asp";
 RPSSERVER_API const WALLET_COST_URL = @"interface_Einstall/consumption.asp";
+RPSSERVER_API const GRAB_ORDER_ITEM_DETAIL_URL = @"Interface_Einstall/FastOrderDetail1.asp";
+RPSSERVER_API const GRAB_ORDER_EVALUATE_URL = @"Interface_Einstall/FastOrderAuditSubmit.asp";
+RPSSERVER_API const CONFIRM_MASTER_URL = @"Interface_Einstall/FastOrderAssignSubmit.asp";
+RPSSERVER_API const RELEASE_SELECT_CONFIG_URL = @"Interface_Einstall/FastOrderConfig.asp";
+RPSSERVER_API const MASTER_EVALUATE_URL = @"Interface_Einstall/evaluateList1.asp";
+RPSSERVER_API const FAIL_LIST_URL = @"Interface_Einstall/FastOrderList2.asp";
+RPSSERVER_API const TASK_ISSUE_PASS_URL = @"Interface_Einstall/appealexamine1submit.asp";
+RPSSERVER_API const REQUEST_TASK_ISSUE_URL = @"Interface_Einstall/appeal1submit.asp";
+

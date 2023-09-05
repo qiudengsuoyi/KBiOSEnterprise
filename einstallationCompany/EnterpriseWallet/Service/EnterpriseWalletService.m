@@ -34,6 +34,9 @@
     }];
 }
 
+
+
+
 + (void)requestInstallType:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
     [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:INSTALL_TYPE_URL
                                              withParams:params
@@ -55,6 +58,8 @@
     }];
 }
 
+
+
 + (void)requestReleasePerson:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
     [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:RELEASE_PERSON_URL
                                              withParams:params
@@ -75,8 +80,29 @@
     }];
 }
 
+
 + (void)requestWallet:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
-    [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:WALLET_URL
+    [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:WALLET_URL   withParams:params
+                                                withMethodType:TypeIsPOST andBlock:^(id data, id error) {
+        
+        if ([data[@"code"]integerValue] == 1) {
+            if (resultBlock) {
+                resultBlock(data[@"data"],nil);
+            }
+        }else{
+            if(data){
+                [SVProgressHUD showErrorWithStatus:data[@"msg"]];
+            }else{
+                //                [SVProgressHUD showErrorWithStatus:@"服务器出错，请稍后再试"];
+                
+            }
+        }
+    }];
+}
+
++ (void)requestSelectConfig:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
+    [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:RELEASE_SELECT_CONFIG_URL
+
                                              withParams:params
                                          withMethodType:TypeIsPOST andBlock:^(id data, id error) {
         
@@ -94,6 +120,7 @@
         }
     }];
 }
+
 
 + (void)requestRechargeOrderList:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
     [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:WALLET_RECHARGE_URL
@@ -134,5 +161,6 @@
         }
     }];
 }
+
 
 @end

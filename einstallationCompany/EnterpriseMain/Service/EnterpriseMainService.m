@@ -66,6 +66,69 @@
     }];
 }
 
++ (void)requestGrabOrderEvaluate:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
+    [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:GRAB_ORDER_EVALUATE_URL
+                                             withParams:params
+                                         withMethodType:TypeIsPOST andBlock:^(id data, id error) {
+        
+        if ([data[@"code"]integerValue] == 1) {
+            if (resultBlock) {
+                resultBlock(data[@"msg"],nil);
+            }
+        }else{
+            if(data){
+                [SVProgressHUD showErrorWithStatus:data[@"msg"]];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"服务器出错，请稍后再试"];
+                
+            }
+        }
+    }];
+}
+
++ (void)requestGrabOrderIssue:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
+    [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:TASK_ISSUE_PASS_URL
+                                             withParams:params
+                                         withMethodType:TypeIsPOST andBlock:^(id data, id error) {
+        
+        if ([data[@"code"]integerValue] == 1) {
+            [SVProgressHUD dismiss];
+            if (resultBlock) {
+                resultBlock(data[@"msg"],nil);
+            }
+        }else{
+            if(data){
+                [SVProgressHUD showErrorWithStatus:data[@"msg"]];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"服务器出错，请稍后再试"];
+                
+            }
+        }
+    }];
+}
+
++ (void)requestIssue:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
+    [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:REQUEST_TASK_ISSUE_URL
+                                             withParams:params
+                                         withMethodType:TypeIsPOST andBlock:^(id data, id error) {
+        
+        if ([data[@"code"]integerValue] == 1) {
+            [SVProgressHUD dismiss];
+            if (resultBlock) {
+                resultBlock(data[@"msg"],nil);
+            }
+        }else{
+            if(data){
+                [SVProgressHUD showErrorWithStatus:data[@"msg"]];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"服务器出错，请稍后再试"];
+                
+            }
+        }
+    }];
+}
+
+
 + (void)requestWaitOrderDetail:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
     [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:WAIT_ORDER_DETAIL_URL
                                              withParams:params
@@ -108,6 +171,27 @@
             }
             if (resultBlock) {
                 resultBlock(arr,nil);
+            }
+        }else{
+            
+            if(data){
+                [SVProgressHUD showErrorWithStatus:data[@"msg"]];
+            }else{
+//                [SVProgressHUD showErrorWithStatus:@"服务器出错，请稍后再试"];
+                
+            }
+        }
+    }];
+}
+
++ (void)requestGrabOrderItemDetail:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
+    [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:GRAB_ORDER_ITEM_DETAIL_URL
+                                             withParams:params
+                                         withMethodType:TypeIsPOST andBlock:^(id data, id error) {
+        
+        if ([data[@"code"]integerValue] == 1) {
+            if (resultBlock) {
+                resultBlock(data[@"data"],nil);
             }
         }else{
             
@@ -330,6 +414,7 @@
                                          withMethodType:TypeIsPOST andBlock:^(id data, id error) {
         
         if ([data[@"code"]integerValue] == 1) {
+            [SVProgressHUD dismiss];
             NSMutableArray *arr = [NSMutableArray array];
             for (NSDictionary *dic in data[@"data"]) {
                 OrderListEntity *model = [OrderListEntity modelWithJSON:dic];
@@ -350,6 +435,35 @@
         }
     }];
 }
+
++ (void)requestFailList:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
+    [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:FAIL_LIST_URL
+                                             withParams:params
+                                         withMethodType:TypeIsPOST andBlock:^(id data, id error) {
+        
+        if ([data[@"code"]integerValue] == 1) {
+            [SVProgressHUD dismiss];
+            NSMutableArray *arr = [NSMutableArray array];
+            for (NSDictionary *dic in data[@"data"]) {
+                OrderListEntity *model = [OrderListEntity modelWithJSON:dic];
+                if (model) {
+                    [arr addObject:model];
+                }
+            }
+            if (resultBlock) {
+                resultBlock(arr,nil);
+            }
+        }else{
+            if(data){
+                [SVProgressHUD showErrorWithStatus:data[@"msg"]];
+            }else{
+//                [SVProgressHUD showErrorWithStatus:@"服务器出错，请稍后再试"];
+                
+            }
+        }
+    }];
+}
+
 + (void)requestReleaseItemList:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
     [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:RELEASE_ITEM_LIST_URL
                                              withParams:params

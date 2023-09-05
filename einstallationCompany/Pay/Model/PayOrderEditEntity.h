@@ -20,6 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString *ShopAddress;
 @property NSString *InstallPrice;
 @property NSString *InstallDate;
+@property NSString *receivingMethod;
+@property NSString *photographyRequirements;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

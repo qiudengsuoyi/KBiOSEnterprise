@@ -8,7 +8,6 @@
 #import "WaitTaskListController.h"
 #import "OrderTableViewCell.h"
 #import "WaitTaskSingleListController.h"
-#import "GrabDetailController.h"
 #import "EnterpriseMainService.h"
 #import "SVProgressHUD.h"
 #import "APIConst.h"
@@ -220,6 +219,8 @@
                 }
             if (self.muKeyValueList.count == 0) {
                 self.view.loadErrorType = YYLLoadErrorTypeNoData;
+            }else{
+                self.view.loadErrorType = YYLLoadErrorTypeDefalt;
             }
             [self.tbOrderList reloadData];
 

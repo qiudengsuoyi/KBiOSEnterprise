@@ -9,6 +9,10 @@
 
 @implementation MainNumEntity
 + (NSDictionary *)modelContainerPropertyGenericClass {
-    return @{@"Noticearr" : [NoticeEntity class]};
+    return @{
+        @"Noticearr" : [NoticeEntity class],
+        @"bannerarr":[NSString class],
+        @"rollarr":[NSString class]
+    };
 }
 @end

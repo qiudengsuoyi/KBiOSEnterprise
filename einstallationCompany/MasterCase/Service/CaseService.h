@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CaseService : NSObject
 + (void)requestCaseList:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
++ (void)requestEvaluateList:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 @end
 
 NS_ASSUME_NONNULL_END

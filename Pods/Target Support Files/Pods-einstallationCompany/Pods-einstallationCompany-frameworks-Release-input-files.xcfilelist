@@ -2,6 +2,7 @@ ${PODS_ROOT}/Target Support Files/Pods-einstallationCompany/Pods-einstallationCo
 ${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
 ${BUILT_PRODUCTS_DIR}/BRPickerView/BRPickerView.framework
 ${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework
+${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework
 ${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework
 ${BUILT_PRODUCTS_DIR}/LBLaunchImageAd/LBLaunchImageAd.framework
 ${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework

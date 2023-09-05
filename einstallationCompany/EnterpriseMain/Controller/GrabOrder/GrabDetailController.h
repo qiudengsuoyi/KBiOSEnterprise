@@ -7,17 +7,22 @@
 
 #import "EnterpriseBaseController.h"
 #import "KeyValueEntity.h"
+#import "JWStarView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GrabDetailController : EnterpriseBaseController<UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate>
+@interface GrabDetailController : EnterpriseBaseController<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tbOrder;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *vConstraintHeight;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tbOrderConstraintHeight;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UIButton *btConfirm;
 @property NSMutableArray <KeyValueEntity*> * keyValueList;
 @property NSInteger pageType;
+@property NSString* recordID;
+@property (weak, nonatomic) IBOutlet JWStarView *starView;
+@property (weak, nonatomic) IBOutlet UIView *vEvaluate;
+@property (weak, nonatomic) IBOutlet UIView *vIssue;
+@property (weak, nonatomic) IBOutlet UILabel *tvAudit;
+
 
 @end
 

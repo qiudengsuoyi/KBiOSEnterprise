@@ -13,5 +13,12 @@
 @property (strong, nonatomic) EnterpriseUITabBarController *tabBarVC;
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) EnterpriseNavController *tabBarNav;
+@property EnterpriseNavController *homeNav ;
+@property EnterpriseNavController *workNav;
+@property EnterpriseNavController *grabListNav;
+@property EnterpriseNavController *ownerNav;
+@property EnterpriseNavController *orderNav;
+
+@property EnterpriseNavController *homeTwoNav;
 @end
 
