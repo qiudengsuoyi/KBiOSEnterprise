@@ -19,6 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)requestPasswordInfo:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 
++ (void)requestSubmitFeedback:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
+
++ (void)requstFeedbackList:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END

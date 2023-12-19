@@ -27,19 +27,20 @@
     if([resp isKindOfClass:[PayResp class]]){
         //支付返回结果，实际支付结果需要去微信服务器端查询
         NSString *strMsg,*strTitle = [NSString stringWithFormat:@"支付结果"];
-        
+    
         switch (resp.errCode) {
             case WXSuccess:
             {
-                ResultController * vc = [ResultController alloc];
-                vc.resultType = 1;
-                vc.returnType = 1;
-                vc.strTitle = @"成功指派任务";
-                vc.strContent01 = @"恭喜您已经成功指派该师傅！";
-                vc.strContent02 = @"";
-                vc.hidesBottomBarWhenPushed = YES;
-                [[self jsd_findVisibleViewController].navigationController pushViewController:vc animated:YES];
-            }
+             
+                    ResultController * vc = [ResultController alloc];
+                    vc.resultType = 1;
+                    vc.returnType = 1;
+                    vc.strTitle = @"成功指派任务";
+                    vc.strContent01 = @"恭喜您已经成功指派该师傅！";
+                    vc.strContent02 = @"";
+                    vc.hidesBottomBarWhenPushed = YES;
+                    [[self jsd_findVisibleViewController].navigationController pushViewController:vc animated:YES];
+                }
 
                 break;
                 
@@ -53,7 +54,22 @@
         }
 //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 //        [alert show];
-    }else {
+    }else if([resp isKindOfClass:[SendAuthResp class]]){
+        switch (resp.errCode) {
+            case WXSuccess:
+            {
+                NSString * code = ((SendAuthResp*)resp).code;
+            
+                }
+
+                break;
+                
+            default:{
+                
+                
+            }
+                break;
+        }
     }
 }
 

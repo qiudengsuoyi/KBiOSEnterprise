@@ -37,6 +37,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)requestFailList:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 + (void)requestGrabOrderIssue:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 + (void)requestIssue:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
++ (void)requestGrabUpload:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
++ (void)requestGrapMasterPicture:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
++ (void)requestDeleteUpload:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 @end
 
 NS_ASSUME_NONNULL_END

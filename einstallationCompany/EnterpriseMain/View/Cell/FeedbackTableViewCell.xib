@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" id="KH9-i9-NDi" customClass="FeedbackTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KH9-i9-NDi" id="ZZV-o4-M7A">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ltQ-58-GPO">
+                        <rect key="frame" x="30" y="15" width="260" height="120"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3h0-ev-I14">
+                                <rect key="frame" x="0.0" y="5" width="260" height="110"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="3h0-ev-I14" firstAttribute="leading" secondItem="ltQ-58-GPO" secondAttribute="leading" id="QC4-nc-xFx"/>
+                            <constraint firstItem="3h0-ev-I14" firstAttribute="top" secondItem="ltQ-58-GPO" secondAttribute="top" constant="5" id="Vy9-BD-a9U"/>
+                            <constraint firstAttribute="height" constant="120" id="h4V-fv-WGT"/>
+                            <constraint firstAttribute="trailing" secondItem="3h0-ev-I14" secondAttribute="trailing" id="r68-O3-w2v"/>
+                            <constraint firstItem="3h0-ev-I14" firstAttribute="centerY" secondItem="ltQ-58-GPO" secondAttribute="centerY" id="tqJ-UD-LhR"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.90588235289999997" green="0.91372549020000005" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="ltQ-58-GPO" firstAttribute="top" secondItem="ZZV-o4-M7A" secondAttribute="top" constant="15" id="We4-B5-pyD"/>
+                    <constraint firstItem="ltQ-58-GPO" firstAttribute="leading" secondItem="ZZV-o4-M7A" secondAttribute="leading" constant="30" id="XdZ-Fz-IIG"/>
+                    <constraint firstAttribute="bottom" secondItem="ltQ-58-GPO" secondAttribute="bottom" id="d9U-JJ-09K"/>
+                    <constraint firstAttribute="trailing" secondItem="ltQ-58-GPO" secondAttribute="trailing" constant="30" id="jZu-xe-GFy"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="cellConstrainHeight" destination="h4V-fv-WGT" id="zk9-wJ-uco"/>
+                <outlet property="tbOrder" destination="3h0-ev-I14" id="z6f-6m-Jhm"/>
+            </connections>
+            <point key="canvasLocation" x="98.550724637681171" y="61.607142857142854"/>
+        </tableViewCell>
+    </objects>
+</document>

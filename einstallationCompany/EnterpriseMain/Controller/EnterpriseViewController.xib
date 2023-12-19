@@ -10,7 +10,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnterpriseViewController">
             <connections>
-
                 <outlet property="labelContent01" destination="XXc-21-njD" id="3Tm-SU-HKq"/>
                 <outlet property="labelContent02" destination="23L-T9-Plz" id="xWs-fX-XXr"/>
                 <outlet property="labelTitle01" destination="5aF-P6-qQQ" id="1zV-fC-r6r"/>
@@ -232,6 +231,11 @@
                                         <constraint firstAttribute="height" constant="250" id="328-9L-giT"/>
                                     </constraints>
                                     <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </tableView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

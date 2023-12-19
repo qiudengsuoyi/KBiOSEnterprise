@@ -139,7 +139,7 @@
         if (data) {
             
           
-                [SVProgressHUD showSuccessWithStatus:@"密码修改成功"];
+            [SVProgressHUD showSuccessWithStatus:data];
             
 
         }

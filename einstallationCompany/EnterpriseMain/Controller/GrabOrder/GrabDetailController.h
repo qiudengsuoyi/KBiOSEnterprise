@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITableView *tbOrder;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tbOrderConstraintHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewConstraintHeight;
 @property NSMutableArray <KeyValueEntity*> * keyValueList;
 @property NSInteger pageType;
 @property NSString* recordID;
@@ -22,6 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIView *vEvaluate;
 @property (weak, nonatomic) IBOutlet UIView *vIssue;
 @property (weak, nonatomic) IBOutlet UILabel *tvAudit;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionImage;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionImageHeight;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionVideo;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionVideoHeight;
+@property (weak, nonatomic) IBOutlet UIButton *btPicture;
 
 
 @end

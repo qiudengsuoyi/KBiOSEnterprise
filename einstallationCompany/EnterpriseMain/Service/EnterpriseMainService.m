@@ -71,9 +71,9 @@
                                              withParams:params
                                          withMethodType:TypeIsPOST andBlock:^(id data, id error) {
         
-        if ([data[@"code"]integerValue] == 1) {
+         if ([data[@"code"]integerValue] == 1) {
             if (resultBlock) {
-                resultBlock(data[@"msg"],nil);
+                resultBlock(data,nil);
             }
         }else{
             if(data){
@@ -127,6 +127,48 @@
         }
     }];
 }
+
++ (void)requestGrabUpload:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
+    [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:GRAB_UPLOAD_INFO_URL
+                                             withParams:params
+                                         withMethodType:TypeIsPOST andBlock:^(id data, id error) {
+        
+        if ([data[@"code"]integerValue] == 1) {
+            if (resultBlock) {
+                resultBlock(data,nil);
+            }
+        }else{
+            if(data){
+                [SVProgressHUD showErrorWithStatus:data[@"msg"]];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"服务器出错，请稍后再试"];
+                
+            }
+        }
+    }];
+}
+
++ (void)requestDeleteUpload:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
+    [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:DELETE_UPLOAD_URL
+                                             withParams:params
+                                         withMethodType:TypeIsPOST andBlock:^(id data, id error) {
+        
+        if ([data[@"code"]integerValue] == 1) {
+            if (resultBlock) {
+                resultBlock(data,nil);
+            }
+        }else{
+            if(data){
+                [SVProgressHUD showErrorWithStatus:data[@"msg"]];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"服务器出错，请稍后再试"];
+                
+            }
+        }
+    }];
+}
+
+
 
 
 + (void)requestWaitOrderDetail:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
@@ -189,7 +231,7 @@
                                              withParams:params
                                          withMethodType:TypeIsPOST andBlock:^(id data, id error) {
         
-        if ([data[@"code"]integerValue] == 1) {
+         if ([data[@"code"]integerValue] == 1) {
             if (resultBlock) {
                 resultBlock(data[@"data"],nil);
             }
@@ -303,6 +345,29 @@
 
 + (void)requestOrderPicture:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
     [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:ORDER_PICTURE_URL
+                                             withParams:params
+                                         withMethodType:TypeIsPOST andBlock:^(id data, id error) {
+        
+        if ([data[@"code"]integerValue] == 1) {
+                PictureListEntity *model = [PictureListEntity modelWithJSON:data[@"data"]];
+              
+            
+            if (resultBlock) {
+                resultBlock(model,nil);
+            }
+        }else{
+            
+            if(data){
+                [SVProgressHUD showErrorWithStatus:data[@"msg"]];
+            }else{
+//                [SVProgressHUD showErrorWithStatus:@"服务器出错，请稍后再试"];
+                
+            }
+        }
+    }];
+}
++ (void)requestGrapMasterPicture:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
+    [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:GRAB_MASTER_PICTURE_URL
                                              withParams:params
                                          withMethodType:TypeIsPOST andBlock:^(id data, id error) {
         
@@ -470,15 +535,15 @@
                                          withMethodType:TypeIsPOST andBlock:^(id data, id error) {
         
         if ([data[@"code"]integerValue] == 1) {
-            NSMutableArray *arr = [NSMutableArray array];
-            for (NSDictionary *dic in data[@"data"]) {
-                OrderListEntity *model = [OrderListEntity modelWithJSON:dic];
-                if (model) {
-                    [arr addObject:model];
-                }
-            }
+//            NSMutableArray *arr = [NSMutableArray array];
+//            for (NSDictionary *dic in data[@"data"]) {
+//                OrderListEntity *model = [OrderListEntity modelWithJSON:dic];
+//                if (model) {
+//                    [arr addObject:model];
+//                }
+//            }
             if (resultBlock) {
-                resultBlock(arr,nil);
+                resultBlock(data[@"data"],nil);
             }
         }else{
             if(data){

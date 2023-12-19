@@ -87,7 +87,7 @@
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
  
-        return ceil(self.model.pictureList.count/3.0);
+        return 1;
 
 }
 

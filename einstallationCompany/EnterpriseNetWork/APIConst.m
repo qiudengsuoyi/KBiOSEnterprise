@@ -9,8 +9,8 @@
 #import "APIConst.h"
 
 #ifdef DEBUG
-//RPSSERVER_API const ENTERPRISE_SERVER_HOST = @"https://www.einstall.cn/";
-RPSSERVER_API const ENTERPRISE_SERVER_HOST = @"http://www.einstall.cn:8036/";
+RPSSERVER_API const ENTERPRISE_SERVER_HOST = @"https://www.einstall.cn/";
+//RPSSERVER_API const ENTERPRISE_SERVER_HOST = @"http://www.einstall.cn:8036/";
 RPSSERVER_API const ENTERPRISE_SERVER_OTHER_HOST = @"http://39.98.52.205:8001/";
 
 #else
@@ -47,7 +47,7 @@ RPSSERVER_API const WALLET_NO_PAY_LIST_URL = @"Interface_Einstall/UnpaidOrder.as
 RPSSERVER_API const UPLOAD_PICTURE_URL = @"Interface_Einstall/uppic1.asp";
 RPSSERVER_API const INSTALL_ORDER_LIST_URL = @"Interface_Einstall/orderUnfinishedDetail2.asp";
 RPSSERVER_API const GRAB_ORDER_LIST_URL = @"Interface_Einstall/orderUnfinishedDetail.asp";
-RPSSERVER_API const RELEASE_SUBMIT_URL = @"Interface_Einstall/orderreleasesubmit.asp";
+RPSSERVER_API const RELEASE_SUBMIT_URL = @"Interface_Einstall/orderreleasesubmit1.asp";
 RPSSERVER_API const RELEASE_PERSON_URL = @"Interface_Einstall/FastOrderDefault.asp";
 RPSSERVER_API const WALLET_TRIAL_URL = @"Interface_Einstall/Unpaidapply.asp";
 RPSSERVER_API const WALLET_HAVE_PAY_URL = @"Interface_Einstall/Paidapply.asp";
@@ -88,4 +88,12 @@ RPSSERVER_API const MASTER_EVALUATE_URL = @"Interface_Einstall/evaluateList1.asp
 RPSSERVER_API const FAIL_LIST_URL = @"Interface_Einstall/FastOrderList2.asp";
 RPSSERVER_API const TASK_ISSUE_PASS_URL = @"Interface_Einstall/appealexamine1submit.asp";
 RPSSERVER_API const REQUEST_TASK_ISSUE_URL = @"Interface_Einstall/appeal1submit.asp";
+RPSSERVER_API const UPLOAD_IMAGE_URL = @"Interface_Einstall/UpPic4.asp";
+RPSSERVER_API const UPLOAD_VIDEO_URL = @"Interface_Einstall/fastOrderVideoAdd.asp";
 
+RPSSERVER_API const GRAB_UPLOAD_INFO_URL = @"interface_Einstall/FastOrderAnnexNo.asp";
+RPSSERVER_API const GRAB_MASTER_PICTURE_URL = @"Interface_Einstall/orderPicture1.asp";
+RPSSERVER_API const DELETE_UPLOAD_URL = @"Interface_Einstall/fastOrderannexNoDelete.asp";
+RPSSERVER_API const FEEDBACK_URL = @"Interface_Einstall/FeedbackSubmit.asp";
+RPSSERVER_API const FEEDBACK_LIST_URL = @"Interface_Einstall/FeedbackList.asp";
+RPSSERVER_API const UPLOAD_FEEDBACK_IMAGE_URL = @"Interface_Einstall/UpPic5.asp";

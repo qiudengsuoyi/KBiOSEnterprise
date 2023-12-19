@@ -125,6 +125,16 @@
             [self POST:path parameters:params headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
                 
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//                NSString *rawString = [[NSString alloc] initWithBytes:[responseObject bytes] length:[responseObject length] encoding:NSUTF8StringEncoding];
+//
+//                // 去掉可能的空行和不可见字符
+//                rawString = [rawString stringByReplacingOccurrencesOfString:@"\0" withString:@""];
+
+                // 然后再使用 GB18030-2000 编码解析
+//                NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+//                NSString *str = [[NSString alloc] initWithBytes:[rawString UTF8String] length:[rawString length] encoding:gbkEncoding];
+
+                
                 NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
                     NSString* str = [[NSString alloc] initWithBytes:[responseObject bytes] length:[responseObject length] encoding:gbkEncoding];
                 
@@ -221,7 +231,8 @@
         return nil;
         
     }
-    
+    jsonString = [jsonString stringByReplacingOccurrencesOfString:@" " withString:@""];
+    jsonString = [jsonString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     NSData*jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     
     NSError*err;
@@ -231,6 +242,9 @@
                                                        options:NSJSONReadingMutableContainers
                         
                                                          error:&err];
+    
+    
+
     
     if(err) {
         

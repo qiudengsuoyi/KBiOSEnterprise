@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tbOrderList;
 @property NSString * clickRecordID;
 @property NSString*searchStr;
+@property NSString* lastID;
 @end
 
 @implementation GrabListViewController
@@ -36,6 +37,7 @@
     [super viewDidLoad];
     [self addBackItem];
     self.searchStr = @"";
+    self.lastID = @"";
     self.muKeyValueList = [NSMutableArray arrayWithCapacity:0];
     self.tbOrderList.dataSource = self;
     self.tbOrderList.delegate = self;
@@ -48,13 +50,15 @@
     [self.tbOrderList registerNib:[UINib nibWithNibName:NSStringFromClass([GrabTaskTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([GrabTaskTableViewCell class])];
     [self.tbOrderList reloadData];
     [self.tbOrderList configureMJRefreshWithHader:^(NSInteger page) {
+        self.lastID = @"";
         [self requstOrderList:YES];
     } WithFoot:^(NSInteger page) {
-        [self requstOrderList:YES];
+        [self requstOrderList:NO];
 
     }];
     WeakSelf;
     self.tbOrderList.headerRefreshingBlock = ^{
+        self.lastID = @"";
         [weakSelf requstOrderList:YES];
     };
     
@@ -66,10 +70,10 @@
     NSLog(@"键盘关闭了");
   
         [self.tbOrderList configureMJRefreshWithHader:^(NSInteger page) {
+            self.lastID = @"";
             [self requstOrderList:YES];
         } WithFoot:^(NSInteger page) {
             [self requstOrderList:NO];
-
         }];
     
 }
@@ -107,16 +111,21 @@
         totalHeight = totalHeight+itemHeight;
     }
     cell.model = itemModelList;
-    cell.cellConstrainHeight.constant = totalHeight+15;
+    cell.cellConstrainHeight.constant = totalHeight+55;
     cell.OrderState = itemModelList.OrderState;
     [cell setTableOrder];
     cell.recordID = itemModelList.recordID;
     WeakSelf;
     cell.cancelBlock = ^{
         [weakSelf showTwoDialogView:@"是否取消该任务？" withRightButtonTitle:@"重新发单" withLeftButtonTitle:@"否"];
-       ;
         self.clickRecordID = itemModelList.recordID;
        
+    };
+    cell.detailBlock = ^{
+        GrabDetailController *vc = [[GrabDetailController alloc]init];
+        vc.recordID = itemModelList.recordID;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     };
     cell.confirmBlock = ^{
         if([itemModelList.OrderState intValue] == 0){
@@ -150,29 +159,17 @@
 -(void)requstOrderList:(BOOL)refresh{
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     NSString *userID = [user valueForKey:ENTERPRISE_USERID];
-<<<<<<< HEAD
-    [SVProgressHUD show];
-    NSDictionary *dic = @{
-        @"userid":userID,
-        @"Fasttype":self.pageType == nil? @"0":self.pageType,
-        @"searchStr":[self utf82gbk:self.searchStr]
-    };
-    [EnterpriseMainService requestReleaseList:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
-        if (data) {
-    
-            if (error) {
-                self.view.loadErrorType = [error integerValue];
-                return ;
-            }
-            [self.muKeyValueList removeAllObjects];
-            OrderListEntity *model = [data lastObject];
-=======
+
     if(userID>0){
+        if(refresh){
+            self.lastID = @"";
+        }
         [SVProgressHUD show];
         NSDictionary *dic = @{
             @"userid":userID,
             @"Fasttype":self.pageType,
-            @"searchStr":[self utf82gbk:self.searchStr]
+            @"searchStr":[self utf82gbk:self.searchStr],
+            @"lastid":self.lastID
         };
         [EnterpriseMainService requestReleaseList:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
             if (data) {
@@ -181,11 +178,14 @@
                     self.view.loadErrorType = [error integerValue];
                     return ;
                 }
-                [self.muKeyValueList removeAllObjects];
+                if (refresh) {
+                    [self.muKeyValueList removeAllObjects];
+                }
                 OrderListEntity *model = [data lastObject];
->>>>>>> dev
+               
                 if (model) {
-                    [self.muKeyValueList addObjectsFromArray:data];;
+                    self.lastID = model.recordID;
+                    [self.muKeyValueList addObjectsFromArray:data];
                 }
                 if (self.muKeyValueList.count == 0) {
                     self.view.loadErrorType = YYLLoadErrorTypeNoData;
@@ -253,6 +253,7 @@
 -(void) searchTask:(NSNotification *)notification
 {
  self.searchStr = notification.userInfo[@"key"];
+    self.lastID = @"";
     [self requstOrderList:YES];
     
 }
@@ -260,16 +261,18 @@
 
 -(void)viewWillAppear:(BOOL)animated{
 
-    [self.tbOrderList configureMJRefreshWithHader:^(NSInteger page) {
-        [self requstOrderList:YES];
-    } WithFoot:^(NSInteger page) {
-        [self requstOrderList:NO];
-
-    }];
-    WeakSelf;
-    self.tbOrderList.headerRefreshingBlock = ^{
-        [weakSelf requstOrderList:YES];
-    };
+//    [self.tbOrderList configureMJRefreshWithHader:^(NSInteger page) {
+//        self.lastID = @"";
+//        [self requstOrderList:YES];
+//    } WithFoot:^(NSInteger page) {
+//        [self requstOrderList:NO];
+//
+//    }];
+//    WeakSelf;
+//    self.tbOrderList.headerRefreshingBlock = ^{
+//        self.lastID = @"";
+//        [weakSelf requstOrderList:YES];
+//    };
     
     //注册通知：
     /***

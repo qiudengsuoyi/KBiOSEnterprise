@@ -46,8 +46,8 @@
 }
 
 - (IBAction)actionPay:(id)sender {
-    //[self requstPay];
-    [self confirmMaster];
+    [self requstPay];
+//    [self confirmMaster];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -59,7 +59,8 @@
     NSString * userID = [[NSUserDefaults standardUserDefaults] valueForKey:ENTERPRISE_USERID];
     NSDictionary *dic = @{@"userid":userID,
                           @"InstallPrice":self.payOrderModel.InstallPrice,
-                          @"outTradeNo":self.payOrderModel.outTradeNo
+                          @"outTradeNo":self.payOrderModel.outTradeNo,
+                          @"masterid":self.masterID == nil ? @"0":self.masterID
                           };
     [PayService requestPay:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
         if (data) {

@@ -11,7 +11,9 @@
 + (NSDictionary *)modelContainerPropertyGenericClass {
     return @{@"imagsarr" : [PictureEntity class],
              @"imagsarr1" : [PictureEntity class],
-             @"imagsarr2" : [PictureEntity class]
+             @"imagsarr2" : [PictureEntity class],
+             @"imagsarr3" : [PictureEntity class],
+             @"imagsarr4" : [PictureEntity class]
              };
 }
 

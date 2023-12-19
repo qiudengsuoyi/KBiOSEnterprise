@@ -13,7 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *labelXieYi;
 @property (weak, nonatomic) IBOutlet UIImageView *ivXieYi;
 @property (weak, nonatomic) IBOutlet UILabel *labelXieYi02;
-
+@property (weak, nonatomic) IBOutlet UIButton *btSumbit02;
+@property (weak, nonatomic) IBOutlet UIButton *btSubmit03;
 @end
 
 NS_ASSUME_NONNULL_END

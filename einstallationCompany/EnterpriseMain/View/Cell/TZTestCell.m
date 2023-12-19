@@ -39,15 +39,7 @@
         [self addSubview:_videoImageView];
         
         _deleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        //[_deleteBtn setImage:[UIImage imageNamed:@"photo_delete"] forState:UIControlStateNormal];
-     
-        CGSize imageSize = CGSizeMake(15, 15);
-
-        // 将图片缩放到指定大小
-        UIImage *resizedImage = [self resizeImage:[UIImage imageNamed:@"photo_delete"] toSize:imageSize]; // 请自行实现图片缩放的方法
-
-        // 设置按钮的背景图片
-        [_deleteBtn setBackgroundImage:resizedImage forState:UIControlStateNormal];
+        [_deleteBtn setImage:[UIImage imageNamed:@"photo_delete"] forState:UIControlStateNormal];
         _deleteBtn.imageEdgeInsets = UIEdgeInsetsMake(-10, 0, 0, -10);
         _deleteBtn.alpha = 0.6;
         [self addSubview:_deleteBtn];

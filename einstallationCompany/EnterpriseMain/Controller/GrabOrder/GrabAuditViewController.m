@@ -90,11 +90,17 @@
         totalHeight = totalHeight+itemHeight;
     }
     cell.model = itemModelList;
-    cell.cellConstrainHeight.constant = totalHeight+15;
+    cell.cellConstrainHeight.constant = totalHeight+55;
     cell.OrderState = itemModelList.OrderState;
     [cell setTableOrder];
     cell.recordID = itemModelList.recordID;
     WeakSelf;
+    cell.detailBlock = ^{
+        GrabDetailController *vc = [[GrabDetailController alloc]init];
+        vc.recordID = itemModelList.recordID;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    };
     cell.cancelBlock = ^{
         [weakSelf showTwoDialogView:@"是否取消该任务？" withRightButtonTitle:@"是" withLeftButtonTitle:@"否"];
        ;

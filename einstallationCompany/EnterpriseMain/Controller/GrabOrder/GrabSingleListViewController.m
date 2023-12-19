@@ -22,6 +22,7 @@
 #import "CaseListViewController.h"
 #import <SDWebImage/SDWebImage.h>
 #import "EvaluateListViewController.h"
+#import "NSObject+YYModel.h"
 
 
 @interface GrabSingleListViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -30,6 +31,7 @@
 @property UITextField * searchBar;
 @property NSString * clickMasterID;
 @property NSString * clickRecordID;
+@property NSString * payState;
 @end
 
 @implementation GrabSingleListViewController
@@ -38,6 +40,7 @@
     [super viewDidLoad];
     [self addBackItem];
     self.navigationItem.title = @"师傅列表";
+    self.payState = @"0";
     self.muKeyValueList = [NSMutableArray arrayWithCapacity:0];
     self.tbOrderList.dataSource = self;
     self.tbOrderList.delegate = self;
@@ -136,11 +139,19 @@
                 self.view.loadErrorType = [error integerValue];
                 return ;
             }
+            self.payState = data[@"paystate"];
             [self.muKeyValueList removeAllObjects];
-            OrderListEntity *model = [data lastObject];
-                if (model) {
-                    [self.muKeyValueList addObjectsFromArray:data];;
-                }
+        
+                    
+                        for (NSDictionary *dic in data[@"datalist"]) {
+                            OrderListEntity *model = [OrderListEntity modelWithJSON:dic];
+                            if (model) {
+                                [self.muKeyValueList addObject:model];
+                            }
+                        }
+            
+        
+           
             if (self.muKeyValueList.count == 0) {
                 self.view.loadErrorType = YYLLoadErrorTypeNoData;
             }else{
@@ -195,12 +206,16 @@
     __weak typeof(view) weakView = view;
     view.confirmBlock  = ^{
         [weakView removeFromSuperview];
-        PayViewController *vc = [PayViewController alloc];
-        vc.recordID = self.recordID;
-        vc.masterID = self.clickMasterID;
-        vc.hidesBottomBarWhenPushed = YES;
-        [self jumpViewControllerAndCloseSelf:vc];
-//        [self requstConfirmMaster:self.clickMasterID recordID:self.clickRecordID];
+        if([self.payState isEqualToString:@"1"]){
+            [self requstConfirmMaster:self.clickMasterID recordID:self.clickRecordID];
+        }else{
+            PayViewController *vc = [PayViewController alloc];
+            vc.recordID = self.recordID;
+            vc.masterID = self.clickMasterID;
+            vc.hidesBottomBarWhenPushed = YES;
+            [self jumpViewControllerAndCloseSelf:vc];
+            
+        }
     };
     view.cancelBlock = ^{
         [weakView removeFromSuperview];

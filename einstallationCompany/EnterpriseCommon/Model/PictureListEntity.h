@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSMutableArray<PictureEntity*> * imagsarr;
 @property NSMutableArray<PictureEntity*> * imagsarr1;
 @property NSMutableArray<PictureEntity*> * imagsarr2;
+@property NSMutableArray<PictureEntity*> * imagsarr3;
+@property NSMutableArray<PictureEntity*> * imagsarr4;
 @end
 
 NS_ASSUME_NONNULL_END

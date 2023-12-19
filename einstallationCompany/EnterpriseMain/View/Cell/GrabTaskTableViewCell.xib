@@ -20,7 +20,7 @@
                         <rect key="frame" x="30" y="15" width="260" height="120"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8VR-iv-QGl">
-                                <rect key="frame" x="10" y="5" width="145" height="110"/>
+                                <rect key="frame" x="10" y="5" width="145" height="75"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
@@ -93,11 +93,25 @@
                                     <action selector="actionEdit:" destination="Lvr-Rg-iLs" eventType="touchUpInside" id="9pF-HI-QXD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFm-Z8-dOP">
+                                <rect key="frame" x="101" y="86" width="58" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="查看详情">
+                                    <color key="titleColor" red="0.40282231569999999" green="0.605723083" blue="0.89643913509999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionOrderDetail:" destination="Lvr-Rg-iLs" eventType="touchUpInside" id="XdR-I2-ufo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="8VR-iv-QGl" secondAttribute="trailing" constant="105" id="8Xl-Ne-Gt2"/>
                             <constraint firstAttribute="trailing" secondItem="95m-Mo-wIm" secondAttribute="trailing" constant="10" id="8wC-4P-u3q"/>
+                            <constraint firstItem="XFm-Z8-dOP" firstAttribute="centerX" secondItem="FCt-Gr-MpV" secondAttribute="centerX" id="Jvv-Tm-9lL"/>
+                            <constraint firstAttribute="bottom" secondItem="8VR-iv-QGl" secondAttribute="bottom" constant="40" id="M7c-gs-2E2"/>
+                            <constraint firstAttribute="bottom" secondItem="XFm-Z8-dOP" secondAttribute="bottom" constant="5" id="MDD-Pj-tbQ"/>
                             <constraint firstItem="3tD-Dw-pAf" firstAttribute="leading" secondItem="8VR-iv-QGl" secondAttribute="trailing" id="SWS-sB-dWW"/>
                             <constraint firstItem="qj2-JK-DDp" firstAttribute="centerX" secondItem="3tD-Dw-pAf" secondAttribute="centerX" id="VtC-ud-Yi7"/>
                             <constraint firstItem="95m-Mo-wIm" firstAttribute="centerY" secondItem="FCt-Gr-MpV" secondAttribute="centerY" id="Wye-dS-QYl"/>
@@ -106,7 +120,6 @@
                             <constraint firstItem="qj2-JK-DDp" firstAttribute="trailing" secondItem="3tD-Dw-pAf" secondAttribute="trailing" id="cma-jv-Lg1"/>
                             <constraint firstItem="8VR-iv-QGl" firstAttribute="leading" secondItem="FCt-Gr-MpV" secondAttribute="leading" constant="10" id="dRu-gp-QKy"/>
                             <constraint firstAttribute="height" constant="120" id="gXq-fA-uNE"/>
-                            <constraint firstItem="8VR-iv-QGl" firstAttribute="centerY" secondItem="FCt-Gr-MpV" secondAttribute="centerY" id="lbO-bh-Ym8"/>
                             <constraint firstItem="qj2-JK-DDp" firstAttribute="top" secondItem="3tD-Dw-pAf" secondAttribute="bottom" constant="15" id="lzI-tc-qoi"/>
                             <constraint firstItem="95m-Mo-wIm" firstAttribute="leading" secondItem="8VR-iv-QGl" secondAttribute="trailing" id="ob1-gZ-rzf"/>
                             <constraint firstAttribute="trailing" secondItem="agE-d4-yM1" secondAttribute="trailing" id="qyE-se-87k"/>

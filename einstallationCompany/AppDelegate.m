@@ -405,6 +405,7 @@
     NSString *title = [[NSString alloc] initWithData:message.title encoding:NSUTF8StringEncoding];
     NSString *body = [[NSString alloc] initWithData:message.body encoding:NSUTF8StringEncoding];
     NSLog(@"Receive message title: %@, content: %@.", title, body);
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 10;
 }
 
 #pragma mark Channel Opened

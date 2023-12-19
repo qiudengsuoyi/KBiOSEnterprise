@@ -23,6 +23,9 @@
 #import <YYKit/YYKit.h>
 #import "GrabOrderTabViewController.h"
 #import "EnterpriseMainController.h"
+#import "EnterprisePasswordController.h"
+#import "WXApi.h"
+
 
 
 @interface EnterpriseLoginController ()
@@ -31,6 +34,8 @@
 @property (strong, nonatomic) EnterpriseNavController *tabBarNav;
 @property (weak, nonatomic) IBOutlet EnterpriseBaseTextField *textPhone;
 @property (weak, nonatomic) IBOutlet EnterpriseBaseTextField *textPassword;
+@property (weak, nonatomic) IBOutlet UIButton *wxLogin;
+
 @end
 
 @implementation EnterpriseLoginController
@@ -57,6 +62,24 @@
 //    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
 //    [user setValue:@"1" forKey:@"userID"];
 //    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (IBAction)actionForget:(id)sender {
+    EnterprisePasswordController *vc = [[EnterprisePasswordController alloc]init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)actionWXLogin:(id)sender {
+    //构造SendAuthReq结构体
+    SendAuthReq* req =[[SendAuthReq alloc]init];
+    req.scope = @"snsapi_userinfo"; // 只能填 snsapi_userinfo
+    req.state = @"1";
+        //第三方向微信终端发送一个SendAuthReq消息结构
+    [WXApi sendReq:req completion:^(BOOL success) {
+        if(success){
+               
+        }}];
 }
 
 - (IBAction)actionRegister:(id)sender {

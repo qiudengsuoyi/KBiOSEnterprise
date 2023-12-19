@@ -68,13 +68,11 @@ FSPagerViewDataSource,UITableViewDelegate,UITableViewDataSource>
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:NO animated:NO];
-    [self requstRedNum];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 这个方法是设置导航栏背景颜色，状态栏也会随之变色
- 
     if (@available(iOS 13.0, *)) {
         UIWindowScene *windowScene = (UIWindowScene *)[UIApplication sharedApplication].connectedScenes.anyObject;
         // 更改状态栏样式为浅色内容（白色文字）
@@ -96,7 +94,7 @@ FSPagerViewDataSource,UITableViewDelegate,UITableViewDataSource>
     _pagerView.isInfinite = YES;
     _pagerView.interitemSpacing = 0;
     [self.pagerView registerClass:[FSPagerViewCell class] forCellWithReuseIdentifier:@"cell"];
-    
+
     _tableView.delegate = self;
     _tableView.dataSource = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -301,6 +299,7 @@ FSPagerViewDataSource,UITableViewDelegate,UITableViewDataSource>
         [EnterpriseMainService requestMainNum:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
             if (data) {
                 self.mainNumModel = data;
+        
                 [self.tableView reloadData];
                 self.labelNum.text = self.mainNumModel.FastNum3;
                 
@@ -333,6 +332,7 @@ FSPagerViewDataSource,UITableViewDelegate,UITableViewDataSource>
             if (data) {
                 self.mainNumModel = data;
                 [self.tableView reloadData];
+                [self.pagerView reloadData];
                 if(self.scrollTimer!=nil){
                     [self.scrollTimer invalidate];
                     self.scrollTimer = nil;

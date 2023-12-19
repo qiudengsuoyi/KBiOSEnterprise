@@ -94,14 +94,9 @@
 #pragma mark  设置CollectionView的组数
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    if(collectionView == self.collection01){
-        return ceil(self.pictureListModel.imagsarr.count/3.0);
-    }else if(collectionView == self.collection02){
-        return ceil(self.pictureListModel.imagsarr1.count/3.0);
-    }else if(collectionView == self.collection03){
-        return ceil(self.pictureListModel.imagsarr2.count/3.0);
-    }
-    return 0;
+
+        return 1;
+
 }
 
 -(CGSize)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath*)indexPath

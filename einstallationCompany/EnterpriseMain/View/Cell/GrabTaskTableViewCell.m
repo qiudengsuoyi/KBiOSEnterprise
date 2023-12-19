@@ -77,9 +77,7 @@
                     self.bt03.backgroundColor = [UIColor darkGrayColor];
                     [self.bt03 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                     break;
-              
-                    
-                    
+
                 default:
                     self.bt01.hidden = YES;
                     self.bt02.hidden = YES;
@@ -123,6 +121,11 @@
         }
 }
 
+- (IBAction)actionOrderDetail:(id)sender {
+    if (self.detailBlock) {
+        self.detailBlock();
+    }
+}
 
 - (IBAction)actionDetail:(id)sender {
     if (self.confirmBlock) {

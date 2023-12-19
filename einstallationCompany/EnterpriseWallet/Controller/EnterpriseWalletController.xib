@@ -64,6 +64,11 @@
                         <constraint firstItem="vNe-qD-TMf" firstAttribute="leading" secondItem="LQR-5w-KtH" secondAttribute="trailing" id="gEm-3Y-3f2"/>
                         <constraint firstItem="LQR-5w-KtH" firstAttribute="centerY" secondItem="5wR-Rd-eOW" secondAttribute="centerY" id="sBv-rd-mT9"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPR-76-Fy4">
                     <rect key="frame" x="30" y="100" width="315" height="50"/>
@@ -106,6 +111,11 @@
                         <constraint firstAttribute="trailing" secondItem="h01-5y-rdx" secondAttribute="trailing" constant="10" id="p1X-4h-Pg4"/>
                         <constraint firstAttribute="height" constant="50" id="ttc-mU-4Io"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVL-FV-1ch">
                     <rect key="frame" x="30" y="170" width="315" height="50"/>
@@ -131,6 +141,11 @@
                         <constraint firstAttribute="trailing" secondItem="ToJ-SS-DcU" secondAttribute="trailing" constant="10" id="YgC-54-Ulw"/>
                         <constraint firstAttribute="height" constant="50" id="je8-Im-txI"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>

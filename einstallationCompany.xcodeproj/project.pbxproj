@@ -84,6 +84,9 @@
 		F56A92D4268A1A0100ED7676 /* MainNumEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = F56A92D3268A1A0100ED7676 /* MainNumEntity.m */; };
 		F56F6FBA26D66F1D00287E71 /* PayMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F56F6FB826D66F1D00287E71 /* PayMessageViewController.m */; };
 		F56F6FBB26D66F1D00287E71 /* PayMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F56F6FB926D66F1D00287E71 /* PayMessageViewController.xib */; };
+		F57112E82AAE06E400A47E57 /* GrabUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F57112E62AAE06E400A47E57 /* GrabUploadViewController.m */; };
+		F57112E92AAE06E400A47E57 /* GrabUploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F57112E72AAE06E400A47E57 /* GrabUploadViewController.xib */; };
+		F57112EC2AAE12FE00A47E57 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F57112EB2AAE12FE00A47E57 /* VideoViewController.m */; };
 		F5766684266F91AD00D70B3F /* InstallStatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5766682266F91AD00D70B3F /* InstallStatisticViewController.m */; };
 		F5766685266F91AD00D70B3F /* InstallStatisticViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5766683266F91AD00D70B3F /* InstallStatisticViewController.xib */; };
 		F576668A266FA7CD00D70B3F /* BrandTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5766688266FA7CD00D70B3F /* BrandTableViewCell.m */; };
@@ -144,8 +147,6 @@
 		F5A945D526D3EB890040A4B7 /* PayOrderEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A945D426D3EB890040A4B7 /* PayOrderEntity.m */; };
 		F5A945DA26D3ED1D0040A4B7 /* PayOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A945D826D3ED1D0040A4B7 /* PayOrderTableViewCell.m */; };
 		F5A945DB26D3ED1D0040A4B7 /* PayOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5A945D926D3ED1D0040A4B7 /* PayOrderTableViewCell.xib */; };
-		F5AE53032A8B6F1100DD59D4 /* EnterpriseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AE53012A8B6F1100DD59D4 /* EnterpriseViewController.m */; };
-		F5AE53042A8B6F1100DD59D4 /* EnterpriseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5AE53022A8B6F1100DD59D4 /* EnterpriseViewController.xib */; };
 		F5B046D826D0994A00E76024 /* WXApiResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B046D326D0994A00E76024 /* WXApiResponseHandler.m */; };
 		F5B046D926D0994A00E76024 /* WXApiRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B046D426D0994A00E76024 /* WXApiRequestHandler.m */; };
 		F5B046DA26D0994A00E76024 /* WXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B046D726D0994A00E76024 /* WXApiManager.m */; };
@@ -163,12 +164,20 @@
 		F5B4611629F5693500B72A56 /* SGPageTitleViewConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B4610A29F5693500B72A56 /* SGPageTitleViewConfigure.m */; };
 		F5B4611729F5693500B72A56 /* SGPagingViewPopGestureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B4610E29F5693500B72A56 /* SGPagingViewPopGestureVC.m */; };
 		F5B4611A29F56A0500B72A56 /* CommonSize.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B4611929F56A0500B72A56 /* CommonSize.m */; };
+		F5B946CD2AE56AA7009FE271 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B946CB2AE56AA7009FE271 /* FeedbackViewController.m */; };
+		F5B946CE2AE56AA7009FE271 /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5B946CC2AE56AA7009FE271 /* FeedbackViewController.xib */; };
 		F5BAAFE7262BF88300E3C709 /* GrabDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BAAFE5262BF88300E3C709 /* GrabDetailController.m */; };
 		F5BAAFE8262BF88300E3C709 /* GrabDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5BAAFE6262BF88300E3C709 /* GrabDetailController.xib */; };
+		F5C80CDA2AE584600022CA46 /* FeedbackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C80CD82AE584600022CA46 /* FeedbackListViewController.m */; };
+		F5C80CDB2AE584600022CA46 /* FeedbackListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5C80CD92AE584600022CA46 /* FeedbackListViewController.xib */; };
+		F5C80CDF2AE59D330022CA46 /* FeedbackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C80CDD2AE59D330022CA46 /* FeedbackTableViewCell.m */; };
+		F5C80CE02AE59D330022CA46 /* FeedbackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5C80CDE2AE59D330022CA46 /* FeedbackTableViewCell.xib */; };
 		F5CC5E742A8BBAA900D1CB92 /* SUTableViewInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CC5E732A8BBAA900D1CB92 /* SUTableViewInterceptor.m */; };
 		F5CC5E7A2A8BBB1B00D1CB92 /* SUTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CC5E792A8BBB1B00D1CB92 /* SUTableView.m */; };
 		F5CC5E7E2A8BBC2800D1CB92 /* MainScrollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CC5E7C2A8BBC2800D1CB92 /* MainScrollViewCell.m */; };
 		F5CC5E7F2A8BBC2800D1CB92 /* MainScrollViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5CC5E7D2A8BBC2800D1CB92 /* MainScrollViewCell.xib */; };
+		F5D39E372AB29C63004D9229 /* GrabPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D39E352AB29C63004D9229 /* GrabPictureViewController.m */; };
+		F5D39E382AB29C63004D9229 /* GrabPictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5D39E362AB29C63004D9229 /* GrabPictureViewController.xib */; };
 		F5DA4A62267F3837000015DD /* APIConst.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA4A61267F3837000015DD /* APIConst.m */; };
 		F5DA4A67267F3865000015DD /* EnterpriseNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA4A66267F3865000015DD /* EnterpriseNetwork.m */; };
 		F5DA4A6C267F39A1000015DD /* EnterpriseLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA4A6B267F39A1000015DD /* EnterpriseLoginService.m */; };
@@ -190,6 +199,8 @@
 		F5DA4AE0267F9473000015DD /* OrderListEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA4ADF267F9473000015DD /* OrderListEntity.m */; };
 		F5DA4AE5267F9B16000015DD /* EnterpriseMainService.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA4AE4267F9B16000015DD /* EnterpriseMainService.m */; };
 		F5DA4AF9267F9FC6000015DD /* PictureListEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA4AF8267F9FC6000015DD /* PictureListEntity.m */; };
+		F5DE1E602AB70D260060D3F9 /* PictureCanDeleteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DE1E5E2AB70D260060D3F9 /* PictureCanDeleteCollectionViewCell.m */; };
+		F5DE1E612AB70D260060D3F9 /* PictureCanDeleteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5DE1E5F2AB70D260060D3F9 /* PictureCanDeleteCollectionViewCell.xib */; };
 		F5E238432A08E9AC00BE3416 /* JWStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E238422A08E9AC00BE3416 /* JWStarView.m */; };
 		F5E4C7FF264271E90034E4C3 /* EnterpriseLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E4C7FD264271E90034E4C3 /* EnterpriseLoginController.m */; };
 		F5E4C800264271E90034E4C3 /* EnterpriseLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5E4C7FE264271E90034E4C3 /* EnterpriseLoginController.xib */; };
@@ -334,6 +345,11 @@
 		F56F6FB726D66F1D00287E71 /* PayMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayMessageViewController.h; sourceTree = "<group>"; };
 		F56F6FB826D66F1D00287E71 /* PayMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayMessageViewController.m; sourceTree = "<group>"; };
 		F56F6FB926D66F1D00287E71 /* PayMessageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayMessageViewController.xib; sourceTree = "<group>"; };
+		F57112E52AAE06E400A47E57 /* GrabUploadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GrabUploadViewController.h; sourceTree = "<group>"; };
+		F57112E62AAE06E400A47E57 /* GrabUploadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrabUploadViewController.m; sourceTree = "<group>"; };
+		F57112E72AAE06E400A47E57 /* GrabUploadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GrabUploadViewController.xib; sourceTree = "<group>"; };
+		F57112EA2AAE12FE00A47E57 /* VideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		F57112EB2AAE12FE00A47E57 /* VideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		F5766681266F91AD00D70B3F /* InstallStatisticViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstallStatisticViewController.h; sourceTree = "<group>"; };
 		F5766682266F91AD00D70B3F /* InstallStatisticViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstallStatisticViewController.m; sourceTree = "<group>"; };
 		F5766683266F91AD00D70B3F /* InstallStatisticViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstallStatisticViewController.xib; sourceTree = "<group>"; };
@@ -428,7 +444,6 @@
 		F5A945D726D3ED1D0040A4B7 /* PayOrderTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayOrderTableViewCell.h; sourceTree = "<group>"; };
 		F5A945D826D3ED1D0040A4B7 /* PayOrderTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayOrderTableViewCell.m; sourceTree = "<group>"; };
 		F5A945D926D3ED1D0040A4B7 /* PayOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayOrderTableViewCell.xib; sourceTree = "<group>"; };
-		F5AE53002A8B6F1100DD59D4 /* EnterpriseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnterpriseViewController.h; sourceTree = "<group>"; };
 		F5AE53012A8B6F1100DD59D4 /* EnterpriseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnterpriseViewController.m; sourceTree = "<group>"; };
 		F5AE53022A8B6F1100DD59D4 /* EnterpriseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnterpriseViewController.xib; sourceTree = "<group>"; };
 		F5B046D226D0994A00E76024 /* WXApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiManager.h; sourceTree = "<group>"; };
@@ -464,9 +479,18 @@
 		F5B4611029F5693500B72A56 /* SGPagingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGPagingView.h; sourceTree = "<group>"; };
 		F5B4611829F56A0500B72A56 /* CommonSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonSize.h; sourceTree = "<group>"; };
 		F5B4611929F56A0500B72A56 /* CommonSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonSize.m; sourceTree = "<group>"; };
+		F5B946CA2AE56AA7009FE271 /* FeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		F5B946CB2AE56AA7009FE271 /* FeedbackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		F5B946CC2AE56AA7009FE271 /* FeedbackViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedbackViewController.xib; sourceTree = "<group>"; };
 		F5BAAFE4262BF88300E3C709 /* GrabDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GrabDetailController.h; sourceTree = "<group>"; };
 		F5BAAFE5262BF88300E3C709 /* GrabDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrabDetailController.m; sourceTree = "<group>"; };
 		F5BAAFE6262BF88300E3C709 /* GrabDetailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GrabDetailController.xib; sourceTree = "<group>"; };
+		F5C80CD72AE584600022CA46 /* FeedbackListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackListViewController.h; sourceTree = "<group>"; };
+		F5C80CD82AE584600022CA46 /* FeedbackListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackListViewController.m; sourceTree = "<group>"; };
+		F5C80CD92AE584600022CA46 /* FeedbackListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedbackListViewController.xib; sourceTree = "<group>"; };
+		F5C80CDC2AE59D330022CA46 /* FeedbackTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackTableViewCell.h; sourceTree = "<group>"; };
+		F5C80CDD2AE59D330022CA46 /* FeedbackTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackTableViewCell.m; sourceTree = "<group>"; };
+		F5C80CDE2AE59D330022CA46 /* FeedbackTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedbackTableViewCell.xib; sourceTree = "<group>"; };
 		F5CBD128273D41C50044E7A4 /* einstallationCompanyDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = einstallationCompanyDebug.entitlements; sourceTree = "<group>"; };
 		F5CC5E722A8BBAA900D1CB92 /* SUTableViewInterceptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUTableViewInterceptor.h; sourceTree = "<group>"; };
 		F5CC5E732A8BBAA900D1CB92 /* SUTableViewInterceptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUTableViewInterceptor.m; sourceTree = "<group>"; };
@@ -475,6 +499,9 @@
 		F5CC5E7B2A8BBC2800D1CB92 /* MainScrollViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainScrollViewCell.h; sourceTree = "<group>"; };
 		F5CC5E7C2A8BBC2800D1CB92 /* MainScrollViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainScrollViewCell.m; sourceTree = "<group>"; };
 		F5CC5E7D2A8BBC2800D1CB92 /* MainScrollViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainScrollViewCell.xib; sourceTree = "<group>"; };
+		F5D39E342AB29C63004D9229 /* GrabPictureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GrabPictureViewController.h; sourceTree = "<group>"; };
+		F5D39E352AB29C63004D9229 /* GrabPictureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrabPictureViewController.m; sourceTree = "<group>"; };
+		F5D39E362AB29C63004D9229 /* GrabPictureViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GrabPictureViewController.xib; sourceTree = "<group>"; };
 		F5DA4A60267F3837000015DD /* APIConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIConst.h; sourceTree = "<group>"; };
 		F5DA4A61267F3837000015DD /* APIConst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIConst.m; sourceTree = "<group>"; };
 		F5DA4A65267F3865000015DD /* EnterpriseNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnterpriseNetwork.h; sourceTree = "<group>"; };
@@ -513,6 +540,9 @@
 		F5DA4AE4267F9B16000015DD /* EnterpriseMainService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnterpriseMainService.m; sourceTree = "<group>"; };
 		F5DA4AF7267F9FC6000015DD /* PictureListEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PictureListEntity.h; sourceTree = "<group>"; };
 		F5DA4AF8267F9FC6000015DD /* PictureListEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PictureListEntity.m; sourceTree = "<group>"; };
+		F5DE1E5D2AB70D260060D3F9 /* PictureCanDeleteCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PictureCanDeleteCollectionViewCell.h; sourceTree = "<group>"; };
+		F5DE1E5E2AB70D260060D3F9 /* PictureCanDeleteCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PictureCanDeleteCollectionViewCell.m; sourceTree = "<group>"; };
+		F5DE1E5F2AB70D260060D3F9 /* PictureCanDeleteCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PictureCanDeleteCollectionViewCell.xib; sourceTree = "<group>"; };
 		F5E238412A08E9AC00BE3416 /* JWStarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JWStarView.h; sourceTree = "<group>"; };
 		F5E238422A08E9AC00BE3416 /* JWStarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JWStarView.m; sourceTree = "<group>"; };
 		F5E4C7FC264271E90034E4C3 /* EnterpriseLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnterpriseLoginController.h; sourceTree = "<group>"; };
@@ -654,11 +684,9 @@
 				F521E1402615A0DC00D87F6F /* EnterpriseMainController.h */,
 				F521E1412615A0DC00D87F6F /* EnterpriseMainController.m */,
 				F521E1422615A0DC00D87F6F /* EnterpriseMainController.xib */,
-
 				F53832ED2A8E22B300493261 /* EnterpriseViewController.h */,
 				F53832EE2A8E22B300493261 /* EnterpriseViewController.m */,
 				F53832EF2A8E22B300493261 /* EnterpriseViewController.xib */,
-
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -680,6 +708,7 @@
 				F52E74FE26109D0800CB727E /* Products */,
 				3EEE70C0092089C2967DBB10 /* Pods */,
 				199D698C3A2C6ACECFC0D6BA /* Frameworks */,
+				F57E80B62AA6CF4B002F2394 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -871,6 +900,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F57E80B62AA6CF4B002F2394 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				F5AE53012A8B6F1100DD59D4 /* EnterpriseViewController.m */,
+				F5AE53022A8B6F1100DD59D4 /* EnterpriseViewController.xib */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		F58504A42649830700EED2A3 /* Picture */ = {
 			isa = PBXGroup;
 			children = (
@@ -880,6 +918,14 @@
 				F594DF5A26809D7100EBC038 /* PictureCarouselViewController.h */,
 				F594DF5B26809D7100EBC038 /* PictureCarouselViewController.m */,
 				F594DF5C26809D7100EBC038 /* PictureCarouselViewController.xib */,
+				F57112E52AAE06E400A47E57 /* GrabUploadViewController.h */,
+				F57112E62AAE06E400A47E57 /* GrabUploadViewController.m */,
+				F57112E72AAE06E400A47E57 /* GrabUploadViewController.xib */,
+				F57112EA2AAE12FE00A47E57 /* VideoViewController.h */,
+				F57112EB2AAE12FE00A47E57 /* VideoViewController.m */,
+				F5D39E342AB29C63004D9229 /* GrabPictureViewController.h */,
+				F5D39E352AB29C63004D9229 /* GrabPictureViewController.m */,
+				F5D39E362AB29C63004D9229 /* GrabPictureViewController.xib */,
 			);
 			path = Picture;
 			sourceTree = "<group>";
@@ -1086,6 +1132,12 @@
 				F53832E82A8DFADF00493261 /* ListBaseCell.h */,
 				F53832E92A8DFADF00493261 /* ListBaseCell.m */,
 				F53832EA2A8DFADF00493261 /* ListBaseCell.xib */,
+				F5DE1E5D2AB70D260060D3F9 /* PictureCanDeleteCollectionViewCell.h */,
+				F5DE1E5E2AB70D260060D3F9 /* PictureCanDeleteCollectionViewCell.m */,
+				F5DE1E5F2AB70D260060D3F9 /* PictureCanDeleteCollectionViewCell.xib */,
+				F5C80CDC2AE59D330022CA46 /* FeedbackTableViewCell.h */,
+				F5C80CDD2AE59D330022CA46 /* FeedbackTableViewCell.m */,
+				F5C80CDE2AE59D330022CA46 /* FeedbackTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1361,6 +1413,12 @@
 				F5E4C80F2642930A0034E4C3 /* EnterprisePasswordController.xib */,
 				F5DA4A90267F41E3000015DD /* EnterpriseBaseTextField.h */,
 				F5DA4A91267F41E3000015DD /* EnterpriseBaseTextField.m */,
+				F5B946CA2AE56AA7009FE271 /* FeedbackViewController.h */,
+				F5B946CB2AE56AA7009FE271 /* FeedbackViewController.m */,
+				F5B946CC2AE56AA7009FE271 /* FeedbackViewController.xib */,
+				F5C80CD72AE584600022CA46 /* FeedbackListViewController.h */,
+				F5C80CD82AE584600022CA46 /* FeedbackListViewController.m */,
+				F5C80CD92AE584600022CA46 /* FeedbackListViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1510,6 +1568,7 @@
 			files = (
 				F558BB86264B979300F469EC /* TabContentCollectionViewCell.xib in Resources */,
 				F54E5966268863C400FD91BA /* GrabSingleListViewController.xib in Resources */,
+				F5C80CE02AE59D330022CA46 /* FeedbackTableViewCell.xib in Resources */,
 				F58504A92649834000EED2A3 /* TaskPictureController.xib in Resources */,
 				F58DB24626332A2F00F66736 /* WaitTaskItemTableViewCell.xib in Resources */,
 				F515728927E8CF1E008CC374 /* CaseListViewController.xib in Resources */,
@@ -1528,6 +1587,7 @@
 				F56F6FBB26D66F1D00287E71 /* PayMessageViewController.xib in Resources */,
 				F5B460FB29F5686A00B72A56 /* GrabOrderTabViewController.xib in Resources */,
 				F5E4C81926429D260034E4C3 /* EnterpriseLoadController.xib in Resources */,
+				F5C80CDB2AE584600022CA46 /* FeedbackListViewController.xib in Resources */,
 				F57666AB266FB8D000D70B3F /* RechargeViewController.xib in Resources */,
 				F532D97B2651412A00DD43FA /* WalletListViewController.xib in Resources */,
 				F521E1442615A0DC00D87F6F /* EnterpriseMainController.xib in Resources */,
@@ -1541,9 +1601,12 @@
 				F5E4C800264271E90034E4C3 /* EnterpriseLoginController.xib in Resources */,
 				F515DF4128CB79F300A27D53 /* ComplainTableViewCell.xib in Resources */,
 				F503462B2A0B8EEE001E8873 /* TZTestCell.xib in Resources */,
+				F57112E92AAE06E400A47E57 /* GrabUploadViewController.xib in Resources */,
 				F5E4C8112642930A0034E4C3 /* EnterprisePasswordController.xib in Resources */,
 				F532D97526513BEB00DD43FA /* EnterpriseWalletController.xib in Resources */,
 				F558BB9F264C140800F469EC /* ProtocolViewController.xib in Resources */,
+				F5D39E382AB29C63004D9229 /* GrabPictureViewController.xib in Resources */,
+				F5DE1E612AB70D260060D3F9 /* PictureCanDeleteCollectionViewCell.xib in Resources */,
 				F532D9B62651742B00DD43FA /* ApproveViewController.xib in Resources */,
 				F594DF5E26809D7100EBC038 /* PictureCarouselViewController.xib in Resources */,
 				F53479902649337800F7B491 /* ModifyController.xib in Resources */,
@@ -1559,8 +1622,8 @@
 				F558BB8D264BBD1900F469EC /* CustomerViewController.xib in Resources */,
 				F532D99C265163C200DD43FA /* ItemClassOneTableViewCell.xib in Resources */,
 				F5376AB627414EBE0084AC3F /* AliyunEmasServices-Info.plist in Resources */,
-				F5AE53042A8B6F1100DD59D4 /* EnterpriseViewController.xib in Resources */,
 				F53832E72A8DF9B500493261 /* EvaluateListViewController.xib in Resources */,
+				F5B946CE2AE56AA7009FE271 /* FeedbackViewController.xib in Resources */,
 				F51BD9FA2A9C07B70042BE70 /* GrabFailTabViewController.xib in Resources */,
 				F58DB23126330DF200F66736 /* PictureCollectionViewCell.xib in Resources */,
 				F532D989265146B000DD43FA /* InstallViewController.xib in Resources */,
@@ -1650,6 +1713,7 @@
 				F532D97A2651412A00DD43FA /* WalletListViewController.m in Sources */,
 				F592402C2631F1C200BC0355 /* OrderItemTableViewCell.m in Sources */,
 				F558BB85264B979300F469EC /* TabContentCollectionViewCell.m in Sources */,
+				F57112EC2AAE12FE00A47E57 /* VideoViewController.m in Sources */,
 				F532D97426513BEB00DD43FA /* EnterpriseWalletController.m in Sources */,
 				F5A945D526D3EB890040A4B7 /* PayOrderEntity.m in Sources */,
 				F5B4611629F5693500B72A56 /* SGPageTitleViewConfigure.m in Sources */,
@@ -1686,6 +1750,7 @@
 				F58DB24526332A2F00F66736 /* WaitTaskItemTableViewCell.m in Sources */,
 				F5B4611A29F56A0500B72A56 /* CommonSize.m in Sources */,
 				F5CC5E7E2A8BBC2800D1CB92 /* MainScrollViewCell.m in Sources */,
+				F5C80CDF2AE59D330022CA46 /* FeedbackTableViewCell.m in Sources */,
 				F515DF4028CB79F300A27D53 /* ComplainTableViewCell.m in Sources */,
 				F5A21B8528CD9289000FA3CE /* DialogOneView.m in Sources */,
 				F5DA4AA4267F5DAB000015DD /* LoginEntity.m in Sources */,
@@ -1699,6 +1764,7 @@
 				F588C26126C91470009B19D0 /* PayViewController.m in Sources */,
 				F5B046D826D0994A00E76024 /* WXApiResponseHandler.m in Sources */,
 				F5DA4AB6267F783E000015DD /* EnterpriseNoticeService.m in Sources */,
+				F5DE1E602AB70D260060D3F9 /* PictureCanDeleteCollectionViewCell.m in Sources */,
 				F515729027E8CFFD008CC374 /* CaseTableViewCell.m in Sources */,
 				F5B1452E26A9AD3D0040FD0D /* DialogTwoButtonView.m in Sources */,
 				F5303EA226D28C64005658F3 /* PayModel.m in Sources */,
@@ -1713,6 +1779,8 @@
 				F5766690266FAEBB00D70B3F /* TaskTableViewCell.m in Sources */,
 				F56A92D4268A1A0100ED7676 /* MainNumEntity.m in Sources */,
 				F5DA4A6C267F39A1000015DD /* EnterpriseLoginService.m in Sources */,
+				F5D39E372AB29C63004D9229 /* GrabPictureViewController.m in Sources */,
+				F5C80CDA2AE584600022CA46 /* FeedbackListViewController.m in Sources */,
 				F5FAAD8A2A8CA85300511C8E /* SelectConfig.m in Sources */,
 				F579AAED26D53E2400E27C7B /* PayOrderEditEntity.m in Sources */,
 				F5B4611729F5693500B72A56 /* SGPagingViewPopGestureVC.m in Sources */,
@@ -1728,7 +1796,6 @@
 				F5DA4A67267F3865000015DD /* EnterpriseNetwork.m in Sources */,
 				F5A945DA26D3ED1D0040A4B7 /* PayOrderTableViewCell.m in Sources */,
 				F5303E9F26D26C2E005658F3 /* PayService.m in Sources */,
-				F5AE53032A8B6F1100DD59D4 /* EnterpriseViewController.m in Sources */,
 				F58DB24E2633308800F66736 /* ResultController.m in Sources */,
 				F5DA4A9F267F5646000015DD /* UIView+RefreshData.m in Sources */,
 				F5766684266F91AD00D70B3F /* InstallStatisticViewController.m in Sources */,
@@ -1745,12 +1812,14 @@
 				F5B4611229F5693500B72A56 /* UIView+SGPagingView.m in Sources */,
 				F58DB25426333D4700F66736 /* WaitTaskDetailController.m in Sources */,
 				F503462A2A0B8EEE001E8873 /* TZTestCell.m in Sources */,
+				F57112E82AAE06E400A47E57 /* GrabUploadViewController.m in Sources */,
 				F5F0CBF7269889C400FAC6E0 /* EnterpriseCommonService.m in Sources */,
 				F534798F2649337800F7B491 /* ModifyController.m in Sources */,
 				F576668A266FA7CD00D70B3F /* BrandTableViewCell.m in Sources */,
 				F57666AA266FB8D000D70B3F /* RechargeViewController.m in Sources */,
 				F521E13D2615A0B100D87F6F /* EnterpriseBaseController.m in Sources */,
 				F5E4C81826429D260034E4C3 /* EnterpriseLoadController.m in Sources */,
+				F5B946CD2AE56AA7009FE271 /* FeedbackViewController.m in Sources */,
 				F5B4611529F5693500B72A56 /* SGPageTitleView.m in Sources */,
 				F58504A82649834000EED2A3 /* TaskPictureController.m in Sources */,
 				F5CC5E7A2A8BBB1B00D1CB92 /* SUTableView.m in Sources */,
@@ -1927,7 +1996,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.6;
+				MARKETING_VERSION = 1.3.7;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chengdushanghai.einstallation-company";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1947,7 +2016,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = GS37485LU5;
+				DEVELOPMENT_TEAM = YLJ6T7K727;
 				EXCLUDED_ARCHS = "";
 				GCC_ENABLE_BUILTIN_FUNCTIONS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1958,7 +2027,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.6;
+				MARKETING_VERSION = 1.3.7;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chengdushanghai.einstallation-company";
 				PRODUCT_NAME = "$(TARGET_NAME)";

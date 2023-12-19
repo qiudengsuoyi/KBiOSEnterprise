@@ -89,6 +89,7 @@ FSPagerViewDataSource,UITableViewDelegate,UITableViewDataSource>
     _pagerView.delegate = self;
     _pagerView.dataSource = self;
     _pagerView.automaticSlidingInterval = 3;
+   
     _pagerView.isInfinite = YES;
     _pagerView.interitemSpacing = 0;
     [self.pagerView registerClass:[FSPagerViewCell class] forCellWithReuseIdentifier:@"cell"];
@@ -257,6 +258,7 @@ FSPagerViewDataSource,UITableViewDelegate,UITableViewDataSource>
             if (data) {
                 self.mainNumModel = data;
                 [self.tableView reloadData];
+                [self.pagerView reloadData];
                 if(self.scrollTimer!=nil){
                     [self.scrollTimer invalidate];
                     self.scrollTimer = nil;

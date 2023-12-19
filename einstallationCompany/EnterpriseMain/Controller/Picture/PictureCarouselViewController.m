@@ -44,11 +44,15 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+
     
     [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
 
+- (IBAction)actionBack:(id)sender {
+    [self.navigationController popViewControllerAnimated:NO];
+}
 
 
 
@@ -88,6 +92,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.previousScale = 1.f;
     self.contentList = [NSMutableArray arrayWithCapacity:0] ;
     self.arrThumbnailState = [NSMutableArray arrayWithCapacity:0] ;

@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,12 +16,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODd-cr-0oG">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODd-cr-0oG">
                         <rect key="frame" x="30" y="15" width="260" height="120"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yCN-QB-SXa">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yCN-QB-SXa">
                                 <rect key="frame" x="10" y="5" width="180" height="110"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="enterpirse_click" translatesAutoresizingMaskIntoConstraints="NO" id="psZ-YS-QtH">
                                 <rect key="frame" x="200" y="35" width="50" height="50"/>
@@ -32,7 +33,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="psZ-YS-QtH" secondAttribute="trailing" constant="10" id="2pZ-nM-yG4"/>
                             <constraint firstItem="psZ-YS-QtH" firstAttribute="centerY" secondItem="ODd-cr-0oG" secondAttribute="centerY" id="3Ty-Ra-04i"/>
@@ -57,6 +58,7 @@
                     <constraint firstItem="ODd-cr-0oG" firstAttribute="top" secondItem="RKs-qP-qbV" secondAttribute="top" constant="15" id="v8k-xC-m0M"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.90588235289999997" green="0.91372549020000005" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="cellConstrainHeight" destination="Pfs-Eh-DEa" id="igz-Ci-9Re"/>
                 <outlet property="ivClick" destination="psZ-YS-QtH" id="fQe-ml-ynN"/>
@@ -67,8 +69,5 @@
     </objects>
     <resources>
         <image name="enterpirse_click" width="38" height="49.5"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

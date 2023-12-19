@@ -13,6 +13,7 @@
 #import "EnterpriseLoginService.h"
 #import "APIConst.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "EnterpriseLoginController.h"
 
 
 
@@ -148,7 +149,7 @@
     
     [SVProgressHUD show];
     NSDictionary *dic = @{@"username":self.textAccount.text,
-                          @"password":[self getmd5WithString:self.textPassword.text],
+                          @"password":[[self getmd5WithString:self.textPassword.text] lowercaseString],
                           @"companyname":strUserName,
                           @"phoneNo":self.textPhone.text,
                           @"EnterpriseUserName":[self utf82gbk:strName],
@@ -158,6 +159,9 @@
     [EnterpriseLoginService requestRegister:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
         if (data) {
             [SVProgressHUD showInfoWithStatus:data];
+            EnterpriseLoginController *vc = [[EnterpriseLoginController alloc]init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
     
         }
     }];

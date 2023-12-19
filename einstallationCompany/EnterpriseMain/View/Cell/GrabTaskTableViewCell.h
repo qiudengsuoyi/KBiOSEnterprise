@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property OrderListEntity * model;
 @property (nonatomic, copy) void (^cancelBlock)(void);
 @property (nonatomic, copy) void (^confirmBlock)(void);
+@property (nonatomic, copy) void (^detailBlock)(void);
 @property (nonatomic, copy) void (^editBlock)(void);
 @property (weak, nonatomic) IBOutlet UIButton *btEdit;
 

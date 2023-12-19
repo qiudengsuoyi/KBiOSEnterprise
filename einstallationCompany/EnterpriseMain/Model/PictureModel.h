@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString * text;
 @property NSString * position;
 @property NSString * imageType;
+@property NSString * pid;
 @end
 
 

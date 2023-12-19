@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="identifier" id="A2s-ua-VGT" customClass="PictureCanDeleteCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="74" height="59"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="74" height="59"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picture_occupy" translatesAutoresizingMaskIntoConstraints="NO" id="3EI-V5-Vhp">
+                        <rect key="frame" x="0.0" y="0.0" width="74" height="60.333333333333336"/>
+                        <color key="backgroundColor" red="0.65875023600000004" green="0.65886574980000001" blue="0.65874296430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="3EI-V5-Vhp" secondAttribute="height" multiplier="174:142" id="RsA-Jn-ogE"/>
+                            <constraint firstAttribute="width" constant="74" id="Y6v-vs-I1g"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P16-ud-OcV">
+                        <rect key="frame" x="49" y="0.0" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="krI-dR-HHc"/>
+                            <constraint firstAttribute="height" constant="25" id="q46-3K-emc"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="photo_delete"/>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="3EI-V5-Vhp" firstAttribute="leading" secondItem="A2s-ua-VGT" secondAttribute="leading" id="9V2-u9-7b1"/>
+                <constraint firstItem="P16-ud-OcV" firstAttribute="top" secondItem="A2s-ua-VGT" secondAttribute="top" id="BsT-RN-7re"/>
+                <constraint firstItem="3EI-V5-Vhp" firstAttribute="top" secondItem="A2s-ua-VGT" secondAttribute="top" id="Uir-v3-w4z"/>
+                <constraint firstAttribute="trailing" secondItem="3EI-V5-Vhp" secondAttribute="trailing" id="fIS-yt-Gg1"/>
+                <constraint firstAttribute="trailing" secondItem="P16-ud-OcV" secondAttribute="trailing" id="lHI-yN-TGo"/>
+            </constraints>
+            <size key="customSize" width="74" height="59"/>
+            <connections>
+                <outlet property="deleteBtn" destination="P16-ud-OcV" id="4Uo-Gx-0zv"/>
+                <outlet property="iv" destination="3EI-V5-Vhp" id="bKr-oZ-Jfr"/>
+                <outlet property="ivConstraintWidth" destination="Y6v-vs-I1g" id="efn-KM-2qj"/>
+            </connections>
+            <point key="canvasLocation" x="-379.71014492753625" y="57.924107142857139"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="photo_delete" width="26" height="26"/>
+        <image name="picture_occupy" width="287" height="233"/>
+    </resources>
+</document>

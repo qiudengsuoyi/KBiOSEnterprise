@@ -20,6 +20,7 @@
 #import "MASConstraintMaker.h"
 #import "Masonry.h"
 #import <CloudPushSDK/CloudPushSDK.h>
+#import "FeedbackViewController.h"
 
 
 @interface UserController()<UINavigationControllerDelegate>
@@ -33,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet UIView *vProtocol;
 @property (weak, nonatomic) IBOutlet UIView *vWallet;
 @property (weak, nonatomic) IBOutlet UILabel *labelVersion;
+@property (weak, nonatomic) IBOutlet UIView *vFeedback;
 
 @end
 
@@ -68,6 +70,12 @@
     // 2. 将点击事件添加到label上
     [self.vWallet addGestureRecognizer:labelTapGestureRecognizer];
     self.vWallet.userInteractionEnabled = YES;
+    
+    labelTapGestureRecognizer = [[UITapGestureRecognizer alloc]
+                                                         initWithTarget:self action:@selector(feedback)];
+    // 2. 将点击事件添加到label上
+    [self.vFeedback addGestureRecognizer:labelTapGestureRecognizer];
+    self.vFeedback.userInteractionEnabled = YES;
   
     
     
@@ -158,12 +166,31 @@
 }
 
 - (void)wallet {
-    EnterpriseWalletController *vc = [[EnterpriseWalletController alloc]init];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    NSString *userID = [user valueForKey:ENTERPRISE_USERID];
+    if(userID ==nil){
+        [SVProgressHUD showSuccessWithStatus:@"请先登陆！"];
+    }else{
+        EnterpriseWalletController *vc = [[EnterpriseWalletController alloc]init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];}
 //    [SVProgressHUD showSuccessWithStatus:@"功能未开放，敬请期待！"];
     
 }
+
+- (void)feedback {
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    NSString *userID = [user valueForKey:ENTERPRISE_USERID];
+    if(userID ==nil){
+        [SVProgressHUD showSuccessWithStatus:@"请先登陆！"];
+    }else{
+        FeedbackViewController *vc = [[FeedbackViewController alloc]init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];}
+//    [SVProgressHUD showSuccessWithStatus:@"功能未开放，敬请期待！"];
+    
+}
+
 
 
 

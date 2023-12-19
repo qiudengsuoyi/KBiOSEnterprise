@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property PictureEntity * pictureModel;
 
 -(void)setPicture;
+-(void)setVideo;
 @end
 
 NS_ASSUME_NONNULL_END
