@@ -15,9 +15,35 @@
 #import "KeyValueEntity.h"
 #import "PictureListEntity.h"
 #import "MainNumEntity.h"
-
+#import "TaskEnity.h"
 
 @implementation EnterpriseMainService
++ (void)requestMainList:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
+    [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:MAIN_LIST_URL
+                                             withParams:params
+                                         withMethodType:TypeIsPOST andBlock:^(id data, id error) {
+        
+        if ([data[@"code"]integerValue] == 1) {
+            NSMutableArray *arr = [NSMutableArray array];
+            for (NSDictionary *dic in data[@"data"][@"FastOrderArr"]) {
+                TaskEnity *model = [TaskEnity modelWithJSON:dic];
+                if (model) {
+                    [arr addObject:model];
+                }
+            }
+            if (resultBlock) {
+                resultBlock(arr,nil);
+            }
+        }else{
+            if(data){
+                [SVProgressHUD showErrorWithStatus:data[@"msg"]];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"服务器出错，请稍后再试"];
+                
+            }
+        }
+    }];
+}
 + (void)requestMainNum:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
     [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:ENTERPRISE_MAIN_NUM_URL
                                              withParams:params

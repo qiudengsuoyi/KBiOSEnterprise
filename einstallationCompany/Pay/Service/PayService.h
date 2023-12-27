@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)requestMessageOrder:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 
++ (void)requestWXOpenID:(NSDictionary *)params url:(NSString*)url andResultBlock:(void (^)(id data, id error))resultBlock;
 @end
 
 NS_ASSUME_NONNULL_END

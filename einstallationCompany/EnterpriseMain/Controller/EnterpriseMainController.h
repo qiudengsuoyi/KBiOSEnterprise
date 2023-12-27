@@ -37,12 +37,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIView *vCircle01;
 @property (weak, nonatomic) IBOutlet UIView *vCircle02;
 @property (weak, nonatomic) IBOutlet UIView *vCircle03;
-@property (weak, nonatomic) IBOutlet UIView *vNotice01;
-@property (weak, nonatomic) IBOutlet UIView *vNotice02;
-@property (weak, nonatomic) IBOutlet UILabel *labelTitle01;
-@property (weak, nonatomic) IBOutlet UILabel *labelContent01;
-@property (weak, nonatomic) IBOutlet UILabel *labelTitle02;
-@property (weak, nonatomic) IBOutlet UILabel *labelContent02;
 
 
 

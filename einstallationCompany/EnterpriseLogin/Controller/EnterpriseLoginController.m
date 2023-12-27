@@ -25,6 +25,9 @@
 #import "EnterpriseMainController.h"
 #import "EnterprisePasswordController.h"
 #import "WXApi.h"
+#import "PayService.h"
+#import "LoginEntity.h"
+#import "EnterpriseNoticeController.h"
 
 
 
@@ -46,22 +49,48 @@
     self.navigationItem.title = @"用户登录";
     self.textPhone.upperlimitNumber = 20;
     self.textPassword.upperlimitNumber = 20;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sendAuthResp:) name:@"sendAuthResp" object:nil];
     
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"sendAuthResp" object:self];
+}
+
+//实现监听方法
+-(void) sendAuthResp:(NSNotification *)notification
+{
+    NSString * state = notification.userInfo[@"state"];
+    NSString * code = notification.userInfo[@"code"];
+    if(state.intValue == 1){
+        //请求获取微信openID
+        [self requstOpenID:code];
+    }
+    
 }
 
 - (IBAction)actionLogin:(id)sender {
-    [self requstLogin];
-//    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-//    [user setValue:@"1" forKey:@"userID"];
-//    [self.navigationController popToRootViewControllerAnimated:YES];
+    NSString * userName = self.textPhone.text;
+    NSString * password = self.textPassword.text;
+    if(userName.length<1){
+        [SVProgressHUD showErrorWithStatus:@"请输入账号！"];
+        return;
+    }
+    if(password.length<6){
+        [SVProgressHUD showErrorWithStatus:@"密码不能小于6位！"];
+        return;
+    }
+    [self requstLogin:@""];
 }
 
 - (IBAction)actionForget:(id)sender {
@@ -88,80 +117,68 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
--(void)requstLogin{
+-(void)requstLogin:(NSString *) openID{
     NSString * userName = self.textPhone.text;
     NSString * password = self.textPassword.text;
-    if(userName.length<1){
-        [SVProgressHUD showErrorWithStatus:@"请输入账号！"];
-        return;
-    }
-    if(password.length<6){
-        [SVProgressHUD showErrorWithStatus:@"密码不能小于6位！"];
-        return;
-    }
- 
     [SVProgressHUD show];
     NSDictionary *dic = @{@"username":userName,
-                          @"password":[self getmd5WithString:password]
-                          };
+                          @"password":[self getmd5WithString:password],
+                          @"openid":openID};
     [EnterpriseLoginService requestLogin:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
         if (data) {
-           
-           
-            self.returnModel = data;
-            [CloudPushSDK addAlias:[NSString stringWithFormat:@"enterprise%@",self.returnModel.userid] withCallback:^(CloudPushCallbackResult *res) {
-                if (res.success) {
-                    NSLog(@"addAlias success");
-                    NSLog(@"%@", [NSString stringWithFormat:@"enterprise%@",self.returnModel.userid]);
-                } else {
-                    NSLog(@"addAlias failed, error: %@", res.error);
-                }
-            }];
+            if([data isKindOfClass:[LoginEntity class]]){
+                
+                self.returnModel = data;
+                [CloudPushSDK addAlias:[NSString stringWithFormat:@"enterprise%@",self.returnModel.userid] withCallback:^(CloudPushCallbackResult *res) {
+                    if (res.success) {
+                        NSLog(@"addAlias success");
+                        NSLog(@"%@", [NSString stringWithFormat:@"enterprise%@",self.returnModel.userid]);
+                    } else {
+                        NSLog(@"addAlias failed, error: %@", res.error);
+                    }
+                }];
                 NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
                 [user setValue:self.returnModel.userid forKey:@"userID"];
-            [user setValue:self.returnModel.Browsetype forKey:ENTERPRISE_BROWSETYPE];
-            [user setValue:self.returnModel.ParentID forKey:ENTERPRISE_PARENTID];
-     
-            
-            NSMutableArray *vcArray = [NSMutableArray new];
-            NSString * userID = [[NSUserDefaults standardUserDefaults] valueForKey:ENTERPRISE_USERID];
-            NSString * browseType = [[NSUserDefaults standardUserDefaults] valueForKey:ENTERPRISE_BROWSETYPE];
-            
-//            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//
-//            if(userID.length>0&&browseType.intValue != 3){
-//                [vcArray addObject:appDelegate.homeTwoNav];
-//                [vcArray addObject:appDelegate.orderNav];
-//                [vcArray addObject:appDelegate.ownerNav];
-//            }else{
-//                [vcArray addObject:appDelegate.homeNav];
-//                [vcArray addObject:appDelegate.workNav];
-//                [vcArray addObject:appDelegate.grabListNav];
-//                [vcArray addObject:appDelegate.ownerNav];
-//            }
-//            appDelegate.tabBarVC.viewControllers = vcArray;
-//            appDelegate.window.rootViewController = appDelegate.tabBarVC;
-//            [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-//            UserController *ownerVC = [[UserController alloc] init];
-//            if(userID.length>0&&browseType.intValue != 3){
-//                // 设置新的根视图控制器并重置导航堆栈
-//                [appDelegate.tabBarVC.tabBarController.viewControllers[2] setViewControllers:@[ownerVC] animated:YES];
-//
-//            }else{
-//                [appDelegate.tabBarVC.tabBarController.viewControllers[3] setViewControllers:@[ownerVC] animated:YES];
-//            }
-//
-//            appDelegate.tabBarVC.selectedIndex = 0;
-//            appDelegate.tabBarVC.hidesBottomBarWhenPushed = NO;
-//            //显示Window
-//            [appDelegate.window makeKeyAndVisible];
-            [self setBottomNav];
-        
-            
+                [user setValue:self.returnModel.Browsetype forKey:ENTERPRISE_BROWSETYPE];
+                [user setValue:self.returnModel.ParentID forKey:ENTERPRISE_PARENTID];
+                
+                
+                NSMutableArray *vcArray = [NSMutableArray new];
+                NSString * userID = [[NSUserDefaults standardUserDefaults] valueForKey:ENTERPRISE_USERID];
+                NSString * browseType = [[NSUserDefaults standardUserDefaults] valueForKey:ENTERPRISE_BROWSETYPE];
+                
+                [self setBottomNav];
+                
+            }else{
+                EnterpriseRegisterController *vc = [[EnterpriseRegisterController alloc]init];
+                vc.openID = openID;
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
             
           
            
 
+        }
+    }];
+
+  
+}
+
+
+-(void)requstOpenID:(NSString*) code{
+
+    [SVProgressHUD show];
+    NSDictionary *dic = @{
+        @"appid":WE_CHAT_APPID,
+        @"code":code,
+        @"secret":WECHAT_SECRET,
+        @"grant_type":@"authorization_code"
+    };
+    [PayService requestWXOpenID:dic url:@"https://api.weixin.qq.com" andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
+        if (data) {
+            NSString * openID = data;
+            [self requstLogin:openID];
         }
     }];
 
@@ -230,10 +247,21 @@
 
 
         
-        PayTypeViewController *workVC = [[PayTypeViewController alloc] init];
-        EnterpriseNavController * workNav = [[EnterpriseNavController alloc] initWithRootViewController:workVC];
+//        PayTypeViewController *workVC = [[PayTypeViewController alloc] init];
+//        EnterpriseNavController * workNav = [[EnterpriseNavController alloc] initWithRootViewController:workVC];
+//        [self setTabBarItem:workVC.tabBarItem
+//        Title:@"发布任务"
+//        withTitleSize:12.0
+//        andFoneName:@"Marion-Italic"
+//        selectedImage:@"enterprise_tab_02"
+//        withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
+//        unselectedImage:@"enterprise_tab_02_u"
+//        withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
+//        workNav.navigationBar.translucent = NO;
+        EnterpriseNoticeController *workVC = [[EnterpriseNoticeController alloc] init];
+        EnterpriseNavController *workNav = [[EnterpriseNavController alloc] initWithRootViewController:workVC];
         [self setTabBarItem:workVC.tabBarItem
-        Title:@"发布任务"
+        Title:@"公告"
         withTitleSize:12.0
         andFoneName:@"Marion-Italic"
         selectedImage:@"enterprise_tab_02"
@@ -241,7 +269,6 @@
         unselectedImage:@"enterprise_tab_02_u"
         withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
         workNav.navigationBar.translucent = NO;
-      
 
 
         GrabOrderTabViewController *grabListVC = [[GrabOrderTabViewController alloc] init];

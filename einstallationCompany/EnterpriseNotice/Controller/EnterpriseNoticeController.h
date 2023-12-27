@@ -35,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface EnterpriseNoticeController : EnterpriseBaseController
 @property NSMutableArray<NoticeEntity *> * noticeList;
 @property (weak, nonatomic) IBOutlet UITableView *tbNotice;
+@property NSInteger pageType;
 
 @end
 

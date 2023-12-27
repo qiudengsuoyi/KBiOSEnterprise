@@ -27,41 +27,88 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MainScrollViewCell.h"
 #import <YYKit/YYKit.h>
-#import "SUTableView.h"
+#import "UITableView+Refresh.h"
+#import "YYLrefresh/UITableView+Refresh.h"
+#import "UITableView+Refresh.h"
+#import "UIView+RefreshData.h"
+#import "TaskEnity.h"
+#import <MJRefresh/MJRefresh.h>
 
 @interface EnterpriseViewController ()<FSPagerViewDelegate,
 FSPagerViewDataSource,UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet FSPagerView *pagerView;
-@property (weak, nonatomic) IBOutlet SUTableView *tableView;
-@property (nonatomic, assign) CGFloat scrollDistance;
-@property (nonatomic, strong) NSTimer *scrollTimer;
-
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property NSString * lastID;
+@property NSMutableArray<TaskEnity*>*muKeyValueList;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tbHeight;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @end
 
 @implementation EnterpriseViewController
 
 
-- (void)startAutoScroll {
-    self.scrollTimer = [NSTimer scheduledTimerWithTimeInterval:0.1
-                                                         target:self
-                                                       selector:@selector(scrollContent)
-                                                       userInfo:nil
-                                                        repeats:YES];
-}
-
-- (void)scrollContent {
-    CGPoint contentOffset = self.tableView.contentOffset;
-    contentOffset.y += self.scrollDistance;
-
+- (void)configureMJRefresh {
+    // 头部设置
+    self.scrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self requstMainList:YES];
+    }];
     
-    [self.tableView setContentOffset:contentOffset animated:YES];
+    // 尾部设置
+    self.scrollView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [self requstMainList:NO];
+    }];
 }
+
+-(void)requstMainList:(BOOL)refresh{
+    if(refresh){
+        self.lastID = @"";
+    }
+    [SVProgressHUD show];
+        NSDictionary *dic = @{@"lastid":self.lastID};
+        [EnterpriseMainService requestMainList:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
+            if (data) {
+                if (refresh) {
+                       // 结束头部刷新
+                       [self.scrollView.mj_header endRefreshing];
+                   } else {
+                       // 结束尾部刷新
+                       [self.scrollView.mj_footer endRefreshing];
+                   }
+                if (error) {
+                    self.view.loadErrorType = [error integerValue];
+                    return ;
+                }
+                if (refresh) {
+                    [self.muKeyValueList removeAllObjects];
+                }
+                TaskEnity *model = [data lastObject];
+               
+                if (model) {
+                    self.lastID = model.recordID;
+                    [self.muKeyValueList addObjectsFromArray:data];
+                }
+                if (self.muKeyValueList.count == 0) {
+                    self.tableView.loadErrorType = YYLLoadErrorTypeNoData;
+                }else{
+                    self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
+                }
+                self.tbHeight.constant = 110 * self.muKeyValueList.count;
+                [self.tableView reloadData];
+                
+            }
+        }];
+    
+    
+    
+}
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     [self checkVersion];
     [self requstMainNum];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     
 }
 -(void)viewWillDisappear:(BOOL)animated{
@@ -85,7 +132,8 @@ FSPagerViewDataSource,UITableViewDelegate,UITableViewDataSource>
               statusBar.backgroundColor = [UIColor colorWithHexString:@"#5787db"];
           }
     }
-                
+    self.lastID = @"";
+    self.muKeyValueList = [NSMutableArray arrayWithCapacity:0];
     _pagerView.delegate = self;
     _pagerView.dataSource = self;
     _pagerView.automaticSlidingInterval = 3;
@@ -101,9 +149,7 @@ FSPagerViewDataSource,UITableViewDelegate,UITableViewDataSource>
     _tableView.showsVerticalScrollIndicator = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.estimatedRowHeight = 50.0;
-    self.scrollDistance = 10.0; // 设置每次滚动的距离
-    // 关闭手指滑动功能
-        self.tableView.scrollEnabled = NO;
+
     [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([MainScrollViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([MainScrollViewCell class])];
 
     
@@ -126,19 +172,10 @@ FSPagerViewDataSource,UITableViewDelegate,UITableViewDataSource>
  
     [self.vCircle02 addGestureRecognizer:labelTapGestureRecognizer];
     self.vCircle02.userInteractionEnabled = YES; //
-    labelTapGestureRecognizer = [[UITapGestureRecognizer alloc]
-                                 initWithTarget:self action:@selector(noticeClick1)];
-  
-    [self.vNotice01 addGestureRecognizer:labelTapGestureRecognizer];
-    self.vNotice01.userInteractionEnabled = YES; //
-    
-    
-    labelTapGestureRecognizer = [[UITapGestureRecognizer alloc]
-                                 initWithTarget:self action:@selector(noticeClick2)];
-
-    [self.vNotice02 addGestureRecognizer:labelTapGestureRecognizer];
-    self.vNotice02.userInteractionEnabled = YES; //
    
+
+    [self requstMainList:YES];
+    [self configureMJRefresh];
 }
 
 - (void)labelClick {
@@ -160,6 +197,7 @@ FSPagerViewDataSource,UITableViewDelegate,UITableViewDataSource>
 - (void)noticeClick {
     EnterpriseNoticeController * vc = [EnterpriseNoticeController alloc];
         vc.hidesBottomBarWhenPushed = YES;
+    vc.pageType = 1;
         [self.navigationController pushViewController:vc animated:YES];
    
 }
@@ -223,27 +261,6 @@ FSPagerViewDataSource,UITableViewDelegate,UITableViewDataSource>
 }
 
 
-- (void)noticeClick1 {
-    if(self.mainNumModel.Noticearr.count>0){
-        WebController *vc = [[WebController alloc]init];
-        vc.pageType = 1;
-        vc.url = [self.mainNumModel.Noticearr objectAtIndex:0].url;
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];}
-    
-}
-
-
-- (void)noticeClick2 {
-    if(self.mainNumModel.Noticearr.count>1){
-        WebController *vc = [[WebController alloc]init];
-        vc.pageType = 1;
-        vc.url = [self.mainNumModel.Noticearr objectAtIndex:1].url;
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];}
-    
-}
-
 -(void)requstMainNum{
     NSString * userID = [[NSUserDefaults standardUserDefaults] valueForKey:ENTERPRISE_USERID];
     NSString * parentID = [[NSUserDefaults standardUserDefaults] valueForKey:ENTERPRISE_PARENTID];
@@ -257,39 +274,8 @@ FSPagerViewDataSource,UITableViewDelegate,UITableViewDataSource>
         [EnterpriseMainService requestMainNum:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
             if (data) {
                 self.mainNumModel = data;
-                [self.tableView reloadData];
                 [self.pagerView reloadData];
-                if(self.scrollTimer!=nil){
-                    [self.scrollTimer invalidate];
-                    self.scrollTimer = nil;
-                    
-                }
-                    [self startAutoScroll];
-                
-               
-                if(self.mainNumModel.Noticearr.count==0){
-                    self.labelTitle01.text = @"暂无信息";
-                    self.labelContent01.text = @"近期无通知";
-                    
-                    self.labelTitle02.text = @"暂无信息";
-                    self.labelContent02.text = @"近期无通知";
-                    self.vNotice01.userInteractionEnabled = NO;
-                    self.vNotice02.userInteractionEnabled = NO;
-                }else if(self.mainNumModel.Noticearr.count==1){
-                    self.labelTitle01.text = [self.mainNumModel.Noticearr objectAtIndex:0].title;
-                    self.labelContent01.text = [self.mainNumModel.Noticearr objectAtIndex:0].profile;
-                    
-                    self.labelTitle02.text = @"暂无信息";
-                    self.labelContent02.text = @"近期无通知";
-                    self.vNotice02.userInteractionEnabled = NO;
-                }else{
-                    self.labelTitle01.text = [self.mainNumModel.Noticearr objectAtIndex:0].title;
-                    self.labelContent01.text = [self.mainNumModel.Noticearr objectAtIndex:0].profile;
-                    
-                    self.labelTitle02.text = [self.mainNumModel.Noticearr objectAtIndex:1].title;
-                    self.labelContent02.text = [self.mainNumModel.Noticearr objectAtIndex:1].profile;
-                }
-                
+  
             }
         }];
     }
@@ -420,7 +406,12 @@ FSPagerViewDataSource,UITableViewDelegate,UITableViewDataSource>
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return self.muKeyValueList.count;
+}
+
+// 设置每一行的高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 110.0; // 你可以根据需要设置具体的行高
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -428,12 +419,14 @@ FSPagerViewDataSource,UITableViewDelegate,UITableViewDataSource>
     if (cell == nil) {
         cell = [[MainScrollViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([UITableViewCell class])] ;
     }
+    TaskEnity * task = [self.muKeyValueList objectAtIndex:indexPath.row];
+    cell.tvTitle.text = task.Location;
+    cell.tvContent.text = task.installtype;
+    cell.tvInstallState.text = task.FastTitle;
+    cell.tvAdress.text = task.ShopAddress;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.tvTitle.text = [self.mainNumModel.rollarr objectAtIndex:indexPath.row*2];
-    cell.tvContent.text = [self.mainNumModel.rollarr objectAtIndex:indexPath.row*2+1];
     return cell;
 }
-
 
 
 @end

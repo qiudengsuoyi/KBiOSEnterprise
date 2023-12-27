@@ -94,9 +94,7 @@
 #pragma mark  设置CollectionView的组数
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-
-        return 1;
-
+    return 1;
 }
 
 -(CGSize)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath*)indexPath

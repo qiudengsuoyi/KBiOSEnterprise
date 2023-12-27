@@ -74,11 +74,15 @@
             if (resultBlock) {
                 resultBlock(model,nil);
             }
+        }else if([data[@"code"]integerValue] == 2){
+            if (resultBlock) {
+                resultBlock(@2,nil);
+            }
         }else{
             if(data){
                 [SVProgressHUD showErrorWithStatus:data[@"msg"]];
             }else{
-//                [SVProgressHUD showErrorWithStatus:@"服务器出错，请稍后再试"];
+                [SVProgressHUD showErrorWithStatus:@"服务器出错，请稍后再试"];
                 
             }
         }

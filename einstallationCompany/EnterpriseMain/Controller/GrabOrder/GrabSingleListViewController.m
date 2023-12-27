@@ -7,7 +7,6 @@
 
 #import "GrabSingleListViewController.h"
 #import "TaskClassOneTableViewCell.h"
-#import "PayTypeViewController.h"
 #import "UITableView+Refresh.h"
 #import "YYLrefresh/UITableView+Refresh.h"
 #import "UITableView+Refresh.h"

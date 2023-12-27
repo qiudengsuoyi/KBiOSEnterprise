@@ -372,6 +372,7 @@
 		F579AAE826D532E000E27C7B /* PayOrderEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayOrderEditViewController.xib; sourceTree = "<group>"; };
 		F579AAEB26D53E2400E27C7B /* PayOrderEditEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayOrderEditEntity.h; sourceTree = "<group>"; };
 		F579AAEC26D53E2400E27C7B /* PayOrderEditEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayOrderEditEntity.m; sourceTree = "<group>"; };
+		F57DB9342B3BF7DF00DE7E40 /* einstallationCompanyRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = einstallationCompanyRelease.entitlements; sourceTree = "<group>"; };
 		F58504A52649834000EED2A3 /* TaskPictureController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskPictureController.h; sourceTree = "<group>"; };
 		F58504A62649834000EED2A3 /* TaskPictureController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskPictureController.m; sourceTree = "<group>"; };
 		F58504A72649834000EED2A3 /* TaskPictureController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskPictureController.xib; sourceTree = "<group>"; };
@@ -723,6 +724,7 @@
 		F52E74FF26109D0800CB727E /* einstallationCompany */ = {
 			isa = PBXGroup;
 			children = (
+				F57DB9342B3BF7DF00DE7E40 /* einstallationCompanyRelease.entitlements */,
 				F5B460FC29F568E200B72A56 /* Vendor */,
 				F515728027E8CE92008CC374 /* MasterCase */,
 				F5CBD128273D41C50044E7A4 /* einstallationCompanyDebug.entitlements */,
@@ -1984,7 +1986,7 @@
 				CODE_SIGN_ENTITLEMENTS = einstallationCompany/einstallationCompanyDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = GS37485LU5;
+				DEVELOPMENT_TEAM = YLJ6T7K727;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_ENABLE_BUILTIN_FUNCTIONS = NO;
@@ -2014,6 +2016,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = einstallationCompany/einstallationCompanyRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = YLJ6T7K727;
@@ -2031,6 +2035,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chengdushanghai.einstallation-company";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "einstallationCompany/einstallationCompany-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

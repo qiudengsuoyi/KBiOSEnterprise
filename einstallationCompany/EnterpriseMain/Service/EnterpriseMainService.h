@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EnterpriseMainService : NSObject
 
++ (void)requestMainList:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 + (void)requestMainNum:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 + (void)requestWaitOrderList:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock;
 

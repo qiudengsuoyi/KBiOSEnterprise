@@ -29,7 +29,7 @@
             if(data){
                 [SVProgressHUD showErrorWithStatus:data[@"msg"]];
             }else{
-//                [SVProgressHUD showErrorWithStatus:@"服务器出错，请稍后再试"];
+                [SVProgressHUD showErrorWithStatus:@"服务器出错，请稍后再试"];
                 
             }
         }
@@ -57,5 +57,44 @@
     }];
 }
 
++ (void)requestCheckWX:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
+    [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:CHECK_WX_LOGIN_URL
+                                             withParams:params
+                                         withMethodType:TypeIsPOST andBlock:^(id data, id error) {
+        
+        if ([data[@"code"]integerValue] == 1) {
+            if (resultBlock) {
+                resultBlock(data[@"data"],nil);
+            }
+        }else{
+            if(data){
+                [SVProgressHUD showErrorWithStatus:data[@"msg"]];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"服务器出错，请稍后再试"];
+                
+            }
+        }
+    }];
+}
 
++ (void)requestBindWX:(NSDictionary *)params andResultBlock:(void (^)(id data, id error))resultBlock{
+    [[EnterpriseNetwork sharedManager] requestJsonDataWithPath:BIND_WX_URL
+                                             withParams:params
+                                         withMethodType:TypeIsPOST andBlock:^(id data, id error) {
+        
+        if ([data[@"code"]integerValue] == 1) {
+            [SVProgressHUD showSuccessWithStatus:data[@"msg"]];
+            if (resultBlock) {
+                resultBlock(@"1",nil);
+            }
+        }else{
+            if(data){
+                [SVProgressHUD showErrorWithStatus:data[@"msg"]];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"服务器出错，请稍后再试"];
+                
+            }
+        }
+    }];
+}
 @end

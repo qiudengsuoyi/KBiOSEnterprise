@@ -25,6 +25,8 @@ typedef NS_ENUM(NSInteger, RequestType) {
 
 + (EnterpriseNetwork *)sharedManager;
 + (EnterpriseNetwork *)sharedOtherManager;
++ (EnterpriseNetwork *)sharedLibManager:(NSString*) url;
+
 
 +(NSDictionary*)dictionaryWithJsonString:(NSString*)jsonString;
 /**

@@ -151,4 +151,24 @@
         }
     }];
 }
+
+
++ (void)requestWXOpenID:(NSDictionary *)params url:(NSString*)url andResultBlock:(void (^)(id data, id error))resultBlock{
+    [[EnterpriseNetwork sharedLibManager:url] requestJsonDataWithPath:WX_OPENID_URL
+                                             withParams:params
+                                         withMethodType:TypeIsGET andBlock:^(id data, id error) {
+        
+        if ([data[@"errcode"]integerValue] == 0) {
+            NSString * openID = data[@"openid"];
+            if (resultBlock) {
+                resultBlock(openID,nil);
+            }
+        }else{
+            if(data){
+                [SVProgressHUD showErrorWithStatus:data[@"errmsg"]];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"服务器出错，请稍后再试"];}
+        }
+    }];
+}
 @end

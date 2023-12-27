@@ -59,7 +59,11 @@
             case WXSuccess:
             {
                 NSString * code = ((SendAuthResp*)resp).code;
-            
+                NSString * state = ((SendAuthResp*)resp).state;
+                NSDictionary *dict = @{
+                    @"code":code,
+                    @"state":state};
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"sendAuthResp" object:nil userInfo:dict];
                 }
 
                 break;

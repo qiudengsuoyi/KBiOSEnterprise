@@ -46,8 +46,8 @@
             filePath = "einstallationCompany/EnterpriseMain/Service/EnterpriseMainService.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "+requestGrabOrderEvaluate:andResultBlock:"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "einstallationCompany/EnterpriseLogin/Service/EnterpriseLoginService.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "+requestModifyPassword:andResultBlock:"
             landmarkType = "7">
          </BreakpointContent>
@@ -231,16 +231,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B117434E-16BF-4E46-B5F6-759461632F1A"
+            uuid = "F2D266A6-B30C-4A63-8718-A81789E877AF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "einstallationCompany/Pay/WeChat/Control/WXApiManager.m"
+            filePath = "einstallationCompany/EnterpriseLogin/Controller/EnterpriseLoginController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "-onResp:"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "-sendAuthResp:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9760E410-D39A-4B83-AA11-C14495D50EE7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "einstallationCompany/EnterpriseUserCenter/UserController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "-sendAuthResp:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F5E43F35-BEDC-4D0F-992A-9ABF4D774072"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "einstallationCompany/EnterpriseLogin/Controller/EnterpriseLoginController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "-requstOpenID:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7C89C1DC-5F00-4E27-9179-8A71459CEEC7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "einstallationCompany/EnterpriseUserCenter/UserController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "-requstOpenID:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

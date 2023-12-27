@@ -62,6 +62,9 @@
     // 2. 将点击事件添加到label上
     [self.labelXieYi addGestureRecognizer:labelTapGestureRecognizer];
     self.labelXieYi.userInteractionEnabled = YES;
+    if(self.openID == nil){
+        self.openID = @"";
+    }
 }
 
 - (void)labelClick {
@@ -153,7 +156,8 @@
                           @"companyname":strUserName,
                           @"phoneNo":self.textPhone.text,
                           @"EnterpriseUserName":[self utf82gbk:strName],
-                          @"code":self.vCode.text
+                          @"code":self.vCode.text,
+                          @"openid":self.openID
                           
     };
     [EnterpriseLoginService requestRegister:dic andResultBlock:^(id  _Nonnull data, id  _Nonnull error) {
@@ -180,8 +184,7 @@
     NSString * strPhone = self.textPhone.text;
     NSString * strPassword = self.textPassword.text;
     NSString * strUserName = self.textUserName.text;
-    NSString * strPictureCode = self.vChildCode.CodeStr;
-    NSString * strPictureTextCode = self.textPictureCode.text;
+   
     
     if(strAccount.length<6){
         [SVProgressHUD showErrorWithStatus:@"账号不能小于6位！"];

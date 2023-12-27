@@ -79,6 +79,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addBackItem];
     if(self.annexNo == nil){
         self.annexNo = [self currentTimeStr];
     }

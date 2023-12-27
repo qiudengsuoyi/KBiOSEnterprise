@@ -25,7 +25,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addBackItem];
+    if(_pageType == 1){
+        [self addBackItem];
+    }else{
+        [self addNOBackItem];
+        
+    }
     self.lastID = @"";
     self.navigationItem.title = @"平台公告";
     self.noticeList = [NSMutableArray arrayWithCapacity:0];

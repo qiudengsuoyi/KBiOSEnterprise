@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MainScrollViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *tvTitle;
 @property (weak, nonatomic) IBOutlet UILabel *tvContent;
+@property (weak, nonatomic) IBOutlet UILabel *tvInstallState;
+@property (weak, nonatomic) IBOutlet UILabel *tvAdress;
 
 @end
 

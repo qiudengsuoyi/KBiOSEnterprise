@@ -41,6 +41,38 @@
     return manager;
 }
 
++ (EnterpriseNetwork *)sharedLibManager:(NSString*)url{
+    static EnterpriseNetwork *manager = nil;
+    static dispatch_once_t pred;
+    dispatch_once(&pred, ^{
+        manager = [[EnterpriseNetwork alloc] initWithBaseURLJSON:[NSURL URLWithString:url]];
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/plain", @"text/javascript", @"text/json", @"text/html",@"application/text",@"multipart/form-data", nil];
+    });
+    return manager;
+}
+
+- (instancetype)initWithBaseURLJSON:(NSURL *)url
+{
+    self = [super initWithBaseURL:url];
+    if (self) {
+        [self.requestSerializer setValue:url.absoluteString forHTTPHeaderField:@"Referer"];
+        [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        //self.requestSerializer = [AFHTTPRequestSerializer serializer] ;
+        
+        self.responseSerializer = [AFJSONResponseSerializer serializer];
+        [self.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        self.requestSerializer.timeoutInterval = 30.f;
+        [self.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        //        self.securityPolicy.allowInvalidCertificates = YES;
+        AFSecurityPolicy *securityPolicy = [AFSecurityPolicy defaultPolicy];
+        securityPolicy.validatesDomainName = NO;
+        securityPolicy.allowInvalidCertificates = YES;
+        self.securityPolicy = securityPolicy;
+        
+    }
+    return self;
+}
+
 
 - (instancetype)initWithBaseURL:(NSURL *)url
 {
@@ -72,6 +104,9 @@
         //NSLog(@"tasks = %@",manager.tasks);
     }
 }
+
+
+
 /**
  请求
  
@@ -125,15 +160,6 @@
             [self POST:path parameters:params headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
                 
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//                NSString *rawString = [[NSString alloc] initWithBytes:[responseObject bytes] length:[responseObject length] encoding:NSUTF8StringEncoding];
-//
-//                // 去掉可能的空行和不可见字符
-//                rawString = [rawString stringByReplacingOccurrencesOfString:@"\0" withString:@""];
-
-                // 然后再使用 GB18030-2000 编码解析
-//                NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
-//                NSString *str = [[NSString alloc] initWithBytes:[rawString UTF8String] length:[rawString length] encoding:gbkEncoding];
-
                 
                 NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
                     NSString* str = [[NSString alloc] initWithBytes:[responseObject bytes] length:[responseObject length] encoding:gbkEncoding];

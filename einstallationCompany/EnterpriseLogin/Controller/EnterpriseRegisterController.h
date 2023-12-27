@@ -32,7 +32,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EnterpriseRegisterController : EnterpriseBaseController
-
+@property NSString * openID;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -144,22 +144,10 @@
 
 
 
-    //    EnterpriseNoticeController *workVC = [[EnterpriseNoticeController alloc] init];
-    //    EnterpriseNavController *workNav = [[EnterpriseNavController alloc] initWithRootViewController:workVC];
-    //    [self setTabBarItem:workVC.tabBarItem
-    //    Title:@"公告"
-    //    withTitleSize:12.0
-    //    andFoneName:@"Marion-Italic"
-    //    selectedImage:@"enterprise_tab_02"
-    //    withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
-    //    unselectedImage:@"enterprise_tab_02_u"
-    //    withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
-    //    workNav.navigationBar.translucent = NO;
-        
-        PayTypeViewController *workVC = [[PayTypeViewController alloc] init];
+        EnterpriseNoticeController *workVC = [[EnterpriseNoticeController alloc] init];
         self.workNav = [[EnterpriseNavController alloc] initWithRootViewController:workVC];
         [self setTabBarItem:workVC.tabBarItem
-        Title:@"发布任务"
+        Title:@"公告"
         withTitleSize:12.0
         andFoneName:@"Marion-Italic"
         selectedImage:@"enterprise_tab_02"
@@ -167,6 +155,18 @@
         unselectedImage:@"enterprise_tab_02_u"
         withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
         self.workNav.navigationBar.translucent = NO;
+        
+//        PayTypeViewController *workVC = [[PayTypeViewController alloc] init];
+//        self.workNav = [[EnterpriseNavController alloc] initWithRootViewController:workVC];
+//        [self setTabBarItem:workVC.tabBarItem
+//        Title:@"发布任务"
+//        withTitleSize:12.0
+//        andFoneName:@"Marion-Italic"
+//        selectedImage:@"enterprise_tab_02"
+//        withTitleColor:[UIColor colorWithHexString:@"#068FFB"]
+//        unselectedImage:@"enterprise_tab_02_u"
+//        withTitleColor:[UIColor colorWithHexString:@"#DFDFDF"]];
+//        self.workNav.navigationBar.translucent = NO;
       
 
 
@@ -273,18 +273,18 @@
     NSLog(@"选中的index: %zd， 选中的ViewController: %@", tabBarController.selectedIndex, selectVC);
     if(tabBarController.selectedIndex == 1){
        
-        if(userID.length>0){
-            
-        }else{
-            
-            
-            [SVProgressHUD showInfoWithStatus:@"暂未登录，请先登录！"];
-            EnterpriseLoginController *vc = [[EnterpriseLoginController alloc]init];
-            vc.hidesBottomBarWhenPushed = YES;
-            UINavigationController *navController = (UINavigationController *)selectVC;
-                        [navController pushViewController:vc animated:YES];
-            
-        }
+//        if(userID.length>0){
+//            
+//        }else{
+//            
+//            
+//            [SVProgressHUD showInfoWithStatus:@"暂未登录，请先登录！"];
+//            EnterpriseLoginController *vc = [[EnterpriseLoginController alloc]init];
+//            vc.hidesBottomBarWhenPushed = YES;
+//            UINavigationController *navController = (UINavigationController *)selectVC;
+//                        [navController pushViewController:vc animated:YES];
+//            
+//        }
     }else if(tabBarController.selectedIndex == 2){
         if(userID.length>0){
             
@@ -405,7 +405,7 @@
     NSString *title = [[NSString alloc] initWithData:message.title encoding:NSUTF8StringEncoding];
     NSString *body = [[NSString alloc] initWithData:message.body encoding:NSUTF8StringEncoding];
     NSLog(@"Receive message title: %@, content: %@.", title, body);
-    [UIApplication sharedApplication].applicationIconBadgeNumber = 10;
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 1;
 }
 
 #pragma mark Channel Opened
@@ -447,7 +447,7 @@
     NSString *Extras = [userInfo valueForKey:@"Extras"]; //服务端中Extras字段，key是自己定义的
     NSLog(@"content = [%@], badge = [%ld], sound = [%@], Extras = [%@]", content, (long)badge, sound, Extras);
     // iOS badge 清0
-    application.applicationIconBadgeNumber = 0;
+    application.applicationIconBadgeNumber = 1;
     // 通知打开回执上报
     // [CloudPushSDK handleReceiveRemoteNotification:userInfo];(Deprecated from v1.8.1)
     [CloudPushSDK sendNotificationAck:userInfo];

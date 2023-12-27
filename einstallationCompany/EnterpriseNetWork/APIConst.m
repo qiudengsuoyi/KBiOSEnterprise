@@ -25,7 +25,7 @@ RPSSERVER_API const ENTERPRISE_PARENTID = @"parentID";
 RPSSERVER_API const ENTERPRISE_BROWSETYPE = @"browseType";
 RPSSERVER_API const STRTELPHONE = @"4008321696";
 //微信支付
-RPSSERVER_API const WE_CHAT_APPID = @"wx89acf4edb3f0f38b";
+
 RPSSERVER_API const UNIVERSAL_LINK = @"https://www.einstall.net/einstallcompany/";
 
 RPSSERVER_API const NOTIFICATION_TASK_NAME = @"TaskRelese";
@@ -42,7 +42,7 @@ RPSSERVER_API const WAIT_ORDER_ITEM_DETAIL_URL = @"Interface_Einstall/myAssignOr
 RPSSERVER_API const INSRTALL_ORDER_ITEM_DETAIL_URL = @"Interface_Einstall/orderTaskUnfinishedDetail1.asp";
 RPSSERVER_API const WAIT_ORDER_ACCEPT_URL = @"Interface_Einstall/ordercheck.asp";
 RPSSERVER_API const ORDER_PICTURE_URL = @"Interface_Einstall/orderPicture.asp";
-RPSSERVER_API const NOTICE_LIST_URL = @"Interface_Einstall/NoticeList.asp";
+RPSSERVER_API const NOTICE_LIST_URL = @"Interface_Einstall/NoticeList1.asp";
 RPSSERVER_API const WALLET_NO_PAY_LIST_URL = @"Interface_Einstall/UnpaidOrder.asp";
 RPSSERVER_API const UPLOAD_PICTURE_URL = @"Interface_Einstall/uppic1.asp";
 RPSSERVER_API const INSTALL_ORDER_LIST_URL = @"Interface_Einstall/orderUnfinishedDetail2.asp";
@@ -97,3 +97,11 @@ RPSSERVER_API const DELETE_UPLOAD_URL = @"Interface_Einstall/fastOrderannexNoDel
 RPSSERVER_API const FEEDBACK_URL = @"Interface_Einstall/FeedbackSubmit.asp";
 RPSSERVER_API const FEEDBACK_LIST_URL = @"Interface_Einstall/FeedbackList.asp";
 RPSSERVER_API const UPLOAD_FEEDBACK_IMAGE_URL = @"Interface_Einstall/UpPic5.asp";
+RPSSERVER_API const CHECK_WX_LOGIN_URL = @"Interface_Einstall/getopenid1.asp";
+RPSSERVER_API const BIND_WX_URL = @"Interface_Einstall/setopenid1.asp";
+
+RPSSERVER_API const WX_OPENID_URL = @"/sns/oauth2/access_token";
+RPSSERVER_API const WE_CHAT_APPID = @"wxb766f84378ae3c30";
+//RPSSERVER_API const WE_CHAT_APPID = @"wx89acf4edb3f0f38b";
+RPSSERVER_API const WECHAT_SECRET = @"7ff01546b7cdb12fe53694963ad4016f";
+RPSSERVER_API const MAIN_LIST_URL = @"interface_Einstall/mainlist.asp";
